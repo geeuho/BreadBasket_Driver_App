@@ -1,11 +1,15 @@
 import React from 'react'
-import { Text, View, StyleSheet } from 'react-native'
+import { Text, View, StyleSheet, TouchableOpacity } from 'react-native'
 
-const OrderScreen = () => {
+const OrderScreen = props => {
     return(
         <View>
             <Text style = {styles.textStyle}>Orders</Text>
-            
+            <TouchableOpacity onPress={() => 
+                props.navigation.navigate('Home')
+            }>
+                <Text>Back To Home</Text>
+            </TouchableOpacity>
         </View>
     )
 }

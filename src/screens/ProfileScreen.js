@@ -1,7 +1,7 @@
 import React from 'react'
 import { Text, View, StyleSheet } from 'react-native'
 
-const ProfileScreen = () => {
+const ProfileScreen = props => {
     return (
         <View>
             <Text style={styles.textStyle}>Profile</Text>
