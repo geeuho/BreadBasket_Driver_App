@@ -3,6 +3,7 @@ import React from 'react'
 import { NavigationContainer} from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { useTheme, DefaultTheme, Provider as PaperProvider} from 'react-native-paper'
+import {Button} from 'react-native'
 import HomeScreen from "./src/screens/HomeScreen";
 import ProfileScreen from "./src/screens/ProfileScreen";
 import OrderScreen from "./src/screens/OrderScreen";
@@ -26,7 +27,15 @@ function App(){
       <Header/>
       <NavigationContainer>
         <Stack.Navigator>
-          <Stack.Screen name = "Home" component = {HomeScreen}/>
+          <Stack.Screen 
+            name = "Home" 
+            component = {HomeScreen}
+            // options = {{
+            //   headerRight: ()=>  (
+            //     <Button title = "button" onPress = {() => alert('This is a button!')}/>
+            //   )
+            // }}
+          />
           <Stack.Screen name= "Profile" component= {ProfileScreen} />
           <Stack.Screen name= "Order" component= {OrderScreen} />
         </Stack.Navigator>

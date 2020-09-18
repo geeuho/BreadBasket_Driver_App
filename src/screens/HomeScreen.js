@@ -17,10 +17,8 @@ const HomeScreen = props => {
             }}>
                 <Text style ={styles.textStyle}>To Profile Page</Text>
             </TouchableOpacity>
-            <Menu/>
         </View>
     )
-
 }
 
 const styles = StyleSheet.create({

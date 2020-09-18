@@ -2,16 +2,14 @@ import React from 'react'
 import {View} from 'react-native'
 import {Menu, Button, Divider} from 'react-native-paper'
 
-const MenuComp = () => {
-    const [visible, setVisible] = React.useState(false);
-    let openMenu = () => setVisible(true)
-    let closeMenu = () => setVisible(false)
+const MenuComp = props => {
+    
+    console.log(props)
     return (
         <View>
             <Menu 
-                visible = {visible}
-                onDismiss={closeMenu}
-                anchor = {<Button onPress = {openMenu}></Button>}>
+                visible = {props.visible}
+                >
                 <Menu.Item icon = "redo"/>
                 <Menu.Item icon="undo" />
                 <Divider/>
