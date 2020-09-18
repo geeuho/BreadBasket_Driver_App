@@ -6,6 +6,7 @@ import { useTheme, DefaultTheme, Provider as PaperProvider} from 'react-native-p
 import HomeScreen from "./src/screens/HomeScreen";
 import ProfileScreen from "./src/screens/ProfileScreen";
 import OrderScreen from "./src/screens/OrderScreen";
+import Header from "./src/components/Header"
 
 const Stack = createStackNavigator()
 
@@ -14,14 +15,15 @@ const theme = {
   roundness: 2,
   colors: {
     ...DefaultTheme.colors,
-    primary: '#3498db',
-    accent: 'f1c40f'
+    primary: 'lawngreen',
+    accent: 'black'
   }
 }
 
 function App(){
   return(
     <PaperProvider theme = {theme}>
+      <Header/>
       <NavigationContainer>
         <Stack.Navigator>
           <Stack.Screen name = "Home" component = {HomeScreen}/>

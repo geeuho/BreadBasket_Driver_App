@@ -1,5 +1,7 @@
 import React from 'react'
 import { Text, View, StyleSheet, TouchableOpacity } from 'react-native'
+import Menu from '../components/MenuComp'
+
 
 const HomeScreen = props => {
     return (
@@ -15,6 +17,7 @@ const HomeScreen = props => {
             }}>
                 <Text style ={styles.textStyle}>To Profile Page</Text>
             </TouchableOpacity>
+            <Menu/>
         </View>
     )
 
