@@ -2,7 +2,7 @@ import React from 'react'
 import {Appbar} from 'react-native-paper'
 import Menu from '../components/MenuComp'
 
-const Header = () => {
+const Header = props => {
     const [visible, setVisible] = React.useState(false);
 
     let goBack = () =>  console.log("Went back")

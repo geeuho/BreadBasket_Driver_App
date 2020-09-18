@@ -1,24 +1,30 @@
 import React from 'react'
-import { Text, View, StyleSheet, TouchableOpacity } from 'react-native'
+import {Container} from 'native-base'
+import { Text, View, StyleSheet, TouchableOpacity} from 'react-native'
 import Menu from '../components/MenuComp'
 
 
 const HomeScreen = props => {
     return (
-        <View>
-            <Text style={styles.textStyle}>Home</Text>
-            <TouchableOpacity style = {styles.margin} onPress = {() => {
-                props.navigation.navigate('Order')   
-            }}>
-                <Text style={styles.textStyle}>To Order Page</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.margin} onPress = {() => {
-                props.navigation.navigate('Profile')
-            }}>
-                <Text style ={styles.textStyle}>To Profile Page</Text>
-            </TouchableOpacity>
-        </View>
+        <Container>
+            <View>
+                <Text style={styles.textStyle}>Home</Text>
+                <TouchableOpacity style = {styles.margin} onPress = {() => {
+                    props.navigation.navigate('Order')   
+                }}>
+                    <Text style={styles.textStyle}>To Order Page</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.margin} onPress = {() => {
+                    props.navigation.navigate('Profile')
+                }}>
+                    <Text style ={styles.textStyle}>To Profile Page</Text>
+                </TouchableOpacity>
+                <Menu/>
+            </View>
+
+        </Container>
     )
+
 }
 
 const styles = StyleSheet.create({

@@ -1,9 +1,9 @@
 import 'react-native-gesture-handler'
 import React from 'react'
+import { DrawerNavigator } from 'react-navigation'
 import { NavigationContainer} from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { useTheme, DefaultTheme, Provider as PaperProvider} from 'react-native-paper'
-import {Button} from 'react-native'
 import HomeScreen from "./src/screens/HomeScreen";
 import ProfileScreen from "./src/screens/ProfileScreen";
 import OrderScreen from "./src/screens/OrderScreen";
@@ -21,11 +21,11 @@ const theme = {
   }
 }
 
-function App(){
+const App = () => {
   return(
     <PaperProvider theme = {theme}>
-      <Header/>
       <NavigationContainer>
+        {/* <Header/> */}
         <Stack.Navigator>
           <Stack.Screen 
             name = "Home" 
@@ -43,6 +43,5 @@ function App(){
     </PaperProvider>
   )
 }
-
 
 export default App;
