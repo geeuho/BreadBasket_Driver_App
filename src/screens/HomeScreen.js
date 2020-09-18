@@ -11,7 +11,7 @@ const HomeScreen = props => {
                 <Text style={styles.textStyle}>To Order Page</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.margin} onPress = {() => {
-                props.navigation.navigate('Order')
+                props.navigation.navigate('Profile')
             }}>
                 <Text style ={styles.textStyle}>To Profile Page</Text>
             </TouchableOpacity>
