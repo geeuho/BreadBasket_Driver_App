@@ -4,11 +4,11 @@ import { NavigationContainer} from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { useTheme, DefaultTheme, Provider as PaperProvider} from 'react-native-paper'
-import Header from "./src/navigation/Header"
 
 import HomeScreen from "./src/screens/HomeScreen";
 import ProfileScreen from "./src/screens/ProfileScreen";
 import OrderScreen from "./src/screens/OrderScreen";
+import SettingsScreen from "./src/screens/SettingsScreen"
 
 
 const Stack = createStackNavigator()
@@ -32,6 +32,7 @@ const App = () => {
           <Drawer.Screen name = "Home" component = {HomeScreen}/>
           <Drawer.Screen name = "Profile" component={ProfileScreen} />
           <Drawer.Screen name = "Order" component={OrderScreen} />
+          <Drawer.Screen name = "Settings" component = {SettingsScreen} />
         </Drawer.Navigator>
       </NavigationContainer>
         {/* <NavigationContainer>
