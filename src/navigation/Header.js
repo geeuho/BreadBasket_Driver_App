@@ -1,6 +1,5 @@
 import React from 'react'
 import {Appbar} from 'react-native-paper'
-import Menu from '../components/MenuComp'
 
 const Header = props => {
     const [visible, setVisible] = React.useState(false);
@@ -16,9 +15,7 @@ const Header = props => {
     }
     return (
         <Appbar.Header>
-            <Appbar.Action icon="menu" onPress={handleMenu}>
-                <Menu visible = {visible} onDismiss={() => setVisible(false)}></Menu>    
-            </Appbar.Action>
+            <Appbar.Action icon="menu" onPress={handleMenu}/> 
             <Appbar.Content title = "Title"/>
             <Appbar.Action icon = "dots-vertical" onPress = {handleMenu}/>
         </Appbar.Header>
