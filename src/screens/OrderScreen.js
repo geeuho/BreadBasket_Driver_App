@@ -14,10 +14,9 @@ const OrderScreen = props => {
     )
 }
 
-
-    const styles = StyleSheet.create({
-        textStyle:{
-            fontSize:30
-        }
-    })
+const styles = StyleSheet.create({
+    textStyle:{
+        fontSize:30
+    }
+})
 export default OrderScreen

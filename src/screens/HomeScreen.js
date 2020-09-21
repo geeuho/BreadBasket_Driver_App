@@ -1,12 +1,11 @@
 import React from 'react'
-import {Container} from 'native-base'
 import { Text, View, StyleSheet, TouchableOpacity} from 'react-native'
 import Menu from '../components/MenuComp'
 
 
 const HomeScreen = props => {
     return (
-        <Container>
+    
             <View>
                 <Text style={styles.textStyle}>Home</Text>
                 <TouchableOpacity style = {styles.margin} onPress = {() => {
@@ -22,7 +21,6 @@ const HomeScreen = props => {
                 <Menu/>
             </View>
 
-        </Container>
     )
 
 }

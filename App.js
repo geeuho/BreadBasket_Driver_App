@@ -10,6 +10,7 @@ import OrderScreen from "./src/screens/OrderScreen";
 import Header from "./src/components/Header"
 
 const Stack = createStackNavigator()
+const Drawer = createDrawerNavigator()
 
 const theme = {
   ...DefaultTheme,
