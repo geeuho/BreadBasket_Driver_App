@@ -28,11 +28,10 @@ const App = () => {
   return(
     <PaperProvider theme = {theme}>
       <NavigationContainer>
-        <Header/>
         <Drawer.Navigator initialRouteName = "Home">
           <Drawer.Screen name = "Home" component = {HomeScreen}/>
-          <Drawer.Screen name="Profile" component={ProfileScreen} />
-          <Drawer.Screen name="Order" component={OrderScreen} />
+          <Drawer.Screen name = "Profile" component={ProfileScreen} />
+          <Drawer.Screen name = "Order" component={OrderScreen} />
         </Drawer.Navigator>
       </NavigationContainer>
         {/* <NavigationContainer>

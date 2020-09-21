@@ -1,26 +1,30 @@
 import React from 'react'
+import Header from "../navigation/Header"
 import { Text, View, StyleSheet, TouchableOpacity} from 'react-native'
 
 
 const HomeScreen = props => {
+
+    let handleMenu = () => {
+        props.navigation.openDrawer()
+    }
+
     return (
-    
-            <View>
-                <Text style={styles.textStyle}>Home</Text>
-                <TouchableOpacity style = {styles.margin} onPress = {() => {
-                    props.navigation.navigate('Order')   
-                }}>
-                    <Text style={styles.textStyle}>To Order Page</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.margin} onPress = {() => {
-                    props.navigation.navigate('Profile')
-                }}>
-                    <Text style ={styles.textStyle}>To Profile Page</Text>
-                </TouchableOpacity>
-            </View>
-
+        <View>
+            <Header handleMenu = {() => handleMenu()}/>
+            <Text style={styles.textStyle}>Home</Text>
+            <TouchableOpacity style = {styles.margin} onPress = {() => {
+                props.navigation.navigate('Order')   
+            }}>
+                <Text style={styles.textStyle}>To Order Page</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.margin} onPress = {() => {
+                props.navigation.navigate('Profile')
+            }}>
+                <Text style ={styles.textStyle}>To Profile Page</Text>
+            </TouchableOpacity>
+        </View>
     )
-
 }
 
 const styles = StyleSheet.create({
