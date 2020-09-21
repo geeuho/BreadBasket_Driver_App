@@ -5,13 +5,9 @@ import { Text, View, StyleSheet, TouchableOpacity} from 'react-native'
 
 const HomeScreen = props => {
 
-    let handleMenu = () => {
-        props.navigation.openDrawer()
-    }
-
     return (
         <View>
-            <Header handleMenu = {() => handleMenu()}/>
+            <Header navigation = {props.navigation}/>
             <Text style={styles.textStyle}>Home</Text>
             <TouchableOpacity style = {styles.margin} onPress = {() => {
                 props.navigation.navigate('Order')   
