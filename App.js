@@ -6,7 +6,7 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 import { useTheme, DefaultTheme, Provider as PaperProvider} from 'react-native-paper'
 import { Provider as StoreProvider } from 'react-redux'
 import {PersistGate} from 'redux-persist/integration/react'
-import {store, persistor} from './store'
+import {store, persistor} from './src/store'
 
 import HomeScreen from "./src/screens/HomeScreen";
 import ProfileScreen from "./src/screens/ProfileScreen";

@@ -1,17 +1,20 @@
-import { reducer as formReducer } from 'redux-form'
+// import { reducer as formReducer } from 'redux-form'
 import { combineReducers } from 'redux'
 import { persistReducer } from 'redux-persist'
-import storage from 'redux-persist/lib/storage'
+import {AsyncStorage} from 'react-native'
+
+import storesReducer from './storesReducer'
+import itemsReducer from './itemsReducer'
 
 const persistConfig = {
     key: 'root',
-    storage,
+    storage: AsyncStorage,
     whitelist: ['items', 'stores']
 }
 
-const reducers = combineReducers({
+const reducer = combineReducers({
     stores: storesReducer,
     items: itemsReducer
 })
 
-export default persistReducer(persistConfig, reducers)
+export default persistReducer(persistConfig, reducer)
