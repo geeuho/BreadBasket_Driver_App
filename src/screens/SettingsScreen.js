@@ -4,7 +4,6 @@ import { Text, View, StyleSheet, TouchableOpacity } from 'react-native'
 
 
 const SettingsScreen = props => {
-
     return (
         <View>
             <Header navigation={props.navigation} />
