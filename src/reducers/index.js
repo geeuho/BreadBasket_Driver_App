@@ -14,4 +14,4 @@ const reducers = combineReducers({
     items: itemsReducer
 })
 
-export default persistReducer(persistConfig, reducer)
+export default persistReducer(persistConfig, reducers)
