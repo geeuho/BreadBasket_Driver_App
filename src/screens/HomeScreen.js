@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react'
 import Header from "../navigation/Header"
 import { Text, View, StyleSheet, TouchableOpacity} from 'react-native'
-import { Headline } from 'react-native-paper'
+import { Card } from 'react-native-paper'
 import {connect} from 'react-redux'
 import {getStores, getActiveOrders} from '../actions'
 
@@ -14,8 +14,8 @@ const HomeScreen = props => {
     return (
         <View >
             <Header navigation = {props.navigation} title = {'Home'}/>
-            <Headline style = {styles.header}>Home</Headline>
-            <TouchableOpacity style = {styles.margin} onPress = {() => {
+            
+            <TouchableOpacity style = {styles.orders} onPress = {() => {
                 props.navigation.navigate('Order')   
             }}>
                 <Text style={styles.textStyle}>Current Orders</Text>

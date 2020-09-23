@@ -7,7 +7,6 @@ import { useTheme, DefaultTheme, Provider as PaperProvider} from 'react-native-p
 import { Provider as StoreProvider, connect} from 'react-redux'
 import { PersistGate } from 'redux-persist/integration/react'
 import {store, persistor} from './src/store'
-import {getStores, getItems} from './src/actions'
 
 import HomeScreen from "./src/screens/HomeScreen";
 import ProfileScreen from "./src/screens/ProfileScreen";
