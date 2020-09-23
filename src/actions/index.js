@@ -1,4 +1,4 @@
-import rails from '../services/Rails'
+import rails from '../api/Rails'
 
 //AUTH
 
