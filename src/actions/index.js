@@ -35,7 +35,6 @@ export const getActiveOrders = shopperId => async dispatch => {
     dispatch({ type: "GET_ACTIVE_ORDERS", payload: data })
 }
 
-
 // ORDER_ITEMS 
 
 export const getOrderItems = (order_id) => async dispatch => {
@@ -43,7 +42,6 @@ export const getOrderItems = (order_id) => async dispatch => {
     console.log(response.data)
     dispatch({ type: "GET_ORDER_ITEMS", payload: response.data.data })
 }
-
 
 // ITEMS
 
