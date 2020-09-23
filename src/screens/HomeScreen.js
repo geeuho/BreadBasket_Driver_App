@@ -1,21 +1,24 @@
 import React, {useEffect} from 'react'
 import Header from "../navigation/Header"
 import { Text, View, StyleSheet, TouchableOpacity} from 'react-native'
+import { Headline } from 'react-native-paper'
 import {connect} from 'react-redux'
-import {getStores} from '../actions'
+import {getStores, getActiveOrders} from '../actions'
 
 const HomeScreen = props => {
     useEffect(()=> {
         props.getStores()
+        props.getActiveOrders()
+        console.log(props.stores)
     }, [])
     return (
-        <View>
+        <View >
             <Header navigation = {props.navigation}/>
-            <Text style={styles.textStyle}>Home</Text>
+            <Headline style = {styles.header}>Home</Headline>
             <TouchableOpacity style = {styles.margin} onPress = {() => {
                 props.navigation.navigate('Order')   
             }}>
-                <Text style={styles.textStyle}>To Order Page</Text>
+                <Text style={styles.textStyle}>Current Orders</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.margin} onPress = {() => {
                 props.navigation.navigate('Profile')
@@ -30,6 +33,10 @@ const HomeScreen = props => {
 }
 
 const styles = StyleSheet.create({
+    header: {
+        display: 'flex',
+        justifyContent: 'center'
+    },
     textStyle: {
         fontSize: 30
     },
@@ -44,4 +51,4 @@ let mapStateToProps = state => {
     })
 }
 
-export default connect(mapStateToProps, {getStores})(HomeScreen)
+export default connect(mapStateToProps, {getStores, getActiveOrders})(HomeScreen)
