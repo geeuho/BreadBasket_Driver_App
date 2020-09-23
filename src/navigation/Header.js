@@ -14,7 +14,7 @@ const Header = props => {
     return (
         <Appbar.Header>
             <Appbar.Action icon="menu" onPress = {() => handleMenu()}/> 
-            <Appbar.Content title = "Title"/>
+            <Appbar.Content title = {props.title}/>
             <Appbar.Action icon = "dots-vertical" onPress = {() => goSettings()}/>
         </Appbar.Header>
     )

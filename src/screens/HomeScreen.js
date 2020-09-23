@@ -13,7 +13,7 @@ const HomeScreen = props => {
     }, [])
     return (
         <View >
-            <Header navigation = {props.navigation}/>
+            <Header navigation = {props.navigation} title = {'Home'}/>
             <Headline style = {styles.header}>Home</Headline>
             <TouchableOpacity style = {styles.margin} onPress = {() => {
                 props.navigation.navigate('Order')   

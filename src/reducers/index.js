@@ -5,6 +5,7 @@ import {AsyncStorage} from 'react-native'
 
 import storesReducer from './storesReducer'
 import itemsReducer from './itemsReducer'
+import ordersReducer from './ordersReducer'
 
 const persistConfig = {
     key: 'root',
@@ -14,7 +15,8 @@ const persistConfig = {
 
 const reducer = combineReducers({
     stores: storesReducer,
-    items: itemsReducer
+    items: itemsReducer,
+    orders: ordersReducer
 })
 
 export default persistReducer(persistConfig, reducer)
