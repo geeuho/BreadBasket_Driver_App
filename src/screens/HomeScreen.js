@@ -1,11 +1,13 @@
-import React, {useEffect} from 'react'
-import Header from "../navigation/Header"
+import React from 'react'
+import Header from '../navigation/Header'
+import Box from '../components/Box'
 import { Text, View, StyleSheet, TouchableOpacity} from 'react-native'
-import { Card } from 'react-native-paper'
+import {Card} from 'react-native-paper'
 import {connect} from 'react-redux'
 import {getStores, getActiveOrders} from '../actions'
 
 class HomeScreen extends React.Component {
+
     componentDidMount(){
         this.props.getStores()
         this.props.getActiveOrders()
@@ -16,16 +18,15 @@ class HomeScreen extends React.Component {
             <View >
                 <Header navigation = {this.props.navigation} title = {'Home'}/>
                 
-                <Card>
-                    <Card.Title title = "Current Orders"></Card.Title>
+                <Box navigation = {this.props.navigation} title = "Current Orders">
                     <Card.Content>
-                        <TouchableOpacity style = {styles.orders} onPress = {() => {
-                            this.props.navigation.navigate('Order')   
+                        <TouchableOpacity style={styles.orders} onPress={() => {
+                            this.props.navigation.navigate('Order')
                         }}>
                             <Text style={styles.textStyle}>Current Orders</Text>
                         </TouchableOpacity>
                     </Card.Content>
-                </Card>
+                </Box>
                 <TouchableOpacity style={styles.margin} onPress = {() => {
                     this.props.navigation.navigate('Profile')
                 }}>
@@ -56,7 +57,8 @@ const styles = StyleSheet.create({
 
 let mapStateToProps = state => {
     return({
-        stores: state.stores
+        stores: state.stores,
+        orders: state.orders
     })
 }
 

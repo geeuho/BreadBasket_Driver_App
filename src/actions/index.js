@@ -24,6 +24,7 @@ export const signOut = () => {
 
 export const getStores = () => async dispatch => {
     const response = await rails.get(`/stores`)
+    console.log(response.data)
     dispatch({ type: 'GET_STORES', payload: response.data.data })
 }
 
