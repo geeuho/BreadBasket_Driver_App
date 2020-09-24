@@ -10,6 +10,6 @@ const headers = {
 }
 
 export default axios.create({
-    baseURL: 'http://10.0.0.2:3000',
+    baseURL: 'http://192.168.:3000',
     headers: headers
 })

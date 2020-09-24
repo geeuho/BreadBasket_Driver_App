@@ -35,12 +35,16 @@ export const signOut = () => {
 //     }
 // };
 
-export const getStores = () => dispatch => {
-    rails.get('/stores')
-    .then((response)=> response.json())
-    
-    console.log(response.data, 'called')
-    dispatch({ type: 'GET_STORES', payload: response.data.data })
+export const getStores = () => async dispatch => {
+    try{
+        let request = await rails.get('/stores')
+        let response = await request.json()
+        console.log(response)
+        dispatch({ type: 'GET_STORES', payload: response.data.data })
+
+    } catch (error){
+        console.log(error)
+    }
 }
 
 

@@ -1,16 +1,27 @@
-import React from 'react'
+import React, {useState} from 'react'
 import Header from '../navigation/Header'
 import Box from '../components/Box'
 import { Text, View, StyleSheet, TouchableOpacity} from 'react-native'
 import {Card} from 'react-native-paper'
 import {connect} from 'react-redux'
 import {getStores, getActiveOrders} from '../actions'
+import axios from 'axios'
 
 class HomeScreen extends React.Component {
-
+    constructor(){
+        super()
+        this.state = {
+            stores: []
+        }
+    }
+    
     componentDidMount(){
-        this.props.getStores()
-        .then((data) => console.log(data))
+        this.getStoreTest()
+    }
+
+    async getStoreTest(){
+        axios.get('http://localhost:3000/stores')
+        .then(response => this.setState({stores: response.data}))
     }
     
     render(){
@@ -32,7 +43,7 @@ class HomeScreen extends React.Component {
                 }}>
                     <Text style ={styles.textStyle}>To Profile Page</Text>
                 </TouchableOpacity>
-                <TouchableOpacity onPress = {() => console.log('hi',this.props.stores)}>
+                <TouchableOpacity onPress = {() => console.log('hi',this.state.stores)}>
                     <Text style = {styles.textStyle}>Press me!</Text>
                 </TouchableOpacity>
             </View>
