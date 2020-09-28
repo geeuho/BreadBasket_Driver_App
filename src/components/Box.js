@@ -4,9 +4,9 @@ import { Card } from 'react-native-paper'
 
 const Box = props => {
     return(
-        <Card>
+        <Card style = {styles.card}>
             <Card.Title title={props.title}></Card.Title>
-            
+            {props.children}
         </Card>
     )
 }
