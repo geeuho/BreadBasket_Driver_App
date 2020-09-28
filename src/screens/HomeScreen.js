@@ -31,7 +31,7 @@ class HomeScreen extends React.Component {
                 }}>
                     <Text style ={styles.textStyle}>To Profile Page</Text>
                 </TouchableOpacity>
-                <TouchableOpacity onPress = {() => console.log(this.props.stores.storesList[0])}>
+                <TouchableOpacity onPress = {() => console.log(this.props.stores)}>
                     <Text style = {styles.textStyle}>Press me!</Text>
                 </TouchableOpacity>
             </View>
