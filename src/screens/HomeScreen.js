@@ -16,12 +16,7 @@ class HomeScreen extends React.Component {
     }
     
     componentDidMount(){
-        this.getStoreTest()
-    }
-
-    async getStoreTest(){
-        axios.get('http://localhost:3000/stores')
-        .then(response => this.setState({stores: response.data}))
+        this.props.getStores()
     }
     
     render(){
@@ -43,7 +38,7 @@ class HomeScreen extends React.Component {
                 }}>
                     <Text style ={styles.textStyle}>To Profile Page</Text>
                 </TouchableOpacity>
-                <TouchableOpacity onPress = {() => console.log('hi',this.state.stores)}>
+                <TouchableOpacity onPress = {() => console.log('hi', this.props.stores)}>
                     <Text style = {styles.textStyle}>Press me!</Text>
                 </TouchableOpacity>
             </View>

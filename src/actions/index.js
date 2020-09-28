@@ -37,9 +37,7 @@ export const signOut = () => {
 
 export const getStores = () => async dispatch => {
     try{
-        let request = await rails.get('/stores')
-        let response = await request.json()
-        console.log(response)
+        let response = await rails.get('/stores')
         dispatch({ type: 'GET_STORES', payload: response.data.data })
 
     } catch (error){
