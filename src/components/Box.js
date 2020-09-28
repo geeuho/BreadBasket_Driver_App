@@ -6,7 +6,9 @@ const Box = props => {
     return(
         <Card style = {styles.card}>
             <Card.Title title={props.title}></Card.Title>
-            {props.children}
+            <Card.Content>
+                {props.children}
+            </Card.Content>
         </Card>
     )
 }
