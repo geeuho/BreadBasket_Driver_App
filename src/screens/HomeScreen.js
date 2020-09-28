@@ -29,7 +29,7 @@ class HomeScreen extends React.Component {
                         <TouchableOpacity style={styles.orders} onPress={() => {
                             this.props.navigation.navigate('Order')
                         }}>
-                            <Text style={styles.textStyle}>Current Orders</Text>
+                            <Text style={styles.textStyle}>Nice Orders</Text>
                         </TouchableOpacity>
                     </Card.Content>
                 </Box>
