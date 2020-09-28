@@ -10,6 +10,6 @@ const headers = {
 }
 
 export default axios.create({
-    baseURL: 'https://bread-basket-backend.herokuapp.com',
+    baseURL: 'https://bread-basket-backend.herokuapp.com/',
     headers: headers
 })

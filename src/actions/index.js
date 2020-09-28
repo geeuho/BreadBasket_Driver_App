@@ -1,4 +1,5 @@
 import rails from '../api/Rails'
+import axios from 'axios'
 
 //AUTH
 
@@ -22,15 +23,33 @@ export const signOut = () => {
 
 // STORES 
 
+// const getMoviesFromApiAsync = async () => {
+//     try {
+//         let response = await fetch(
+//             'https://reactnative.dev/movies.json'
+//         );
+//         let json = await response.json();
+//         return json.movies;
+//     } catch (error) {
+//         console.error(error);
+//     }
+// };
+
 export const getStores = () => async dispatch => {
-    const response = await rails.get(`/stores`)
-    dispatch({ type: 'GET_STORES', payload: response.data.data })
+    try{
+        let response = await rails.get('/stores')
+        dispatch({ type: 'GET_STORES', payload: response.data.data })
+
+    } catch (error){
+        console.log(error)
+    }
 }
+
 
 // ORDERS
 
 export const getActiveOrders = shopperId => async dispatch => {
-    const response = await rails.get(`/orders?shopper_id=${shopperId}&status=active`)
+    const response = await rails.get(`/orders?shopper_id=${shopperId}&status=active`).catch(error => console.log(error))
     let data = response.data.data
     dispatch({ type: "GET_ACTIVE_ORDERS", payload: data })
 }
