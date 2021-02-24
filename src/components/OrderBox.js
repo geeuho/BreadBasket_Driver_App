@@ -8,7 +8,7 @@ const OrderBox = props => {
             this.props.navigation.navigate('Order')
         }>
             <Card style = {styles.card}>
-                <Card.Title titleStyle = {styles.cost} title={props.title}></Card.Title>
+                <Card.Title titleStyle = {styles.cost} title={props.total}></Card.Title>
                 <Card.Content>
                     <View style = {styles.delivery_info}>
                         <View>

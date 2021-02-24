@@ -5,19 +5,19 @@ import { connect } from 'react-redux'
 import {getActiveOrders} from '../actions'
 import { Text, View, StyleSheet, TouchableOpacity } from 'react-native'
 
-class OrdersScreen extends React.Component {
+class OrderScreen extends React.Component {
 
     componentDidMount(){
-        this.props.getActiveOrders()
+        
     }
 
     renderOrderBoxes = () => {
         return this.props.activeOrders.map(order => {
-            let attributes = order['attributes']
-            let tip = attributes.tip
-            let payment = attributes.payment
-            let total = `$${(tip + payment).toFixed(2)}`
-            return <OrderBox navigation = {this.props.navigation} total = {total}/>
+            
+            let attributes = order.attributes
+            let total = attributes.tip + attributes.payment
+            console.log(attributes, total)
+            // return <OrderBox total = {total}/>
         })
     }
 
@@ -25,7 +25,7 @@ class OrdersScreen extends React.Component {
         return(
             <View>
                 <Header navigation={this.props.navigation} title = {"Active Orders"}/>
-                {this.renderOrderBoxes()}
+                <Text>Order</Text>
                 
             </View>
         )
@@ -43,4 +43,4 @@ let mapStateToProps = (state) => {
         activeOrders: state.orders.active_orders
     })
 }
-export default connect(mapStateToProps, {getActiveOrders})(OrdersScreen)
+export default connect(mapStateToProps, {getActiveOrders})(OrderScreen)

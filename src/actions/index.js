@@ -62,14 +62,6 @@ export const getOrderItems = (order_id) => async dispatch => {
     dispatch({ type: "GET_ORDER_ITEMS", payload: response.data.data })
 }
 
-// ITEMS
-
-export const getItems = (store_id) => async dispatch => {
-    const response = await rails.get(`/items?store_id=${store_id}`)
-    console.log(response.data, "items")
-    dispatch({ type: 'GET_ITEMS', payload: response.data })
-}
-
 //LOCATION
 
 export const getLocation = () => async dispatch => {
