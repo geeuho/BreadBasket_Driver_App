@@ -9,6 +9,8 @@ class OrdersScreen extends React.Component {
 
     componentDidMount(){
         this.props.getActiveOrders()
+        // console.log(this.props.activeOrders)
+
     }
 
     renderOrderBoxes = () => {
@@ -17,7 +19,14 @@ class OrdersScreen extends React.Component {
             let tip = attributes.tip
             let payment = attributes.payment
             let total = `$${(tip + payment).toFixed(2)}`
-            return <OrderBox navigation = {this.props.navigation} total = {total}/>
+            let unitCount = attributes.order_items.reduce((sum, item) => {
+                return sum + item.quantity_num
+            }, 0)
+            return (
+                <TouchableOpacity onPress = {() => {this.props.navigation.navigate('Order')}}>
+                    <OrderBox navigation = {this.props.navigation} total = {total} store_name = {attributes.store.name} orderCount = {attributes.order_items.length} unitCount = {unitCount} />
+                </TouchableOpacity>
+            )
         })
     }
 

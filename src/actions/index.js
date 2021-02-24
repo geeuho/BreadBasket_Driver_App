@@ -51,6 +51,12 @@ export const getActiveOrders = shopperId => async dispatch => {
     const response = await rails.get(`/orders?status=active`).catch(error => console.log(error))
 
     let data = response.data.data
+    data.forEach(order => {
+        const order_items = 
+        dispatch({type: "GET_ACTIVE_ORDER", payload: {
+            
+        }})
+    })
     dispatch({ type: "GET_ACTIVE_ORDERS", payload: data })
 }
 
