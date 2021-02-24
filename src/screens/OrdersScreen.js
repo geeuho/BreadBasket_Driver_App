@@ -1,11 +1,17 @@
 import React from 'react'
 import Header from "../navigation/Header"
 import OrderBox from '../components/OrderBox'
+import { connect } from 'react-redux'
+import {getActiveOrders} from '../actions'
 import { Text, View, StyleSheet, TouchableOpacity } from 'react-native'
 
 class OrderScreen extends React.Component {
 
-    
+    componentDidMount(){
+        
+    }
+
+
 
     render(){
         return(
@@ -13,12 +19,8 @@ class OrderScreen extends React.Component {
                 <Header navigation={this.props.navigation} title = {"Active Orders"}/>
                 <OrderBox title = "$13.85"/> 
                 <OrderBox title = "$24.35"/>
-                <Text style = {styles.textStyle}>Orders</Text>
-                <TouchableOpacity onPress={() => 
-                    this.props.navigation.navigate('Home')
-                }>
-                    <Text>Back To Home</Text>
-                </TouchableOpacity>
+                <OrderBox title = "$24.35"/>
+                
             </View>
         )
     }
@@ -29,4 +31,10 @@ const styles = StyleSheet.create({
         fontSize:30
     }
 })
-export default OrderScreen
+
+let mapStateToProps = state => {
+    return({
+        activeOrders: state.order.active_orders
+    })
+}
+export default connect(mapStateToProps, {getActiveOrders})(OrderScreen)

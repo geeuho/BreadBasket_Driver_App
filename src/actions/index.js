@@ -51,7 +51,6 @@ export const getActiveOrders = shopperId => async dispatch => {
     const response = await rails.get(`/orders?status=active`).catch(error => console.log(error))
 
     let data = response.data.data
-    console.log(data[0].attributes)
     dispatch({ type: "GET_ACTIVE_ORDERS", payload: data })
 }
 
@@ -71,3 +70,12 @@ export const getItems = (store_id) => async dispatch => {
     dispatch({ type: 'GET_ITEMS', payload: response.data })
 }
 
+//LOCATION
+
+export const getLocation = () => async dispatch => {
+    let response = {
+        lng: '',
+        ltd: ''
+    }
+    dispatch({ type: 'GET_LOCATION', payload: response})
+}

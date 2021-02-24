@@ -12,7 +12,7 @@ class HomeScreen extends React.Component {
     componentDidMount(){
         this.props.getStores()
         this.props.getActiveOrders()
-        console.log(this.props.orders[0])
+        console.log(this.props.orders.active_orders[1], 'first order')
     } 
     
     render(){
@@ -24,7 +24,7 @@ class HomeScreen extends React.Component {
                 <Box navigation = {this.props.navigation} title = "Current Orders">
 
                     <TouchableOpacity style={styles.orders} onPress={() => {
-                        this.props.navigation.navigate('Order')
+                        this.props.navigation.navigate('Orders')
                     }}>
                         <Text style={styles.textStyle}>Active Orders</Text>
                     </TouchableOpacity>

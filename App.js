@@ -9,7 +9,7 @@ import { store, persistor} from './src/store'
 
 import HomeScreen from "./src/screens/HomeScreen";
 import ProfileScreen from "./src/screens/ProfileScreen";
-import OrderScreen from "./src/screens/OrderScreen";
+import OrdersScreen from "./src/screens/OrdersScreen";
 import SettingsScreen from "./src/screens/SettingsScreen"
 import EarningsScreen from "./src/screens/EarningsScreen"
 
@@ -37,9 +37,9 @@ class App extends React.Component{
               <Drawer.Navigator initialRouteName = "Home">
                 <Drawer.Screen name = "Home" component = {HomeScreen}/>
                 <Drawer.Screen name = "Profile" component={ProfileScreen} />
-                <Drawer.Screen name = "Order" component={OrderScreen} />
+                <Drawer.Screen name = "Orders" component={OrdersScreen} />
                 <Drawer.Screen name = "Settings" component = {SettingsScreen} />
-                <Drawer.Screen name="Earnings" component={EarningsScreen} />
+                <Drawer.Screen name= "Earnings" component={EarningsScreen} />
               </Drawer.Navigator>
             </NavigationContainer>
           </PaperProvider>

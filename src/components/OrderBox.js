@@ -4,30 +4,34 @@ import { Card } from 'react-native-paper'
 
 const OrderBox = props => {
     return(
-        <Card style = {styles.card}>
-            <Card.Title titleStyle = {styles.cost} title={props.title}></Card.Title>
-            <Card.Content>
-                <View style = {styles.delivery_info}>
-                    <View>
-                        <Image></Image>
-                        <Text>8.1 miles</Text>
+        <TouchableOpacity onPress={() => 
+            this.props.navigation.navigate('Order')
+        }>
+            <Card style = {styles.card}>
+                <Card.Title titleStyle = {styles.cost} title={props.title}></Card.Title>
+                <Card.Content>
+                    <View style = {styles.delivery_info}>
+                        <View>
+                            <Image></Image>
+                            <Text>8.1 miles</Text>
+                        </View>
+                        <View>
+                            <Text>7 Items/8 Units</Text>    
+                        </View>
                     </View>
-                    <View>
-                        <Text>7 Items/8 Units</Text>    
+                    <View style = {styles.border}></View>
+                    <View style = {styles.store_info}>
+                        <View>
+
+                        </View>
+                        <View>
+                            <Text style = {styles.store_name}>Store City</Text>
+                            <Text>Store Address</Text>
+                        </View>
                     </View>
-                </View>
-                <View style = {styles.border}></View>
-                <View style = {styles.store_info}>
-                    <View>
-                        
-                    </View>
-                    <View>
-                        <Text style = {styles.store_name}>Store City</Text>
-                        <Text>Store Address</Text>
-                    </View>
-                </View>
-            </Card.Content>
-        </Card>
+                </Card.Content>
+            </Card>
+        </TouchableOpacity>
     )
 }
 
