@@ -1,5 +1,4 @@
 import rails from '../api/Rails'
-import axios from 'axios'
 
 //AUTH
 
@@ -49,8 +48,10 @@ export const getStores = () => async dispatch => {
 // ORDERS
 
 export const getActiveOrders = shopperId => async dispatch => {
-    const response = await rails.get(`/orders?shopper_id=${shopperId}&status=active`).catch(error => console.log(error))
+    const response = await rails.get(`/orders?status=active`).catch(error => console.log(error))
+
     let data = response.data.data
+    console.log(data[0].attributes)
     dispatch({ type: "GET_ACTIVE_ORDERS", payload: data })
 }
 

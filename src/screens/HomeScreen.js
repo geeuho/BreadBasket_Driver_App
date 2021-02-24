@@ -1,7 +1,7 @@
-import React, {useState} from 'react'
+import React from 'react'
 import Header from '../navigation/Header'
 import Box from '../components/Box'
-import { Text, View, StyleSheet, TouchableOpacity} from 'react-native'
+import { Text, View, StyleSheet, TouchableOpacity, SafeAreaView} from 'react-native'
 import {connect} from 'react-redux'
 import {getStores, getActiveOrders} from '../actions'
 
@@ -12,19 +12,21 @@ class HomeScreen extends React.Component {
     componentDidMount(){
         this.props.getStores()
         this.props.getActiveOrders()
-    }
+        console.log(this.props.orders[0])
+    } 
     
     render(){
         return (
-            <View >
-                <Header navigation = {this.props.navigation} title = {'Home'}/>
+            <View>
+            <Header navigation = {this.props.navigation} title = {'Home'}/>
+            <SafeAreaView>
                 
                 <Box navigation = {this.props.navigation} title = "Current Orders">
 
                     <TouchableOpacity style={styles.orders} onPress={() => {
                         this.props.navigation.navigate('Order')
                     }}>
-                        <Text style={styles.textStyle}>Nice Orders</Text>
+                        <Text style={styles.textStyle}>Active Orders</Text>
                     </TouchableOpacity>
     
                 </Box>
@@ -39,6 +41,8 @@ class HomeScreen extends React.Component {
                 <TouchableOpacity onPress={() => console.log(this.props.orders)}>
                     <Text style={styles.textStyle}>Current Orders</Text>
                 </TouchableOpacity>
+            </SafeAreaView>
+
             </View>
         )
 

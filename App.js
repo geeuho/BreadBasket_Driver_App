@@ -1,12 +1,11 @@
 import 'react-native-gesture-handler'
 import React, {useEffect, useState} from 'react'
 import { NavigationContainer} from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { useTheme, DefaultTheme, Provider as PaperProvider} from 'react-native-paper'
-import { Provider as StoreProvider, connect} from 'react-redux'
+import { Provider as StoreProvider} from 'react-redux'
 import { PersistGate } from 'redux-persist/integration/react'
-import {store, persistor} from './src/store'
+import { store, persistor} from './src/store'
 
 import HomeScreen from "./src/screens/HomeScreen";
 import ProfileScreen from "./src/screens/ProfileScreen";
@@ -15,7 +14,6 @@ import SettingsScreen from "./src/screens/SettingsScreen"
 import EarningsScreen from "./src/screens/EarningsScreen"
 
 
-const Stack = createStackNavigator()
 const Drawer = createDrawerNavigator()
 
 const theme = {
