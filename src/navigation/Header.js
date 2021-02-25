@@ -1,6 +1,7 @@
 import React from 'react'
-import {Button } from 'react-native'
+import { View } from 'react-native'
 import {Appbar} from 'react-native-paper'
+import Icon from 'react-native-vector-icons/FontAwesome'
 
 const Header = props => {
 
@@ -14,8 +15,7 @@ const Header = props => {
 
     return (
         <Appbar.Header>
-            <Appbar.Action onPress = {() => handleMenu()}>
-                
+            <Appbar.Action icon = "menu" onPress = {() => handleMenu()}> 
             </Appbar.Action> 
             <Appbar.Content title = {props.title}/>
             <Appbar.Action icon = "dots-vertical" onPress = {() => goSettings()}/>

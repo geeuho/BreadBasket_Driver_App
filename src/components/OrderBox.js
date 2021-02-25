@@ -1,6 +1,7 @@
 import React from 'react'
 import { Text, StyleSheet, TouchableOpacity, View, Image } from 'react-native'
 import { Card } from 'react-native-paper'
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 
 const OrderBox = props => {
     return(
@@ -8,21 +9,22 @@ const OrderBox = props => {
             <Card.Title titleStyle = {styles.cost} title={props.total}></Card.Title>
             <Card.Content>
                 <View style = {styles.delivery_info}>
-                    <View>
-                        <Image></Image>
+                    <View style = {styles.delivery_section}>
+                        <Icon style = {{paddingRight: 5}} name = "truck" size = {20}></Icon> 
                         <Text>8.1 miles</Text>
                     </View>
-                    <View>
-                        <Text>{props.orderCount} Items/{props.unitCount} Units</Text>    
+                    <View style = {styles.delivery_section}>
+                        <Icon style = {{paddingRight: 2}} name = "food-apple" size = {20}></Icon>
+                        <Text>{props.orderCount} Items/ {props.unitCount} Units</Text>    
                     </View>
                 </View>
                 <View style = {styles.border}></View>
-                <View style = {styles.store_info}>
+                <View style = {styles.row}>
                     <View>
-
+                        <Image style = {styles.image} source = {`${props.store_img}`}></Image>
                     </View>
                     <View>
-                        <Text style = {styles.store_name}>{props.store_name}</Text>
+                        <Text style = {styles.image}>{props.address}</Text>
                         <Text>Store Address</Text>
                     </View>
                 </View>
@@ -33,9 +35,15 @@ const OrderBox = props => {
 }
 
 let styles = StyleSheet.create({
-    store_info: {
+    image: {
+        height: 5
+    },  
+    delivery_section: {
+        paddingBottom: 8,
         display: 'flex',
-        flexDirection: 'row'
+        flexDirection: 'row',
+        alignItems: 'center'
+        
     },
     delivery_info: {
         display: 'flex',
