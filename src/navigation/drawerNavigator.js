@@ -13,15 +13,14 @@ const Drawer = createDrawerNavigator();
 
 const drawerNavigator = () => {
     return(
-        <Drawer.Navigator>
+        <Drawer.Navigator initialRouteName = "Home">
             <Drawer.Screen name = "Home" component = {HomeScreen}/>
             <Drawer.Screen name = "Profile" component={ProfileScreen} />
             <Drawer.Screen name = "Orders" component={OrdersScreen} />
             <Drawer.Screen name = "Settings" component = {SettingsScreen} />
             <Drawer.Screen name= "Earnings" component={EarningsScreen} />
-            <Drawer.Screen name = "Order" component = {OrderScreen} />
         </Drawer.Navigator>
     )
 }
 
-export default {drawerNavigator}
+export default drawerNavigator

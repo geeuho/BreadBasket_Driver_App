@@ -2,6 +2,7 @@ import React from 'react'
 import Header from '../header/Header'
 import Box from '../components/Box'
 import { Text, View, StyleSheet, TouchableOpacity, SafeAreaView} from 'react-native'
+import {drawerNavigator} from '../navigation/drawerNavigator'
 import {connect} from 'react-redux'
 import {getStores, getActiveOrders} from '../actions'
 

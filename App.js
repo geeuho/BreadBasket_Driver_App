@@ -1,20 +1,24 @@
 import 'react-native-gesture-handler'
 import React, {useEffect, useState} from 'react'
+import { Button } from 'react-native'
 import { NavigationContainer} from '@react-navigation/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
+import { createStackNavigator } from '@react-navigation/stack'
 import { useTheme, DefaultTheme, Provider as PaperProvider} from 'react-native-paper'
 import { Provider as StoreProvider} from 'react-redux'
 import { PersistGate } from 'redux-persist/integration/react'
 import { store, persistor} from './src/store'
+import {Appbar} from 'react-native-paper'
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 
-import { drawerNavigator } from './src/navigation/drawerNavigator'
-import HomeScreen from "./src/screens/HomeScreen";
+import drawerNavigator from './src/navigation/drawerNavigator'
+import OrderScreen from "./src/screens/OrderScreen"
 import ProfileScreen from "./src/screens/ProfileScreen";
 import OrdersScreen from "./src/screens/OrdersScreen";
 import SettingsScreen from "./src/screens/SettingsScreen"
 import EarningsScreen from "./src/screens/EarningsScreen"
 
-const Drawer = createDrawerNavigator()
+const Stack = createStackNavigator()
 
 const theme = {
   ...DefaultTheme,
@@ -34,13 +38,71 @@ class App extends React.Component{
         <PersistGate persistor = {persistor}>
           <PaperProvider theme = {theme}>
             <NavigationContainer>
-              <Drawer.Navigator initialRouteName = "Home">
-                <Drawer.Screen name = "Home" component = {HomeScreen}/>
-                <Drawer.Screen name = "Profile" component={ProfileScreen} />
-                <Drawer.Screen name = "Orders" component={OrdersScreen} />
-                <Drawer.Screen name = "Settings" component = {SettingsScreen} />
-                <Drawer.Screen name= "Earnings" component={EarningsScreen} />
-              </Drawer.Navigator>
+              <Stack.Navigator initialRouteName = "Home">
+                <Stack.Screen 
+                  name = "Home" 
+                  component = {drawerNavigator} 
+                  options = {{
+                    headerTitle: "Home",
+                    headerLeft: () => {
+                      <Button>
+                        <Icon name = "menu"></Icon>
+                      </Button>
+                    },
+
+                  }}
+                />
+                <Stack.Screen 
+                  name = "Profile" 
+                  component={ProfileScreen} 
+                  options = {{
+                    headerTitle: "",
+                    headerRight: () => {
+
+                    }
+                  }}
+                />
+                <Stack.Screen 
+                  name = "Orders" 
+                  component={OrdersScreen} 
+                  options = {{
+                    headerTitle: "",
+                    headerRight: () => {
+
+                    }
+                  }}
+                />
+                <Stack.Screen 
+                  name = "Settings" 
+                  component = {SettingsScreen} 
+                  options = {{
+                    headerTitle: "",
+                    headerRight: () => {
+
+                    }
+                  }}
+                />
+                <Stack.Screen 
+                  name = "Order" 
+                  component = {OrderScreen}
+                  options = {{
+                    headerTitle: "",
+                    headerRight: () => {
+
+                    }
+                  }}
+                />
+                <Stack.Screen 
+                  name= "Earnings" 
+                  component={EarningsScreen} 
+                  options = {{
+                    headerTitle: "",
+                    headerRight: () => {
+
+                    }
+                  }}
+                />
+              </Stack.Navigator>
               
             </NavigationContainer>
 
