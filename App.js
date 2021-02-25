@@ -12,6 +12,7 @@ import {Appbar} from 'react-native-paper'
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 
 import drawerNavigator from './src/navigation/drawerNavigator'
+import Header from './src/header/Header'
 import OrderScreen from "./src/screens/OrderScreen"
 import ProfileScreen from "./src/screens/ProfileScreen";
 import OrdersScreen from "./src/screens/OrdersScreen";
@@ -38,17 +39,26 @@ class App extends React.Component{
         <PersistGate persistor = {persistor}>
           <PaperProvider theme = {theme}>
             <NavigationContainer>
-              <Stack.Navigator initialRouteName = "Home">
+              
+              <Stack.Navigator initialRouteName = "Home" screenOptions = {{header:({navigation}) => {
+                <Header navigation = {navigation}/>
+              }}}>
                 <Stack.Screen 
                   name = "Home" 
                   component = {drawerNavigator} 
                   options = {{
                     headerTitle: "Home",
-                    headerLeft: () => {
-                      <Button>
-                        <Icon name = "menu"></Icon>
+                    headerRight: () => (
+                      <Button
+                        onPress={() => alert('This is a button!')}
+                        
+                        color="black"
+                      
+                      >
+                        X
                       </Button>
-                    },
+                    )
+                    
 
                   }}
                 />
@@ -56,10 +66,8 @@ class App extends React.Component{
                   name = "Profile" 
                   component={ProfileScreen} 
                   options = {{
-                    headerTitle: "",
-                    headerRight: () => {
-
-                    }
+                    header: props => <Header{...props}></Header>
+                    
                   }}
                 />
                 <Stack.Screen 
