@@ -17,7 +17,7 @@ class HomeScreen extends React.Component {
     render(){
         return (
             <View>
-                <Header navigation = {this.props.navigation} title = {'Home'}/>
+                <Header icon = "menu" navigation = {this.props.navigation} title = {'Home'}/>
                 <SafeAreaView>
                     
                     <Box navigation = {this.props.navigation} title = "Current Orders">

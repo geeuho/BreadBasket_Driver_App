@@ -23,7 +23,7 @@ let OrderScreen = ({route, navigation}, props) => {
 
     return(
         <View style = {styles.screen}>
-            <Header icon = "left" navigation={navigation} title = {"Active Orders"}/>
+            <Header icon = "arrow-left-thick" navigation={navigation}/>
             <View style = {styles.topSection}>
 
             </View>
