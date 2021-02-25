@@ -44,6 +44,14 @@ export const getStores = () => async dispatch => {
     }
 }
 
+export const getStore = (id) => async() => {
+    try{
+        let response = await rails.get(`/stores/${id}`)
+        return response.data
+    } catch (error){
+        console.log(error)
+    }
+}
 
 // ORDERS
 

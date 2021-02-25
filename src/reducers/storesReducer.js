@@ -8,7 +8,7 @@ export default (state = INITIAL_STATE, action) => {
         return { ...state, storesList: action.payload }
     }
 
-    if (action.type === 'SELECT_STORE') {
+    if (action.type === 'GET_STORE') {
         return { ...state, selectedStore: action.payload }
     }
 

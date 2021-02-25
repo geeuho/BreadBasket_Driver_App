@@ -1,9 +1,10 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import { Text, StyleSheet, TouchableOpacity, View, Image } from 'react-native'
 import { Card } from 'react-native-paper'
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 
 const OrderBox = props => {
+  
     return(
         <Card style = {styles.card}>
             <Card.Title titleStyle = {styles.cost} title={props.total}></Card.Title>
@@ -23,9 +24,9 @@ const OrderBox = props => {
                     <View>
                         <Image style = {styles.image} source = {{uri: `${props.store_img}`}}></Image>
                     </View>
-                    <View style = {{marginLeft: 5}}>
+                    <View style = {{marginLeft: 10}}>
                         <Text style = {styles.store_name} >{props.name}</Text>
-                        <Text style = {styles.store_address}>Store Address</Text>
+                        <Text style = {styles.store_address}>{props.address}</Text>
                     </View>
                 </View>
             </Card.Content>

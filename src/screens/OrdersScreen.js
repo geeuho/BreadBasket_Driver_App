@@ -2,15 +2,15 @@ import React from 'react'
 import Header from "../navigation/Header"
 import OrderBox from '../components/OrderBox'
 import { connect } from 'react-redux'
-import {getActiveOrders} from '../actions'
-import { Text, View, StyleSheet, TouchableOpacity } from 'react-native'
+import {getActiveOrders, getStore} from '../actions'
+import { ScrollView, StyleSheet, TouchableOpacity } from 'react-native'
 
 class OrdersScreen extends React.Component {
 
     componentDidMount(){
         this.props.getActiveOrders()
-        console.log(this.props.activeOrders[0].attributes)
-
+        let store = this.props.stores
+        console.log(store)
     }
 
     renderOrderBoxes = () => {
@@ -22,10 +22,12 @@ class OrdersScreen extends React.Component {
             let unitCount = attributes.order_items.reduce((sum, item) => {
                 return sum + item.quantity_num
             }, 0)
-            let {logo, address, name} = attributes.store
+            let store_id = attributes.store.id
+            let {logo, address, name} = this.props.stores.find(store => store.attributes.id === store_id).attributes
+            let store_address = `${address.street + ' • ' + address.city + ', ' + address.state}`
             return (
                 <TouchableOpacity onPress = {() => {this.props.navigation.navigate('Order')}}>
-                    <OrderBox navigation = {this.props.navigation} name = {name} address = {address} store_img={logo} total = {total} store_name = {attributes.store.name} orderCount = {attributes.order_items.length} unitCount = {unitCount} />
+                    <OrderBox navigation = {this.props.navigation} name = {name} address = {store_address} store_img={logo} total = {total} store_name = {attributes.store.name} orderCount = {attributes.order_items.length} unitCount = {unitCount} />
                 </TouchableOpacity>
             )
         })
@@ -33,10 +35,10 @@ class OrdersScreen extends React.Component {
 
     render(){
         return(
-            <View>
+            <ScrollView>
                 <Header icon = "left" navigation={this.props.navigation}  title = {"Active Orders"}/>
                 {this.renderOrderBoxes()}
-            </View>
+            </ScrollView>
         )
     }
 }
@@ -49,7 +51,8 @@ const styles = StyleSheet.create({
 
 let mapStateToProps = (state) => {
     return({
-        activeOrders: state.orders.active_orders
+        activeOrders: state.orders.active_orders,
+        stores: state.stores.storesList
     })
 }
-export default connect(mapStateToProps, {getActiveOrders})(OrdersScreen)
+export default connect(mapStateToProps, {getActiveOrders, getStore})(OrdersScreen)
