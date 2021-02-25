@@ -27,7 +27,8 @@ class OrdersScreen extends React.Component {
             let store_address = `${address.street + ' • ' + address.city + ', ' + address.state}`
             return (
                 <TouchableOpacity onPress={() => this.props.navigation.navigate("Order", {
-                    orderId: order.id
+                    orderId: order.id,
+                    
                   })}
                 >
                     <OrderBox navigation = {this.props.navigation} name = {name} address = {store_address} store_img={logo} total = {total} store_name = {attributes.store.name} orderCount = {attributes.order_items.length} unitCount = {unitCount} />
