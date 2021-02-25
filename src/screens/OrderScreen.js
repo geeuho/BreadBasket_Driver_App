@@ -1,17 +1,17 @@
-import React from 'react'
+import React,{useEffect, useState} from 'react'
 import Header from "../navigation/Header"
 import OrderBox from '../components/OrderBox'
 import { connect } from 'react-redux'
-import {getActiveOrders} from '../actions'
+import {getActiveOrders, getOrderItems} from '../actions'
 import { Text, View, StyleSheet, TouchableOpacity } from 'react-native'
 
-class OrderScreen extends React.Component {
+let OrderScreen = ({route, navigation}, props) => {
 
-    componentDidMount(){
-        
-    }
+    useEffect(() => {
+        console.log(route)
+    })
 
-    renderOrderBoxes = () => {
+    let renderOrderBoxes = () => {
         return this.props.activeOrders.map(order => {
             
             let attributes = order.attributes
@@ -21,15 +21,17 @@ class OrderScreen extends React.Component {
         })
     }
 
-    render(){
-        return(
+    return(
+        <View>
+            <Header icon = "left" navigation={navigation} title = {"Active Orders"}/>
+            <Text>Order</Text>
             <View>
-                <Header icon = "left" navigation={this.props.navigation} title = {"Active Orders"}/>
-                <Text>Order</Text>
-                
+           
+
             </View>
-        )
-    }
+        </View>
+    )
+
 }
 
 const styles = StyleSheet.create({
