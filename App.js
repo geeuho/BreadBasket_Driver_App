@@ -7,12 +7,7 @@ import { Provider as StoreProvider} from 'react-redux'
 import { PersistGate } from 'redux-persist/integration/react'
 import { store, persistor} from './src/store'
 
-import HomeScreen from "./src/screens/HomeScreen";
-import ProfileScreen from "./src/screens/ProfileScreen";
-import OrdersScreen from "./src/screens/OrdersScreen";
-import OrderScreen from './src/screens/OrderScreen'
-import SettingsScreen from "./src/screens/SettingsScreen"
-import EarningsScreen from "./src/screens/EarningsScreen"
+import { stackNavigator } from './src/navigation/stackNavigator'
 
 
 const Drawer = createDrawerNavigator()
@@ -36,14 +31,15 @@ class App extends React.Component{
           <PaperProvider theme = {theme}>
             <NavigationContainer>
               <Drawer.Navigator initialRouteName = "Home">
-                <Drawer.Screen name = "Home" component = {HomeScreen}/>
-                <Drawer.Screen name = "Profile" component={ProfileScreen} />
-                <Drawer.Screen name = "Orders" component={OrdersScreen} />
-                <Drawer.Screen name = "Order" component={OrderScreen} />
-                <Drawer.Screen name = "Settings" component = {SettingsScreen} />
-                <Drawer.Screen name= "Earnings" component={EarningsScreen} />
+                <Drawer.Screen name = "Home" component = {stackNavigator}/>
+                <Drawer.Screen name = "Profile" component={stackNavigator} />
+                <Drawer.Screen name = "Orders" component={stackNavigator} />
+                <Drawer.Screen name = "Settings" component = {stackNavigator} />
+                <Drawer.Screen name= "Earnings" component={stackNavigator} />
               </Drawer.Navigator>
+              
             </NavigationContainer>
+
           </PaperProvider>
         </PersistGate>
       </StoreProvider>

@@ -1,5 +1,5 @@
 import React from 'react'
-import Header from '../navigation/Header'
+import Header from '../header/Header'
 import Box from '../components/Box'
 import { Text, View, StyleSheet, TouchableOpacity, SafeAreaView} from 'react-native'
 import {connect} from 'react-redux'

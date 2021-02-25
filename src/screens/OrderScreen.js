@@ -1,5 +1,5 @@
 import React,{useEffect, useState} from 'react'
-import Header from "../navigation/Header"
+import Header from "../header/Header"
 import OrderBox from '../components/OrderBox'
 import { connect } from 'react-redux'
 import {getActiveOrders, getOrderItems} from '../actions'
@@ -29,9 +29,16 @@ let OrderScreen = ({route, navigation}, props) => {
             </View>
             <ScrollView style = {styles.bottomSection}>
                 <Text style = {styles.priceText}>
-                    $18.56
+                    {route.params.total}
                 </Text>
-                
+                <View>
+                    <Text>
+                        {route.params.tip}
+                    </Text>
+                    <Text>
+                        {route.params.payment}
+                    </Text>
+                </View>
             </ScrollView>
         </View>
     )
@@ -69,7 +76,7 @@ const styles = StyleSheet.create({
 
 let mapStateToProps = (state) => {
     return({
-        activeOrders: state.orders.active_orders
+        activeOrder: state.order
     })
 }
 export default connect(mapStateToProps, {getActiveOrders})(OrderScreen)

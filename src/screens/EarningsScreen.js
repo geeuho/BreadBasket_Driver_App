@@ -1,5 +1,5 @@
 import React from 'react'
-import Header from "../navigation/Header"
+import Header from "../header/Header"
 import { Text, View, StyleSheet, TouchableOpacity } from 'react-native'
 
 const EarningsScreen = props => {
