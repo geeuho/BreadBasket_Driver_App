@@ -6,7 +6,7 @@ import { Text, View, StyleSheet, TouchableOpacity } from 'react-native'
 const SettingsScreen = props => {
     return (
         <View>
-            <Header icon = "menu" navigation={props.navigation} />
+            <Header icon = "arrow-left-thick" navigation={props.navigation} />
             <Text style={styles.textStyle}>Settings</Text>
             <TouchableOpacity style={styles.margin} onPress={() => {
                 props.navigation.navigate('Order')

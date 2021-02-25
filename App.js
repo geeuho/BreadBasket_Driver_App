@@ -40,80 +40,17 @@ class App extends React.Component{
           <PaperProvider theme = {theme}>
             <NavigationContainer>
               
-              <Stack.Navigator initialRouteName = "Home" screenOptions = {{header:({navigation}) => {
-                <Header navigation = {navigation}/>
+              <Stack.Navigator initialRouteName = "Home" screenOptions = {{header:({navigation, previous}) => {
+                <Header navigation = {navigation} previous = {previous}/>
               }}}>
-                <Stack.Screen 
-                  name = "Home" 
-                  component = {drawerNavigator} 
-                  options = {{
-                    headerTitle: "Home",
-                    headerRight: () => (
-                      <Button
-                        onPress={() => alert('This is a button!')}
-                        
-                        color="black"
-                      
-                      >
-                        X
-                      </Button>
-                    )
-                    
-
-                  }}
-                />
-                <Stack.Screen 
-                  name = "Profile" 
-                  component={ProfileScreen} 
-                  options = {{
-                    header: props => <Header{...props}></Header>
-                    
-                  }}
-                />
-                <Stack.Screen 
-                  name = "Orders" 
-                  component={OrdersScreen} 
-                  options = {{
-                    headerTitle: "",
-                    headerRight: () => {
-
-                    }
-                  }}
-                />
-                <Stack.Screen 
-                  name = "Settings" 
-                  component = {SettingsScreen} 
-                  options = {{
-                    headerTitle: "",
-                    headerRight: () => {
-
-                    }
-                  }}
-                />
-                <Stack.Screen 
-                  name = "Order" 
-                  component = {OrderScreen}
-                  options = {{
-                    headerTitle: "",
-                    headerRight: () => {
-
-                    }
-                  }}
-                />
-                <Stack.Screen 
-                  name= "Earnings" 
-                  component={EarningsScreen} 
-                  options = {{
-                    headerTitle: "",
-                    headerRight: () => {
-
-                    }
-                  }}
-                />
+                <Stack.Screen name = "Home" component = {drawerNavigator} />
+                <Stack.Screen name = "Profile" component={ProfileScreen} />
+                <Stack.Screen name = "Orders" component={OrdersScreen} />
+                <Stack.Screen name = "Settings" component = {SettingsScreen} />
+                <Stack.Screen name = "Order" component = {OrderScreen} />
+                <Stack.Screen name = "Earnings" component={EarningsScreen} />
               </Stack.Navigator>
-              
             </NavigationContainer>
-
           </PaperProvider>
         </PersistGate>
       </StoreProvider>

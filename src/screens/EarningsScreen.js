@@ -5,7 +5,7 @@ import { Text, View, StyleSheet, TouchableOpacity } from 'react-native'
 const EarningsScreen = props => {
     return (
         <View>
-            <Header navigation={props.navigation} />
+            <Header icon = "arrow-left-thick" navigation={props.navigation} />
             <Text style={styles.textStyle}>Earnings</Text>
             <TouchableOpacity onPress={() =>
                 props.navigation.navigate('Home')

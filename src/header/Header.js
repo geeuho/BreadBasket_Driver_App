@@ -1,7 +1,7 @@
 import React from 'react'
 import { View } from 'react-native'
 import {Appbar} from 'react-native-paper'
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
+
 
 const Header = props => {
 
@@ -12,20 +12,20 @@ const Header = props => {
             }
         } else {
             return() => {
-                props.navigation.navigate("Home")
+                props.navigation.goBack()
             }
         }
     }
 
     let goSettings = () => {
-        props.navigation.navigate("Settings")
+        props.navigation.push("Settings")
     }
 
     return (
         <Appbar.Header>
             <Appbar.Action icon = {props.icon} onPress = {navFunction()}> 
             </Appbar.Action> 
-            <Appbar.Content title = {props.title}/>
+            <Appbar.Content title = {props.previous ? "Home" : props.title}/>
             <Appbar.Action icon = "dots-vertical" onPress = {() => goSettings()}/>
         </Appbar.Header>
     )
