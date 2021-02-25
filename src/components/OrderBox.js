@@ -19,13 +19,13 @@ const OrderBox = props => {
                     </View>
                 </View>
                 <View style = {styles.border}></View>
-                <View style = {styles.row}>
+                <View style = {styles.store_info}>
                     <View>
-                        <Image style = {styles.image} source = {`${props.store_img}`}></Image>
+                        <Image style = {styles.image} source = {{uri: `${props.store_img}`}}></Image>
                     </View>
-                    <View>
-                        <Text style = {styles.image}>{props.address}</Text>
-                        <Text>Store Address</Text>
+                    <View style = {{marginLeft: 5}}>
+                        <Text style = {styles.store_name} >{props.name}</Text>
+                        <Text style = {styles.store_address}>Store Address</Text>
                     </View>
                 </View>
             </Card.Content>
@@ -36,7 +36,8 @@ const OrderBox = props => {
 
 let styles = StyleSheet.create({
     image: {
-        height: 5
+        height: 40,
+        width: 40
     },  
     delivery_section: {
         paddingBottom: 8,
@@ -50,14 +51,24 @@ let styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between'
     },
+    store_info: {
+        marginTop: 15,
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'flex-start',
+        alignItems: 'center'
+    },
     card: {
         margin: 15,
-        padding: 10,
         paddingTop: 20
     },
     store_name: {
         fontSize: 20,
+        fontWeight: 'bold'
     },
+    store_address: {
+        fontSize: 15
+    },  
     cost: {
         paddingTop: 20,
         fontSize: 40,

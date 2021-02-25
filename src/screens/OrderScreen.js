@@ -24,7 +24,7 @@ class OrderScreen extends React.Component {
     render(){
         return(
             <View>
-                <Header navigation={this.props.navigation} title = {"Active Orders"}/>
+                <Header icon = "left" navigation={this.props.navigation} title = {"Active Orders"}/>
                 <Text>Order</Text>
                 
             </View>
