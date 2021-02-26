@@ -1,7 +1,6 @@
 import React from 'react'
 import { createDrawerNavigator } from "@react-navigation/drawer"
 
-import OrderScreen from "../screens/OrderScreen";
 import HomeScreen from "../screens/HomeScreen";
 import ProfileScreen from "../screens/ProfileScreen";
 import OrdersScreen from "../screens/OrdersScreen";
