@@ -20,7 +20,8 @@ const mainDrawer = () => {
         <Drawer.Navigator initialRouteName = "Home">
             <Drawer.Screen name = "Home" component = {HomeScreen} 
                 options = {{ 
-                    drawerIcon: () => { return <Icon name = "home" size = {25}/>}
+                    drawerIcon: () => { return <Icon name = "home" size = {25}/>},
+                    
                 }}
             />
             <Drawer.Screen name = "Orders" component={OrdersScreen} 

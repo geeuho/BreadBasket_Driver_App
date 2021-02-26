@@ -24,7 +24,7 @@ class OrdersScreen extends React.Component {
             let {logo, address, name} = this.props.stores.find(store => store.attributes.id === store_id).attributes
             let store_address = `${address.street + ' • ' + address.city + ', ' + address.state}`
             return (
-                <TouchableOpacity key = {id} onPress={() => this.props.navigation.push("Order", {
+                <TouchableOpacity key = {id} onPress={() => this.props.navigation.push("AcceptOrder", {
                     orderId: order.id,
                     total: total,
                     tip: attributes.tip,

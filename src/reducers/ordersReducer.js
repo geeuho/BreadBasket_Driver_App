@@ -45,5 +45,11 @@ export default (state = INITIAL_STATE, action) => {
         return { ...state, order_items: [] }
     }
 
+    if(action.type === "ACCEPT_ORDER"){
+        // console.log(typeof action.payload, action.payload)
+        let foundOrder = state.active_orders.find(order => order.id === action.payload)
+        return{...state, current_order: state.active_orders.find(order =>  order.id === action.payload)}
+    }
+
     return state
 }

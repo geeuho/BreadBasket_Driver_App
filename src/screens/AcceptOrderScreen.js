@@ -1,12 +1,14 @@
 import React,{useEffect, useState} from 'react'
 import { connect } from 'react-redux'
-import {getActiveOrders, getOrderItems} from '../actions'
+import {getActiveOrders, getOrderItems, acceptOrder} from '../actions'
 import { Text, View, StyleSheet, TouchableOpacity, ScrollView, FlatList, Image, Button} from 'react-native'
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 import GreenButton from '../components/GreenButton'
 import OrderItemImage from '../components/OrderItemImage'
 
-const OrderScreen = ({route, navigation, getOrderItems, orderItems}) => {
+const AcceptOrderScreen = ({route, navigation, getOrderItems, orderItems, acceptOrder, currentOrder}) => {
+
+    let[current_order] = useState('current')
 
     useEffect(() => {
         getOrderItems(route.params.orderId)
@@ -58,7 +60,7 @@ const OrderScreen = ({route, navigation, getOrderItems, orderItems}) => {
                     />
                 </View>
                 
-                <GreenButton text = "Accept Order" onPressAction = {() => console.log("accepted Order")}/> 
+                <GreenButton text = "Accept Order" onPressAction = {() => acceptOrder(route.params.orderId)}/> 
               
             </ScrollView>
         </View>
@@ -141,7 +143,8 @@ const styles = StyleSheet.create({
 
 let mapStateToProps = (state) => {
     return({
-        orderItems: state.orders.order_items
+        orderItems: state.orders.order_items,
+        current_order: state.orders.current_order
     })
 }
-export default connect(mapStateToProps, {getActiveOrders, getOrderItems})(OrderScreen)
+export default connect(mapStateToProps, {getActiveOrders, getOrderItems, acceptOrder})(AcceptOrderScreen)

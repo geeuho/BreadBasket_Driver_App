@@ -55,7 +55,9 @@ export const getStore = (id) => async() => {
 
 // ORDERS
 
-
+export const acceptOrder = orderId => {
+    return { type: "ACCEPT_ORDER", payload: parseInt(orderId)}
+}
 
 export const getActiveOrders = shopperId => async dispatch => {
     const response = await rails.get(`/orders?status=active`).catch(error => console.log(error))
