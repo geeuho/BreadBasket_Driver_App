@@ -12,7 +12,7 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 
 const Drawer = createDrawerNavigator();
 
-const drawerNavigator = () => {
+const mainDrawer = () => {
     return(
         <Drawer.Navigator initialRouteName = "Home">
             <Drawer.Screen name = "Home" component = {HomeScreen} 
@@ -45,4 +45,4 @@ const drawerNavigator = () => {
     )
 }
 
-export default drawerNavigator
+export default mainDrawer

@@ -1,26 +1,23 @@
 import React from 'react'
 import Header from "../header/Header"
-import { Text, View, StyleSheet, TouchableOpacity } from 'react-native'
+import { Text, View, StyleSheet, TouchableOpacity, ScrollView, SafeAreaView} from 'react-native'
 import Box from '../components/Box'
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 
 
 const SettingsScreen = props => {
     return (
-        <View>
-            <Header title = "Settings"icon = "arrow-left-thick" navigation={props.navigation} />
-            <Box>
-                <Text style = {styles.header}>
-                    App
-                </Text>
-            </Box>
+        <View style = {styles.screen}>
+
+        <Header title = "Settings"icon = "arrow-left-thick" navigation={props.navigation} />
+        <ScrollView>
+            
+            
             <Box>
                 <Text style = {styles.header}>
                     Preferences
                 </Text>
-                
-                <View>
-                </View>
+
                 <TouchableOpacity onPress={() => {
                     props.navigation.push('Orders')
                 }}>
@@ -34,26 +31,51 @@ const SettingsScreen = props => {
                     props.navigation.push('Orders')
                 }}>
                     <View style = {styles.row}>
-                        <Text style={{fontSize: 20}}>Preferred Map</Text>
+                        <Text style={{fontSize: 20}}>Update Location</Text>
+                        <Icon name = "chevron-right" size = {30}></Icon>
+                    </View>
+                </TouchableOpacity>
+                <View style = {styles.border}></View>
+                <TouchableOpacity onPress={() => {
+                    props.navigation.push('Orders')
+                }}>
+                    <View style = {styles.row}>
+                        <Text style={{fontSize: 20}}>Notifications</Text>
                         <Icon name = "chevron-right" size = {30}></Icon>
                     </View>
                 </TouchableOpacity>
             </Box>
-            <TouchableOpacity style={styles.margin} onPress={() => {
-                props.navigation.navigate('Order')
-            }}>
-                <Text style={styles.textStyle}>To Order Page</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.margin} onPress={() => {
-                props.navigation.navigate('Profile')
-            }}>
-                <Text style={styles.textStyle}>To Profile Page</Text>
-            </TouchableOpacity>
+            <Box>
+                <Text style = {styles.header}>
+                    App
+                </Text>
+                <TouchableOpacity onPress={() => {
+                    props.navigation.push('Orders')
+                }}>
+                    <View style = {styles.row}>
+                        <Text style={{fontSize: 20}}>Report an issue</Text>
+                        <Icon name = "chevron-right" size = {30}></Icon>
+                    </View>
+                </TouchableOpacity>
+                <View style = {styles.border}></View>
+                <TouchableOpacity onPress={() => {
+                    props.navigation.push('Orders')
+                }}>
+                    <View style = {styles.row}>
+                        <Text style={{fontSize: 20, color: 'red'}}>Logout</Text>
+                        <Icon name = "chevron-right" size = {30}></Icon>
+                    </View>
+                </TouchableOpacity>
+            </Box>
+        </ScrollView>
         </View>
     )
 }
 
 const styles = StyleSheet.create({
+    screen: {
+        height: '100%'
+    },
     border: {
         borderBottomWidth: 1,
         borderBottomColor: 'black',
@@ -67,7 +89,8 @@ const styles = StyleSheet.create({
     },
     header: {
         fontSize: 30,
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        marginBottom: 10
     },
     row: {
         display: 'flex',

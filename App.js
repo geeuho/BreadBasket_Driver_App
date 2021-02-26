@@ -11,7 +11,7 @@ import { store, persistor} from './src/store'
 import {Appbar} from 'react-native-paper'
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 
-import drawerNavigator from './src/navigation/drawerNavigator'
+import mainDrawer from './src/navigation/mainDrawer'
 import Header from './src/header/Header'
 import OrderScreen from "./src/screens/OrderScreen"
 import ProfileScreen from "./src/screens/ProfileScreen";
@@ -43,7 +43,7 @@ class App extends React.Component{
               <Stack.Navigator initialRouteName = "Home" screenOptions = {{header:({navigation, previous}) => {
                 <Header navigation = {navigation} previous = {previous}/>
               }}}>
-                <Stack.Screen name = "Home" component = {drawerNavigator} />
+                <Stack.Screen name = "Home" component = {mainDrawer} />
                 <Stack.Screen name = "Profile" component={ProfileScreen} />
                 <Stack.Screen name = "Orders" component={OrdersScreen} />
                 <Stack.Screen name = "Settings" component = {SettingsScreen} />

@@ -1,7 +1,8 @@
 import React from 'react'
 import Header from '../header/Header'
 import Section from '../components/Section'
-import { Text, View, StyleSheet, TouchableOpacity, SafeAreaView} from 'react-native'
+import Box from '../components/Box'
+import { Text, View, StyleSheet, TouchableOpacity, SafeAreaView, ScrollView, Image} from 'react-native'
 import {connect} from 'react-redux'
 import {getStores, getActiveOrders} from '../actions'
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
@@ -33,33 +34,46 @@ class HomeScreen extends React.Component {
 
     render(){
         return (
-            <View>
+            <View style = {styles.screen}>
                 <Header icon = "menu" navigation = {this.props.navigation} title = {'Home'}/>
-                <SafeAreaView>
+                <ScrollView>
                     
-                        <TouchableOpacity style={styles.orders} onPress={() => {
-                            this.props.navigation.navigate('Orders')
-                        }}>
-                            <Section navigation = {this.props.navigation} title = "Current Orders">
-                                <View style = {styles.row}>
-                                    <Icon name = "cart" size = {30}></Icon>
-                                    <Text style={{fontSize: 30 }}>{this.state.active_orders_length > 0 ? `${this.state.active_orders_length} Orders Available` : 'No Active Orders'}</Text>
-                                </View>
-                                <Text style= {{marginTop: 5}}>{this.state.active_orders_length > 0 ? "View Orders" : "We'll notify you when orders are available"}</Text>
-                            </Section>
-                        </TouchableOpacity>
-                    <TouchableOpacity style={styles.margin} onPress = {() => {
-                        this.props.navigation.navigate('Profile')
+                    <TouchableOpacity onPress={() => {
+                        this.props.navigation.navigate('Orders')
                     }}>
-                        <Text style ={styles.textStyle}>To Profile Page</Text>
+                        <Section navigation = {this.props.navigation} title = "Current Orders">
+                            <View style = {styles.orders}>
+                                <Icon name = "cart" size = {30}></Icon>
+                                <Text style={{fontSize: 30 }}>{this.state.active_orders_length > 0 ? `${this.state.active_orders_length} Orders Available` : 'No Active Orders'}</Text>
+                            </View>
+                            <Text style= {{marginTop: 5}}>{this.state.active_orders_length > 0 ? "View Orders" : "We'll notify you when orders are available"}</Text>
+                        </Section>
                     </TouchableOpacity>
-                    <TouchableOpacity onPress = {() => console.log(this.props.stores)}>
-                        <Text style = {styles.textStyle}>Current Stores</Text>
+                    <TouchableOpacity onPress={() => {
+                        this.props.navigation.navigate('About')
+                    }}>
+                        <Box>
+                            <View style = {styles.section}>
+                                <Text>Welcome to BreadBasket Driver</Text>
+                            </View>
+                        </Box>
                     </TouchableOpacity>
-                    <TouchableOpacity onPress={() => console.log(this.props.orders)}>
-                        <Text style={styles.textStyle}>Current Orders</Text>
+                    <TouchableOpacity onPress={() => {
+                        this.props.navigation.navigate('Orders')
+                    }}>
+                        <Box>
+                            <View style = {styles.section}>
+                                <View>
+                                    <Text style = {{fontSize: 20}}>Welcome to BreadBasket Driver!</Text>
+                                </View>
+                                    <Text style = {{fontSize: 15, marginTop: 10, color: 'gray', textAlign: 'center'}}>If this is your first time driving with us, here's some important information.</Text>
+                                <View>
+                                </View>
+                            </View>
+                        </Box>
                     </TouchableOpacity>
-                </SafeAreaView>
+                    
+                </ScrollView>
             </View>
         )
 
@@ -68,11 +82,14 @@ class HomeScreen extends React.Component {
 }
 
 const styles = StyleSheet.create({
+    screen: {
+        height: '100%'
+    },
     header: {
         display: 'flex',
         justifyContent: 'center'
     },
-    row: {
+    orders: {
         display: 'flex', 
         flexDirection: 'row',
         justifyContent: 'flex-start',
@@ -80,6 +97,12 @@ const styles = StyleSheet.create({
     },
     margin: {
         marginVertical: 50
+    },
+    section: {
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center'
     }
 })
 
