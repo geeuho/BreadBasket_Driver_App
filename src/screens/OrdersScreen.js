@@ -2,7 +2,7 @@ import React from 'react'
 import Header from "../header/Header"
 import OrderBox from '../components/OrderBox'
 import { connect } from 'react-redux'
-import {getActiveOrders, getStore} from '../actions'
+import {getActiveOrders} from '../actions'
 import { ScrollView, StyleSheet, TouchableOpacity } from 'react-native'
 
 class OrdersScreen extends React.Component {
@@ -12,7 +12,7 @@ class OrdersScreen extends React.Component {
     }
 
     renderOrderBoxes = () => {
-        return this.props.activeOrders.map(order => {
+        return this.props.activeOrders.map((order, id) => {
             let attributes = order['attributes']
             let tip = attributes.tip
             let payment = attributes.payment
@@ -33,7 +33,7 @@ class OrdersScreen extends React.Component {
                     unitCount: unitCount
                   })}
                 >
-                    <OrderBox navigation = {this.props.navigation} name = {name} address = {store_address} store_img={logo} total = {total} store_name = {attributes.store.name} orderCount = {attributes.order_items.length} unitCount = {unitCount} />
+                    <OrderBox key = {id} navigation = {this.props.navigation} name = {name} address = {store_address} store_img={logo} total = {total} store_name = {attributes.store.name} orderCount = {attributes.order_items.length} unitCount = {unitCount} />
                 </TouchableOpacity>
             )
         })
@@ -61,4 +61,4 @@ let mapStateToProps = (state) => {
         stores: state.stores.storesList
     })
 }
-export default connect(mapStateToProps, {getActiveOrders, getStore})(OrdersScreen)
+export default connect(mapStateToProps, {getActiveOrders})(OrdersScreen)

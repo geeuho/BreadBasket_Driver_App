@@ -1,18 +1,20 @@
 import React,{useEffect, useState} from 'react'
-import Header from "../header/Header"
-import OrderBox from '../components/OrderBox'
 import { connect } from 'react-redux'
 import {getActiveOrders, getOrderItems} from '../actions'
-import { Text, View, StyleSheet, TouchableOpacity, ScrollView, Button } from 'react-native'
+import { Text, View, StyleSheet, TouchableOpacity, ScrollView, FlatList, Image, Button} from 'react-native'
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 
-let OrderScreen = ({route, navigation}, props) => {
+const OrderScreen = ({route, navigation, getOrderItems, orderItems}) => {
 
     useEffect(() => {
-        console.log(route)
-    })
+        getOrderItems(route.params.orderId)
+        console.log(orderItems.map(item => {
+            return item.item.name
+        }))
+    }, [])
 
     return(
+    
         <View style = {styles.screen}>
             <View style = {styles.topSection}>
                 <TouchableOpacity style = {styles.backButton} onPress = {() => {navigation.goBack()}}>
@@ -41,7 +43,26 @@ let OrderScreen = ({route, navigation}, props) => {
                     <Icon style = {{paddingRight: 2}} name = "car" size = {20}></Icon>
                     <Text>Distance: 9.2 miles</Text>    
                 </View>
-
+                <View>
+                    <FlatList 
+                        style = {styles.itemList}
+                        data = {orderItems} 
+                        horizontal = {true}
+                        keyExtractor = {item => item.id}
+                        renderItem = {({item}) => {     
+                            return (
+                                <View>
+                                    <Image style = {{height: 50, width: 50, marginRight: 10, borderRadius: 10}} source = {{uri: `${item.item.image}`}}></Image>
+                                </View>
+                            )    
+                        }}
+                    />
+                </View>
+                
+                    <TouchableOpacity style = {styles.accept_button}  onPress = {() => console.log("accept order")}>
+                        <Text style = {{fontWeight: 'bold', fontSize: 20}}>Accept Order</Text>
+                    </TouchableOpacity>
+              
             </ScrollView>
         </View>
     )
@@ -49,6 +70,15 @@ let OrderScreen = ({route, navigation}, props) => {
 }
 
 const styles = StyleSheet.create({
+    itemList: {
+        marginTop: 40,
+        marginLeft: 20,
+        marginRight: 20,
+        display: 'flex',
+        height: 80,
+        width: '100%',
+        bottom: 0
+    },
     backButton: {
         marginTop: 50,
         marginLeft: 25
@@ -67,11 +97,14 @@ const styles = StyleSheet.create({
     },
     bottomSection: {
         position: 'absolute',
+        left: 0, 
+        right: 0,
+        bottom: 0,
         borderRadius: 10,
         display: 'flex',
-        height: '45%',
+        height: '50%',
         width: '100%',
-        bottom: 0,
+        zIndex: 5,
         backgroundColor: 'white',
     },
     priceText: {
@@ -106,11 +139,23 @@ const styles = StyleSheet.create({
         marginTop: 20,
         marginLeft: 20
     },
+    accept_button: {
+        marginBottom: 15,
+        marginLeft: 20, 
+        marginRight: 20,
+        padding: 15,
+        borderRadius: 10,
+        display:'flex',
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: 'lawngreen'
+    }
 })
 
 let mapStateToProps = (state) => {
     return({
-        activeOrder: state.order
+        orderItems: state.orders.order_items
     })
 }
-export default connect(mapStateToProps, {getActiveOrders})(OrderScreen)
+export default connect(mapStateToProps, {getActiveOrders, getOrderItems})(OrderScreen)
