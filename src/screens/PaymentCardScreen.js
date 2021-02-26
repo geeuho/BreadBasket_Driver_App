@@ -2,13 +2,13 @@ import React from 'react'
 import {Text, View, ScrollView, StyleSheet} from 'react-native'
 import Header from '../header/Header'
 
-const EarningsScreen = props => {
+const PaymentCardScreen = props => {
     return(
         <View>
-            <Header icon = "arrow-left-thick" navigation={this.props.navigation}  title = {"Earnings"}/>
+            <Header icon = "arrow-left-thick" navigation={this.props.navigation}  title = {"Payment Card"}/>
             <ScrollView>
                 <Text style = {styles.header}>
-                    Order History Screen
+                    Payment Card Screen
                 </Text>
             </ScrollView>
         </View>
@@ -22,4 +22,4 @@ const styles = StyleSheet.create({
     }
 })
 
-export default EarningsScreen
+export default PaymentCardScreen

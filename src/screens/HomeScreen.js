@@ -80,7 +80,7 @@ class HomeScreen extends React.Component {
                                 <Text style = {{fontSize: 15, marginTop: 10, marginBottom: 15, color: 'gray', textAlign: 'center'}}>Learn about our Stripe Payout System, and how earnings are calculated</Text>
                             </View>
                         </View>
-                        <GreenButton text = "How you earn"/> 
+                        <GreenButton text = "How you get paid"/> 
                     </Box>
                     <Box>
                         <View style = {styles.section}>
