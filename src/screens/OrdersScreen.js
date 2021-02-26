@@ -24,7 +24,7 @@ class OrdersScreen extends React.Component {
             let {logo, address, name} = this.props.stores.find(store => store.attributes.id === store_id).attributes
             let store_address = `${address.street + ' • ' + address.city + ', ' + address.state}`
             return (
-                <TouchableOpacity onPress={() => this.props.navigation.push("Order", {
+                <TouchableOpacity key = {id} onPress={() => this.props.navigation.push("Order", {
                     orderId: order.id,
                     total: total,
                     tip: attributes.tip,
@@ -33,7 +33,7 @@ class OrdersScreen extends React.Component {
                     unitCount: unitCount
                   })}
                 >
-                    <OrderBox key = {id} navigation = {this.props.navigation} name = {name} address = {store_address} store_img={logo} total = {total} store_name = {attributes.store.name} orderCount = {attributes.order_items.length} unitCount = {unitCount} />
+                    <OrderBox navigation = {this.props.navigation} name = {name} address = {store_address} store_img={logo} total = {total} store_name = {attributes.store.name} orderCount = {attributes.order_items.length} unitCount = {unitCount} />
                 </TouchableOpacity>
             )
         })
