@@ -8,7 +8,7 @@ const EarningsScreen = props => {
             <Header icon = "arrow-left-thick" navigation={this.props.navigation}  title = {"Earnings"}/>
             <ScrollView>
                 <Text style = {styles.header}>
-                    Order History Screen
+                    Earnings Screen
                 </Text>
             </ScrollView>
         </View>
