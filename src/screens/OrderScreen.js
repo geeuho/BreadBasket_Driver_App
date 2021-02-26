@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import {getActiveOrders, getOrderItems} from '../actions'
 import { Text, View, StyleSheet, TouchableOpacity, ScrollView, FlatList, Image, Button} from 'react-native'
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
+import GreenButton from '../components/GreenButton'
 
 const OrderScreen = ({route, navigation, getOrderItems, orderItems}) => {
 
@@ -48,6 +49,7 @@ const OrderScreen = ({route, navigation, getOrderItems, orderItems}) => {
                         style = {styles.itemList}
                         data = {orderItems} 
                         horizontal = {true}
+                        showsHorizontalScrollIndicator={false}
                         keyExtractor = {item => item.id}
                         renderItem = {({item}) => {     
                             return (
@@ -59,9 +61,7 @@ const OrderScreen = ({route, navigation, getOrderItems, orderItems}) => {
                     />
                 </View>
                 
-                    <TouchableOpacity style = {styles.accept_button}  onPress = {() => console.log("accept order")}>
-                        <Text style = {{fontWeight: 'bold', fontSize: 20}}>Accept Order</Text>
-                    </TouchableOpacity>
+                <GreenButton text = "Accept Order" onPressAction = {() => console.log("accepted Order")}/> 
               
             </ScrollView>
         </View>
@@ -138,18 +138,6 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         marginTop: 20,
         marginLeft: 20
-    },
-    accept_button: {
-        marginBottom: 15,
-        marginLeft: 20, 
-        marginRight: 20,
-        padding: 15,
-        borderRadius: 10,
-        display:'flex',
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'center',
-        backgroundColor: 'lawngreen'
     }
 })
 

@@ -60,7 +60,7 @@ let styles = StyleSheet.create({
         alignItems: 'center'
     },
     card: {
-        margin: 15,
+        margin: 7,
         paddingTop: 20
     },
     store_name: {

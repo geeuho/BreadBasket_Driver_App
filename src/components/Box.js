@@ -14,6 +14,7 @@ const Section = props => {
 
 let styles = StyleSheet.create({
     card: {
+        borderRadius: 10,
         margin: 10
     }
 })

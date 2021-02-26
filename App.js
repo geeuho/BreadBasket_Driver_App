@@ -26,7 +26,7 @@ const theme = {
   roundness: 2,
   colors: {
     ...DefaultTheme.colors,
-    primary: 'lawngreen',
+    primary: '#3cb371',
     accent: 'black'
   }
 }
