@@ -41,7 +41,7 @@ class OrdersScreen extends React.Component {
 
     render(){
         return(
-            <View>
+            <View style = {styles.screen}>
                 <Header icon = "arrow-left-thick" navigation={this.props.navigation}  title = {"Active Orders"}/>
                 <ScrollView>
                     {this.renderOrderBoxes()}
@@ -52,6 +52,10 @@ class OrdersScreen extends React.Component {
 }
 
 const styles = StyleSheet.create({
+    screen: {
+        height: '100%',
+        paddingBottom: 30
+    },
     textStyle:{
         fontSize:30
     }
