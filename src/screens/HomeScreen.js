@@ -1,6 +1,6 @@
 import React from 'react'
 import Header from '../header/Header'
-import Box from '../components/Box'
+import Section from '../components/Section'
 import { Text, View, StyleSheet, TouchableOpacity, SafeAreaView} from 'react-native'
 import {connect} from 'react-redux'
 import {getStores, getActiveOrders} from '../actions'
@@ -40,13 +40,13 @@ class HomeScreen extends React.Component {
                         <TouchableOpacity style={styles.orders} onPress={() => {
                             this.props.navigation.navigate('Orders')
                         }}>
-                            <Box navigation = {this.props.navigation} title = "Current Orders">
+                            <Section navigation = {this.props.navigation} title = "Current Orders">
                                 <View style = {styles.row}>
                                     <Icon name = "cart" size = {30}></Icon>
                                     <Text style={{fontSize: 30 }}>{this.state.active_orders_length > 0 ? `${this.state.active_orders_length} Orders Available` : 'No Active Orders'}</Text>
                                 </View>
                                 <Text style= {{marginTop: 5}}>{this.state.active_orders_length > 0 ? "View Orders" : "We'll notify you when orders are available"}</Text>
-                            </Box>
+                            </Section>
                         </TouchableOpacity>
                     <TouchableOpacity style={styles.margin} onPress = {() => {
                         this.props.navigation.navigate('Profile')

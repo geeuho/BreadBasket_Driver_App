@@ -5,6 +5,7 @@ import { Card } from 'react-native-paper'
 const Section = props => {
     return(
         <Card style = {styles.card}>
+            <Card.Title title={props.title}></Card.Title>
             <Card.Content>
                 {props.children}
             </Card.Content>
@@ -19,3 +20,4 @@ let styles = StyleSheet.create({
 })
 
 export default Section
+
