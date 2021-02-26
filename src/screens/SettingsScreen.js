@@ -4,7 +4,6 @@ import { Text, View, StyleSheet, TouchableOpacity, ScrollView, SafeAreaView} fro
 import Box from '../components/Box'
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 
-
 const SettingsScreen = props => {
     return (
         <View style = {styles.screen}>

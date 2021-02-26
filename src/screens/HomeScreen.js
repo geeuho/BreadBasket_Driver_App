@@ -34,7 +34,9 @@ class HomeScreen extends React.Component {
     
 
     render(){
+        let hello
         return (
+            
             <View style = {styles.screen}>
                 <Header icon = "menu" navigation = {this.props.navigation} title = {'Home'}/>
                 <ScrollView>
@@ -45,9 +47,9 @@ class HomeScreen extends React.Component {
                         <Section navigation = {this.props.navigation} title = "Current Orders">
                             <View style = {styles.orders}>
                                 <Icon name = "cart" size = {30}></Icon>
-                                <Text style={{fontSize: 30 }}>{this.state.active_orders_length > 0 ? `${this.state.active_orders_length} Orders Available` : 'No Active Orders'}</Text>
+                                <Text style={{fontSize: 30, marginLeft: 10 }}>{this.state.active_orders_length > 0 ? `${this.state.active_orders_length} Orders Available` : 'No Active Orders'}</Text>
                             </View>
-                            <Text style= {{marginTop: 5}}>{this.state.active_orders_length > 0 ? "View Orders" : "We'll notify you when orders are available"}</Text>
+                            <Text style= {{marginTop: 10}}>{this.state.active_orders_length > 0 ? "View Orders" : "We'll notify you when orders are available"}</Text>
                         </Section>
                     </TouchableOpacity>
                     

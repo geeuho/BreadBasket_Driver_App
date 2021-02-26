@@ -4,14 +4,12 @@ import {getActiveOrders, getOrderItems} from '../actions'
 import { Text, View, StyleSheet, TouchableOpacity, ScrollView, FlatList, Image, Button} from 'react-native'
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 import GreenButton from '../components/GreenButton'
+import OrderItemImage from '../components/OrderItemImage'
 
 const OrderScreen = ({route, navigation, getOrderItems, orderItems}) => {
 
     useEffect(() => {
         getOrderItems(route.params.orderId)
-        console.log(orderItems.map(item => {
-            return item.item.name
-        }))
     }, [])
 
     return(
@@ -51,11 +49,10 @@ const OrderScreen = ({route, navigation, getOrderItems, orderItems}) => {
                         horizontal = {true}
                         showsHorizontalScrollIndicator={false}
                         keyExtractor = {item => item.id}
-                        renderItem = {({item}) => {     
+                        renderItem = {({item, id}) => {    
+                            console.log(item) 
                             return (
-                                <View>
-                                    <Image style = {{height: 50, width: 50, marginRight: 10, borderRadius: 10}} source = {{uri: `${item.item.image}`}}></Image>
-                                </View>
+                                <OrderItemImage key = {id} image = {item.item.image} count = {item.quantity_num}/>
                             )    
                         }}
                     />
@@ -71,13 +68,14 @@ const OrderScreen = ({route, navigation, getOrderItems, orderItems}) => {
 
 const styles = StyleSheet.create({
     itemList: {
-        marginTop: 40,
-        marginLeft: 20,
+        marginTop: 30,
         marginRight: 20,
         display: 'flex',
         height: 80,
-        width: '100%',
-        bottom: 0
+        width: '90%',
+        bottom: 0,
+        left: 20,
+        right: 20
     },
     backButton: {
         marginTop: 50,

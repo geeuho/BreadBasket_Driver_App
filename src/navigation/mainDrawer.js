@@ -20,15 +20,15 @@ const mainDrawer = () => {
                     drawerIcon: () => { return <Icon name = "home" size = {25}/>}
                 }}
             />
-            <Drawer.Screen name = "Profile" component={ProfileScreen}
-                options = {{ 
-                    drawerIcon: () => { return <Icon name = "account" size = {25}/>}
-                }}
-            />
             <Drawer.Screen name = "Orders" component={OrdersScreen} 
                 options = {{ 
                     drawerIcon: () => { return <Icon name = "cart" size = {25}/>},
                     drawerLockMode: 'unlocked'
+                }}
+            />
+            <Drawer.Screen name = "Profile" component={ProfileScreen}
+                options = {{ 
+                    drawerIcon: () => { return <Icon name = "account" size = {25}/>}
                 }}
             />
             <Drawer.Screen name= "Earnings" component={EarningsScreen} 

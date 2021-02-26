@@ -3,7 +3,7 @@ import Header from "../header/Header"
 import OrderBox from '../components/OrderBox'
 import { connect } from 'react-redux'
 import {getActiveOrders} from '../actions'
-import { ScrollView, StyleSheet, TouchableOpacity } from 'react-native'
+import { ScrollView, StyleSheet, TouchableOpacity, View } from 'react-native'
 
 class OrdersScreen extends React.Component {
 
@@ -41,10 +41,12 @@ class OrdersScreen extends React.Component {
 
     render(){
         return(
-            <ScrollView>
+            <View>
                 <Header icon = "arrow-left-thick" navigation={this.props.navigation}  title = {"Active Orders"}/>
-                {this.renderOrderBoxes()}
-            </ScrollView>
+                <ScrollView>
+                    {this.renderOrderBoxes()}
+                </ScrollView>
+            </View>
         )
     }
 }

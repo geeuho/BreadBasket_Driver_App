@@ -54,23 +54,8 @@ class App extends React.Component{
           </PaperProvider>
         </PersistGate>
       </StoreProvider>
-        //   /* <NavigationContainer>
-        //   <Stack.Navigator>
-        //     <Stack.Screen 
-        //       name = "Home" 
-        //       component = {HomeScreen}
-        //       // options = {{
-        //       //   headerRight: ()=>  (
-        //       //     <Button title = "button" onPress = {() => alert('This is a button!')}/>
-        //       //   )
-        //       // }}
-        //     />
-        //     <Stack.Screen name= "Profile" component= {ProfileScreen} />
-        //     <Stack.Screen name= "Order" component= {OrderScreen} />
-        //   </Stack.Navigator>
-        // </NavigationContainer> */
       
-        )
+    )
 
   }
 }

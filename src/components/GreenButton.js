@@ -4,7 +4,7 @@ import { Text, TouchableOpacity, StyleSheet } from 'react-native'
 const GreenButton = (props) => {
     return (
         <TouchableOpacity style = {styles.green_button}  onPress = {props.onPressAction}>
-            <Text style = {{fontWeight: 'bold', fontSize: 20}}>{props.text}</Text>
+            <Text style = {{color: 'white', fontWeight: 'bold', fontSize: 20}}>{props.text}</Text>
         </TouchableOpacity>
     )
 }
