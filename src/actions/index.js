@@ -43,7 +43,6 @@ export const getStore = (id) => async() => {
 // ORDERS
 
 export const acceptOrder = (orderId, address, orderItems, order_count, unit_count)=> {
-    console.log(address)
     return { 
         type: "ACCEPT_ORDER", 
         payload: {
@@ -53,6 +52,18 @@ export const acceptOrder = (orderId, address, orderItems, order_count, unit_coun
             order_count: order_count,
             unit_count: unit_count
         }
+    }
+}
+
+export const startOrder = () => {
+    return {
+        type: "START_ORDER"
+    }
+}
+
+export const finishOrder = () => {
+    return {
+        type: "FINISH_ORDER"
     }
 }
 

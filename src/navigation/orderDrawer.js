@@ -19,8 +19,18 @@ const Drawer = createDrawerNavigator();
 
 
 const orderDrawer = ({currentOrderScreen}) => {
+    let initialScreen = (screen) => {
+        if(screen === 'nav'){
+            return "OrderNav"
+        } else if (screen === 'shop'){
+            return "OrderShop"
+        } else if (screen === 'delivery'){
+            return "OrderDelivery"
+        }
+        
+    }
     return(
-        <Drawer.Navigator initialRouteName = "OrderNav">
+        <Drawer.Navigator initialRouteName = {initialScreen(currentOrderScreen)}>
             <Drawer.Screen name = "Home" component = {HomeScreen} 
                 options = {{ 
                     drawerIcon: () => { return <Icon name = "home" size = {25}/>},
@@ -31,8 +41,8 @@ const orderDrawer = ({currentOrderScreen}) => {
                 currentOrderScreen === 'nav' ? 
                 <Drawer.Screen name = "OrderNav" component={OrderNavScreen}
                     options = {{ 
-                        drawerIcon: () => { return <Icon name = "cart" size = {25}/>},
-                        title: 'Return To Order'
+                        drawerIcon: () => { return <Icon name = "store" size = {25}/>},
+                        title: 'Go to Store'
                     }}
                 />
                 : 
@@ -42,7 +52,8 @@ const orderDrawer = ({currentOrderScreen}) => {
                 currentOrderScreen === 'shop' ? 
                 <Drawer.Screen name = "OrderShop" component={OrderShopScreen}
                     options = {{ 
-                        drawerIcon: () => { return <Icon name = "account" size = {25}/>}
+                        drawerIcon: () => { return <Icon name = "shopping" size = {25}/>},
+                        title: 'Complete Order'
                     }}
                 />
                 : 
@@ -52,7 +63,8 @@ const orderDrawer = ({currentOrderScreen}) => {
                 currentOrderScreen === 'delivery' ? 
                 <Drawer.Screen name = "OrderDelivery" component={OrderDeliveryScreen}
                     options = {{ 
-                        drawerIcon: () => { return <Icon name = "account" size = {25}/>}
+                        drawerIcon: () => { return <Icon name = "truck-fast" size = {25}/>},
+                        title: 'Complete Delivery'
                     }}
                 />
                 : 

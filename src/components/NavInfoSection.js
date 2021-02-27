@@ -1,22 +1,29 @@
 import React from 'react'
-import {View, Text, StyleSheet} from 'react-native'
+import {View, Text, StyleSheet, TouchableOpacity} from 'react-native'
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 
 const NavInfoSection = ({letter, name, order_count, unit_count}) => {
+
+    function navInfo(){
+        console.log('hi')
+    }
+
     // {current_order.order_count} items • {current_order.unit_count} units Allen Shin
     return (
-        <View style = {styles.order_info}>
-            <View style = {styles.row}>
-                <View style = {styles.order_letter}>
-                    <Text style = {{fontWeight: 'bold', color: "white"}}>{letter}</Text>
+        <TouchableOpacity onPress = {navInfo}>
+            <View style = {styles.order_info}>
+                <View style = {styles.row}>
+                    <View style = {styles.order_letter}>
+                        <Text style = {{fontWeight: 'bold', color: "white"}}>{letter}</Text>
+                    </View>
+                    <View>
+                        <Text style = {styles.shopper_name}>{name}</Text>
+                        <Text style = {styles.order_count}>{order_count} items • {unit_count} units</Text>
+                    </View>
                 </View>
-                <View>
-                    <Text style = {styles.shopper_name}>{name}</Text>
-                    <Text style = {styles.order_count}>{order_count} items • {unit_count} units</Text>
-                </View>
+                <Icon name = "chevron-right" size = {30}></Icon>
             </View>
-            <Icon name = "chevron-right" size = {30}></Icon>
-        </View>
+        </TouchableOpacity>
 
     )
 }

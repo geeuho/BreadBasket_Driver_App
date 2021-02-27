@@ -21,6 +21,7 @@ import EarningsScreen from "./src/screens/EarningsScreen"
 
 //Order Screens
 import OrderNavScreen from './src/screens/OrderNavScreen'
+import OrderShopScreen from './src/screens/OrderShopScreen'
 
 const Stack = createStackNavigator()
 
@@ -52,6 +53,7 @@ class App extends React.Component{
                 <Stack.Screen name = "AcceptOrder" component = {AcceptOrderScreen} />
                 <Stack.Screen name = "Earnings" component={EarningsScreen} />
                 <Stack.Screen name = "OrderNav" component={orderDrawer} />
+                <Stack.Screen name = "OrderShop" component = {orderDrawer}/> 
               </Stack.Navigator>
             </NavigationContainer>
           </PaperProvider>

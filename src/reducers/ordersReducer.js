@@ -51,7 +51,6 @@ export default (state = INITIAL_STATE, action) => {
     }
 
     if(action.type === "ACCEPT_ORDER"){
-        console.log(typeof action.payload, action.payload)
         let foundOrder = state.active_orders.find(order => order.id === action.payload.orderId)
 
         return{...state, 
@@ -67,7 +66,12 @@ export default (state = INITIAL_STATE, action) => {
     }
 
     if(action.type === "START_ORDER"){
-        return{...state, current_order_screen: 'shop'}
+        return{...state,
+            current_order: {
+                ...state.current_order,
+                screen: 'shop'
+            }
+        }
     }
 
     return state

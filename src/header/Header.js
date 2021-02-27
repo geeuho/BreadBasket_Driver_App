@@ -25,7 +25,12 @@ const Header = props => {
             <Appbar.Action icon = {props.icon} onPress = {navFunction()}> 
             </Appbar.Action> 
             <Appbar.Content title = {props.previous ? "Home" : props.title}/>
-            <Appbar.Action icon = "dots-vertical" onPress = {() => goSettings()}/>
+            {
+                props.title === "Settings"?
+                null
+                :
+                <Appbar.Action icon = "dots-vertical" onPress = {() => goSettings()}/>
+            }
         </Appbar.Header>
     )
 }

@@ -1,6 +1,7 @@
 import React from 'react'
 import {Text, View, StyleSheet} from 'react-native'
 import {connect} from 'react-redux'
+import { startOrder } from '../actions'
 import Header from '../header/Header'
 import NavInfoSection from '../components/NavInfoSection'
 import BigButton from '../components/BigButton'
@@ -9,14 +10,19 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 
 class OrderNavScreen extends React.Component {
 
-componentDidMount(){
-    // console.log(this.props.currentOrder)
-}
+    componentDidMount(){
+        // console.log(this.props.currentOrder)
+    }
+    
+    startOrder = () =>{
+        this.props.navigation.navigate("OrderShop")
+        this.props.startOrder()
+    }
 
-// Need to get order info to check address and order details
-// Need to get map and navigate button to get app to maps for navigation from current to location
-// Need to get current location to check whether its right location 
-// Need start shopping order button when current location is near store 
+    // Need to get order info to check address and order details
+    // Need to get map and navigate button to get app to maps for navigation from current to location
+    // Need to get current location to check whether its right location 
+    // Need start shopping order button when current location is near store 
 
     render(){
         let current_order= this.props.currentOrder
@@ -24,7 +30,7 @@ componentDidMount(){
             <View>
                 <Header icon = "menu" styles = {{'backgroundColor': '#98fb98'}} navigation={this.props.navigation} />
                 <View style = {styles.view}>
-                  
+
                     <Text style = {styles.header}>
                         Head to Store
                     </Text>
@@ -44,8 +50,8 @@ componentDidMount(){
                     <View style = {styles.border}></View>
                     <Text style = {styles.order_header}>Order</Text>
                     <NavInfoSection letter = "A" name = "Allen Shin" order_count = {current_order.order_count} unit_count = {current_order.unit_count}/> 
-                    <View style = {{marginTop: 150}}>
-                        <BigButton color= "green" text = "Start Order"/>
+                    <View style = {{marginTop: 145}}>
+                        <BigButton color= "green" text = "Start Order" onPressAction = {() => this.startOrder()}/>
                     </View>
                 </View>
             </View>
@@ -102,4 +108,4 @@ let mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps)(OrderNavScreen)
+export default connect(mapStateToProps, {startOrder})(OrderNavScreen)
