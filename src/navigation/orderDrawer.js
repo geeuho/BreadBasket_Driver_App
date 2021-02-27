@@ -21,29 +21,6 @@ const orderDrawer = ({currentOrderScreen}) => {
     useEffect(() => {
         console.log(currentOrderScreen)
     })
-
-    let renderCurrentOrder = (screen) => {
-        let component 
-        let routeName
-        if(screen === 'nav'){
-            component = OrderNavScreen
-            routeName = 'OrderNav' 
-        } else if(screen === 'shop'){
-            component = OrderShopScreen
-            routeName = 'OrderShop' 
-        } else if(screen === 'delivery'){
-            component = OrderDeliveryScreen
-            routeName = 'OrderDelivery' 
-        }
-        return (
-            <Drawer.Screen name = {routeName} component={component} 
-                options = {{ 
-                    drawerIcon: () => { return <Icon name = "cart" size = {25}/>},
-                    title: 'Return to Order'
-                }}
-            />
-        )
-    }
     
     return(
         <Drawer.Navigator initialRouteName = "OrderNav">
@@ -52,7 +29,8 @@ const orderDrawer = ({currentOrderScreen}) => {
                 currentOrderScreen === 'nav' ? 
                 <Drawer.Screen name = "OrderNav" component={OrderNavScreen}
                     options = {{ 
-                        drawerIcon: () => { return <Icon name = "account" size = {25}/>}
+                        drawerIcon: () => { return <Icon name = "cart" size = {25}/>},
+                        title
                     }}
                 />
                 : 
