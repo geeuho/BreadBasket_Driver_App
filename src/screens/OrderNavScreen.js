@@ -3,6 +3,7 @@ import {Text, View, StyleSheet} from 'react-native'
 import {connect} from 'react-redux'
 import Header from '../header/Header'
 import BigButton from '../components/BigButton'
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 
 class OrderNavScreen extends React.Component {
 
@@ -35,8 +36,26 @@ componentDidMount(){
                     <Text style = {styles.store_address}>
                         {`${current_order.address.street + ' ' + current_order.address.city + ', ' + current_order.address.state}`}
                     </Text>
-                    
-                    <BigButton color = "gray" text = "Navigate"/> 
+                    <View style = {styles.button_section}>
+                        <BigButton color = "gray" text = "Navigate"/> 
+                    </View>
+                    <View style = {styles.border}></View>
+                    <Text style = {styles.order_header}>Order</Text>
+                    <View style = {styles.order_info}>
+                        <View style = {styles.row}>
+                            <View style = {styles.order_letter}>
+                                <Text style = {{fontWeight: 'bold', color: "white"}}>A</Text>
+                            </View>
+                            <View>
+                                <Text style = {styles.shopper_name}>Allen Shin</Text>
+                                <Text style = {styles.order_count}>{current_order.order_count} items • {current_order.unit_count} units</Text>
+                            </View>
+                        </View>
+                        <Icon name = "chevron-right" size = {30}></Icon>
+                    </View>
+                    <View style = {{marginTop: 150}}>
+                        <BigButton color= "green" text = "Start Order"/>
+                    </View>
                 </View>
             </View>
         )
@@ -48,8 +67,14 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         fontSize: 30
     },
+    row: {
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'center',
+    },
     view: {
-        padding: 15
+        padding: 25, 
+        height: '100%'
     },
     map: {
         backgroundColor: 'blue',
@@ -67,7 +92,49 @@ const styles = StyleSheet.create({
     store_address: {
         color: 'gray',
         marginTop: 5
-    }
+    },
+    button_section: {
+        marginTop: 10,
+        marginBottom: 10
+    },
+    border: {
+        borderBottomWidth: 1,
+        borderBottomColor: 'lightgray'
+    },
+    order_header: {
+        fontSize: 25,
+        fontWeight: 'bold',
+        marginTop: 20,
+        marginBottom: 20
+    },
+    shopper_name: {
+        fontSize: 20,
+        fontWeight: 'bold',
+    },
+    order_count: {
+        color: 'gray',
+        marginTop: 5
+    },
+    order_info: {
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        marginLeft: 30,
+        marginLeft: 20
+    },
+    order_letter: {
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center',
+        top: 5,
+        right: 7,
+        borderRadius: 10,
+        width: 20,
+        height: 20,
+        backgroundColor: '#3cb371'
+    },
+
 })
 
 let mapStateToProps = state => {

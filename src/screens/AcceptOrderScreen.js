@@ -13,7 +13,8 @@ const AcceptOrderScreen = ({route, navigation, getOrderItems, orderItems, accept
     }, [])
 
     let acceptOrderAction = () => {
-        acceptOrder(route.params.orderId, route.params.address, orderItems),
+        let params = route.params
+        acceptOrder(params.orderId, params.address, orderItems, params.orderCount, params.unitCount),
         navigation.push('OrderNav')
     }
 

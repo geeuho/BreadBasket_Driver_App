@@ -42,14 +42,16 @@ export const getStore = (id) => async() => {
 
 // ORDERS
 
-export const acceptOrder = (orderId, address, orderItems)=> {
+export const acceptOrder = (orderId, address, orderItems, order_count, unit_count)=> {
     console.log(address)
     return { 
         type: "ACCEPT_ORDER", 
         payload: {
             orderId: orderId.toString(),
             address: address,
-            orderItems: orderItems
+            orderItems: orderItems,
+            order_count: order_count,
+            unit_count: unit_count
         }
     }
 }

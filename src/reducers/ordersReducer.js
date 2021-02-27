@@ -2,7 +2,9 @@ let INITIAL_STATE = {
     current_order: {
         screen: null,
         address: null,
-        items: [],
+        order_count: null,
+        unit_count: null,
+        items: []
     },
     active_orders: [],
     completed_orders: [],
@@ -52,13 +54,14 @@ export default (state = INITIAL_STATE, action) => {
         console.log(typeof action.payload, action.payload)
         let foundOrder = state.active_orders.find(order => order.id === action.payload.orderId)
 
-        
         return{...state, 
             current_order: {
                 ...foundOrder,
                 screen: 'nav',
                 address: action.payload.address,
-                items: action.payload.orderItems
+                items: action.payload.orderItems,
+                order_count: action.payload.order_count,
+                unit_count: action.payload.unit_count,
             }
         }
     }
