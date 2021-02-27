@@ -21,7 +21,7 @@ const Header = props => {
     }
 
     return (
-        <Appbar.Header>
+        <Appbar.Header style = {props.styles? props.styles: ""}>
             <Appbar.Action icon = {props.icon} onPress = {navFunction()}> 
             </Appbar.Action> 
             <Appbar.Content title = {props.previous ? "Home" : props.title}/>
@@ -29,5 +29,6 @@ const Header = props => {
         </Appbar.Header>
     )
 }
+
 
 export default Header

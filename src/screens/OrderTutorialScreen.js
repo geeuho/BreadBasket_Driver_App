@@ -5,7 +5,7 @@ import Header from '../header/Header'
 const OrderTutorialScreen = props => {
     return(
         <View>
-            <Header icon = "arrow-left-thick" navigation={this.props.navigation}  title = {"Order Tutorial"}/>
+            <Header icon = "arrow-left-thick" navigation={props.navigation}  title = {"Order Tutorial"}/>
             <ScrollView>
                 <Text style = {styles.header}>
                     Order Tutorial Screen

@@ -8,8 +8,6 @@ import OrderItemImage from '../components/OrderItemImage'
 
 const AcceptOrderScreen = ({route, navigation, getOrderItems, orderItems, acceptOrder, currentOrder}) => {
 
-    let[current_order] = useState('current')
-
     useEffect(() => {
         getOrderItems(route.params.orderId)
     }, [])
@@ -57,7 +55,6 @@ const AcceptOrderScreen = ({route, navigation, getOrderItems, orderItems, accept
                         showsHorizontalScrollIndicator={false}
                         keyExtractor = {item => item.id}
                         renderItem = {({item, id}) => {    
-                            console.log(item) 
                             return (
                                 <OrderItemImage key = {id} image = {item.item.image} count = {item.quantity_num}/>
                             )    

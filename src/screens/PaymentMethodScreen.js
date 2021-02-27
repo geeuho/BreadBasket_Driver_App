@@ -5,7 +5,7 @@ import Header from '../header/Header'
 const PaymentMethodScreen = props => {
     return(
         <View>
-            <Header icon = "arrow-left-thick" navigation={this.props.navigation}  title = {"Payment Method"}/>
+            <Header icon = "arrow-left-thick" navigation={props.navigation}  title = {"Payment Method"}/>
             <ScrollView>
                 <Text style = {styles.header}>
                     Payment Method Screen

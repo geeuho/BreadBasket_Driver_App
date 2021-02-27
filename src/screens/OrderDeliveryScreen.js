@@ -3,7 +3,7 @@ import {Text, View, ScrollView, StyleSheet} from 'react-native'
 import {connect} from 'react-redux'
 import Header from '../header/Header'
 
-const OrderNavScreen = ({currentOrder, navigation}) => {
+const OrderDeliveryScreen = ({currentOrder, navigation}) => {
 
 // Need to get order info to check address and order details
 // Need to get map and navigate button to get app to maps for navigation from current to location
@@ -19,7 +19,7 @@ const OrderNavScreen = ({currentOrder, navigation}) => {
             <Header icon = "menu" styles = {{'backgroundColor': '#98fb98'}} navigation={navigation} />
             <ScrollView>
                 <Text style = {styles.header}>
-                    Order Nav Screen
+                    Order Delivery Screen
                 </Text>
             </ScrollView>
         </View>
@@ -39,4 +39,4 @@ let mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps)(OrderNavScreen)
+export default connect(mapStateToProps)(OrderDeliveryScreen)

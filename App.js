@@ -51,7 +51,7 @@ class App extends React.Component{
                 <Stack.Screen name = "Settings" component = {SettingsScreen} />
                 <Stack.Screen name = "AcceptOrder" component = {AcceptOrderScreen} />
                 <Stack.Screen name = "Earnings" component={EarningsScreen} />
-                <Stack.Screen name = "OrderNav" component={OrderNavScreen} />
+                <Stack.Screen name = "OrderNav" component={orderDrawer} />
               </Stack.Navigator>
             </NavigationContainer>
           </PaperProvider>
