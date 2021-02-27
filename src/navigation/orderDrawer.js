@@ -30,7 +30,7 @@ const orderDrawer = ({currentOrderScreen}) => {
                 <Drawer.Screen name = "OrderNav" component={OrderNavScreen}
                     options = {{ 
                         drawerIcon: () => { return <Icon name = "cart" size = {25}/>},
-                        title
+                        title: 'Return To Order'
                     }}
                 />
                 : 
