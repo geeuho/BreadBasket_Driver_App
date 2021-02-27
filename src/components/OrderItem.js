@@ -1,11 +1,11 @@
-import React from 'react'
-import {View, Text, StyleSheet, Image} from 'react-native'
+import React  from 'react'
+import {View, Text, StyleSheet, Image, TouchableOpacity} from 'react-native'
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 
 const OrderItem = (props) => {
 
     renderUnit = () => {
-        if(props.unit === 'pound'){
+        if(props.item.quantity_unit === 'pound'){
             if(props.count > 1){
                 return 'pounds'
             } else {
@@ -21,15 +21,19 @@ const OrderItem = (props) => {
     }
 
     return(
-        <View style = {styles.section}>
-            <Image style = {styles.image} source = {{uri: `${props.image}`}}></Image>
-            <View style = {styles.itemInfo}>
-                <Text style = {{fontSize: 25 ,fontWeight: 'bold'}}>{props.count} {this.renderUnit()}</Text>
-                <Text style = {{fontSize: 20}}>{props.name}</Text>
-                <Text style = {{fontSize: 20, color:'gray'}}>{capitalize(props.category)}</Text>
+        <TouchableOpacity onPress = {() => props.navigation.push('ItemScan', {
+            item: props.item
+        })}>
+            <View style = {styles.section}>
+                <Image style = {styles.image} source = {{uri: `${props.item.image}`}}></Image>
+                <View style = {styles.itemInfo}>
+                    <Text style = {{fontSize: 25 ,fontWeight: 'bold'}}>{props.count} {this.renderUnit()}</Text>
+                    <Text style = {{fontSize: 20}}>{props.item.name}</Text>
+                    <Text style = {{fontSize: 20, color:'gray'}}>{capitalize(props.item.category)}</Text>
+                </View>
+                <Icon style = {styles.icon} name = "chevron-right" size = {40}/>
             </View>
-            <Icon style = {styles.icon} name = "chevron-right" size = {40}/>
-        </View>
+        </TouchableOpacity>
     )
 }
 

@@ -34,22 +34,6 @@ class OrderShopScreen extends React.Component {
         }
     }
 
-    renderItems = () => {
-        return(
-            <FlatList 
-                style = {styles.itemList}
-                data = {this.state.renderedItems} 
-                horizontal = {false}
-                showsVerticalScrollIndicator={false}
-                keyExtractor = {item => item.id}
-                renderItem = {({item, id}) => {    
-                    return (
-                        <OrderItem key = {id} image = {item.item.image} count = {item.quantity_num}/>
-                    )    
-                }}
-            />
-        ) 
-    }
 
 //Need to create a tab bar for each of the item sections
 //Tab bar triggers different list to render, not pages
@@ -73,7 +57,7 @@ class OrderShopScreen extends React.Component {
                     keyExtractor = {item => item.id}
                     renderItem = {({item, id}) => {    
                         return (
-                            <OrderItem key = {id} image = {item.item.image} count = {item.quantity_num} unit = {item.item.quantity_unit} name = {item.item.name} category = {item.item.category}/>
+                            <OrderItem key = {id} item = {item.item} navigation = {this.props.navigation} count = {item.quantity_num}/>
                         )    
                     }}
                 />

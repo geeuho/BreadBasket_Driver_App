@@ -18,6 +18,7 @@ import ProfileScreen from "./src/screens/ProfileScreen";
 import OrdersScreen from "./src/screens/OrdersScreen";
 import SettingsScreen from "./src/screens/SettingsScreen"
 import EarningsScreen from "./src/screens/EarningsScreen"
+import ItemScanScreen from './src/screens/ItemScanScreen'
 
 //Order Screens
 import OrderNavScreen from './src/screens/OrderNavScreen'
@@ -54,6 +55,7 @@ class App extends React.Component{
                 <Stack.Screen name = "Earnings" component={EarningsScreen} />
                 <Stack.Screen name = "OrderNav" component={orderDrawer} />
                 <Stack.Screen name = "OrderShop" component = {orderDrawer}/> 
+                <Stack.Screen name = "ItemScan" component = {ItemScanScreen}/>
               </Stack.Navigator>
             </NavigationContainer>
           </PaperProvider>
