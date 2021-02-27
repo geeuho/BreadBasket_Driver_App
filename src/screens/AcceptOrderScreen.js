@@ -14,6 +14,11 @@ const AcceptOrderScreen = ({route, navigation, getOrderItems, orderItems, accept
         getOrderItems(route.params.orderId)
     }, [])
 
+    let acceptOrderAction = () => {
+        acceptOrder(route.params.orderId)
+        navigation.push('OrderNav')
+    }
+
     return(
     
         <View style = {styles.screen}>
@@ -60,7 +65,7 @@ const AcceptOrderScreen = ({route, navigation, getOrderItems, orderItems, accept
                     />
                 </View>
                 
-                <GreenButton text = "Accept Order" onPressAction = {() => acceptOrder(route.params.orderId)}/> 
+                <GreenButton text = "Accept Order" onPressAction = {() => acceptOrderAction()}/> 
               
             </ScrollView>
         </View>

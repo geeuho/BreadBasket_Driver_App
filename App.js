@@ -11,11 +11,16 @@ import { store, persistor} from './src/store'
 import mainDrawer from './src/navigation/mainDrawer'
 import orderDrawer from './src/navigation/orderDrawer'
 import Header from './src/header/Header'
+
+//Main Screens
 import AcceptOrderScreen from "./src/screens/AcceptOrderScreen"
 import ProfileScreen from "./src/screens/ProfileScreen";
 import OrdersScreen from "./src/screens/OrdersScreen";
 import SettingsScreen from "./src/screens/SettingsScreen"
 import EarningsScreen from "./src/screens/EarningsScreen"
+
+//Order Screens
+import OrderNavScreen from './src/screens/OrderNavScreen'
 
 const Stack = createStackNavigator()
 
@@ -46,6 +51,7 @@ class App extends React.Component{
                 <Stack.Screen name = "Settings" component = {SettingsScreen} />
                 <Stack.Screen name = "AcceptOrder" component = {AcceptOrderScreen} />
                 <Stack.Screen name = "Earnings" component={EarningsScreen} />
+                <Stack.Screen name = "OrderNav" component={OrderNavScreen} />
               </Stack.Navigator>
             </NavigationContainer>
           </PaperProvider>
