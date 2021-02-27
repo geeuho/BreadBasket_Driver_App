@@ -4,6 +4,7 @@ import {connect} from 'react-redux'
 import OrderNavScreen from "../screens/OrderNavScreen";
 import OrderShopScreen from "../screens/OrderShopScreen";
 import OrderDeliveryScreen from "../screens/OrderDeliveryScreen";
+import HomeScreen from "../screens/HomeScreen"
 
 import OrderHistoryScreen from "../screens/OrderHistoryScreen";
 import OrderTutorialScreen from "../screens/OrderTutorialScreen";
@@ -18,13 +19,14 @@ const Drawer = createDrawerNavigator();
 
 
 const orderDrawer = ({currentOrderScreen}) => {
-    useEffect(() => {
-        console.log(currentOrderScreen)
-    })
-    
     return(
         <Drawer.Navigator initialRouteName = "OrderNav">
-            {/* {renderCurrentOrder(currentOrderScreen)} */}
+            <Drawer.Screen name = "Home" component = {HomeScreen} 
+                options = {{ 
+                    drawerIcon: () => { return <Icon name = "home" size = {25}/>},
+                    
+                }}
+            />
             {
                 currentOrderScreen === 'nav' ? 
                 <Drawer.Screen name = "OrderNav" component={OrderNavScreen}
@@ -76,8 +78,8 @@ const orderDrawer = ({currentOrderScreen}) => {
 }
 
 let mapStateToProps = state => {
-    return{
-        currentOrderScreen: state.orders.current_order_screen
+    return {
+        currentOrderScreen: state.orders.current_order.screen
     }
 }
 

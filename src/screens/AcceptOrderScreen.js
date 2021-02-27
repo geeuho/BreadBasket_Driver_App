@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import {getActiveOrders, getOrderItems, acceptOrder} from '../actions'
 import { Text, View, StyleSheet, TouchableOpacity, ScrollView, FlatList, Image, Button} from 'react-native'
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
-import GreenButton from '../components/GreenButton'
+import BigButton from '../components/BigButton'
 import OrderItemImage from '../components/OrderItemImage'
 
 const AcceptOrderScreen = ({route, navigation, getOrderItems, orderItems, acceptOrder, currentOrder}) => {
@@ -13,7 +13,7 @@ const AcceptOrderScreen = ({route, navigation, getOrderItems, orderItems, accept
     }, [])
 
     let acceptOrderAction = () => {
-        acceptOrder(route.params.orderId)
+        acceptOrder(route.params.orderId, route.params.address, orderItems),
         navigation.push('OrderNav')
     }
 
@@ -62,7 +62,7 @@ const AcceptOrderScreen = ({route, navigation, getOrderItems, orderItems, accept
                     />
                 </View>
                 
-                <GreenButton text = "Accept Order" onPressAction = {() => acceptOrderAction()}/> 
+                <BigButton color="green" text = "Accept Order" onPressAction = {() => acceptOrderAction()}/> 
               
             </ScrollView>
         </View>

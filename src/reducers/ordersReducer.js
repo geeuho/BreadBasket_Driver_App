@@ -1,7 +1,9 @@
 let INITIAL_STATE = {
-    current_order: null,
-    current_order_screen: null,
-    current_order_items: [],
+    current_order: {
+        screen: null,
+        address: null,
+        items: [],
+    },
     active_orders: [],
     completed_orders: [],
     order_items: [],
@@ -47,11 +49,17 @@ export default (state = INITIAL_STATE, action) => {
     }
 
     if(action.type === "ACCEPT_ORDER"){
-        // console.log(typeof action.payload, action.payload)
-        let foundOrder = state.active_orders.find(order => order.id === action.payload)
+        console.log(typeof action.payload, action.payload)
+        let foundOrder = state.active_orders.find(order => order.id === action.payload.orderId)
+
+        
         return{...state, 
-            current_order: state.active_orders.find(order =>  order.id === action.payload),
-            current_order_screen: 'nav'
+            current_order: {
+                ...foundOrder,
+                screen: 'nav',
+                address: action.payload.address,
+                items: action.payload.orderItems
+            }
         }
     }
 

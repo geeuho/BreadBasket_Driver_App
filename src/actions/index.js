@@ -42,8 +42,16 @@ export const getStore = (id) => async() => {
 
 // ORDERS
 
-export const acceptOrder = orderId => {
-    return { type: "ACCEPT_ORDER", payload: parseInt(orderId)}
+export const acceptOrder = (orderId, address, orderItems)=> {
+    console.log(address)
+    return { 
+        type: "ACCEPT_ORDER", 
+        payload: {
+            orderId: orderId.toString(),
+            address: address,
+            orderItems: orderItems
+        }
+    }
 }
 
 export const getActiveOrders = shopperId => async dispatch => {

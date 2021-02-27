@@ -14,7 +14,7 @@ class OrderShopScreen extends React.Component {
 
         return(
             <View>
-                <Header icon = "menu" styles = {{'backgroundColor': '#98fb98'}} navigation={navigation} />
+                <Header icon = "menu" styles = {{'backgroundColor': '#98fb98'}} navigation={this.props.navigation} />
                 <ScrollView>
                     <Text style = {styles.header}>
                         Order Nav Screen

@@ -21,7 +21,6 @@ class HomeScreen extends React.Component {
     componentDidMount(){
         this.props.getStores()
         this.props.getActiveOrders()
-        console.log(this.props.active_orders)
     } 
 
     componentDidUpdate(prevState){
@@ -65,7 +64,7 @@ class HomeScreen extends React.Component {
                                 <Text style = {{fontSize: 15, marginTop: 10, marginBottom: 15, color: 'gray', textAlign: 'center'}}>If this is your first time driving with us, here's some important information.</Text>
                             </View>
                         </View>
-                        <GreenButton text = "About Page"/> 
+                        <BigButton color= "green" text = "About Page"/> 
                     </Box>
 
                     <Box>
@@ -80,7 +79,7 @@ class HomeScreen extends React.Component {
                                 <Text style = {{fontSize: 15, marginTop: 10, marginBottom: 15, color: 'gray', textAlign: 'center'}}>Learn about our Stripe Payout System, and how earnings are calculated</Text>
                             </View>
                         </View>
-                        <GreenButton text = "How you get paid"/> 
+                        <BigButton color= "green" text = "How you get paid"/> 
                     </Box>
                     <Box>
                         <View style = {styles.section}>
@@ -94,7 +93,7 @@ class HomeScreen extends React.Component {
                                 <Text style = {{fontSize: 15, marginTop: 10, marginBottom: 15, color: 'gray', textAlign: 'center'}}>A step-by-step guide on how to complete BreadBasket orders</Text>
                             </View>
                         </View>
-                        <GreenButton text = "Order Tutorial"/> 
+                        <BigButton color = "green" text = "Order Tutorial"/> 
                     </Box>
                     
                     
