@@ -6,7 +6,7 @@ class ShopBar extends React.Component {
     constructor(){
         super()
         this.state = {
-            selected: null
+            selected: 'todo'
         }
     }
 

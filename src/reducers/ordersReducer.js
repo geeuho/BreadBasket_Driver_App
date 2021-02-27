@@ -4,7 +4,9 @@ let INITIAL_STATE = {
         address: null,
         order_count: null,
         unit_count: null,
-        items: []
+        items: [],
+        pending_items: [],
+        completed_items: []
     },
     active_orders: [],
     completed_orders: [],
