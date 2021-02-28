@@ -18,11 +18,12 @@ import ProfileScreen from "./src/screens/ProfileScreen";
 import OrdersScreen from "./src/screens/OrdersScreen";
 import SettingsScreen from "./src/screens/SettingsScreen"
 import EarningsScreen from "./src/screens/EarningsScreen"
-import ItemScanScreen from './src/screens/ItemScanScreen'
 
 //Order Screens
 import OrderNavScreen from './src/screens/OrderNavScreen'
 import OrderShopScreen from './src/screens/OrderShopScreen'
+import ItemScanScreen from './src/screens/ItemScanScreen'
+import CantFindScreen from './src/screens/CantFindScreen'
 
 const Stack = createStackNavigator()
 
@@ -56,6 +57,7 @@ class App extends React.Component{
                 <Stack.Screen name = "OrderNav" component={orderDrawer} />
                 <Stack.Screen name = "OrderShop" component = {orderDrawer}/> 
                 <Stack.Screen name = "ItemScan" component = {ItemScanScreen}/>
+                <Stack.Screen name = "CantFind" component = {CantFindScreen}/>
               </Stack.Navigator>
             </NavigationContainer>
           </PaperProvider>
