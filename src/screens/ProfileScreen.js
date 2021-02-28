@@ -8,7 +8,7 @@ let imageURL = { uri: 'https://popmenucloud.com/bpwgoysv/e84c0f4a-9442-40c4-a58f
 const ProfileScreen = props => {
     return (
         <View>
-            <Header icon = "arrow-left-thick" title = "Profile" navigation={props.navigation} />
+            <Header icon = "chevron-left" title = "Profile" navigation={props.navigation} />
             <Text style={styles.textStyle}>Profile</Text>
             <Image source = {imageURL} style = {styles.imageStyle}></Image>
             <TouchableOpacity>

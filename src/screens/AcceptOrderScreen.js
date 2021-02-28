@@ -23,7 +23,7 @@ const AcceptOrderScreen = ({route, navigation, getOrderItems, orderItems, accept
         <View style = {styles.screen}>
             <View style = {styles.topSection}>
                 <TouchableOpacity style = {styles.backButton} onPress = {() => {navigation.goBack()}}>
-                    <Icon name = "arrow-left-thick" size = {30}></Icon>
+                    <Icon name = "chevron-left" size = {30}></Icon>
                 </TouchableOpacity>
                 
             </View>

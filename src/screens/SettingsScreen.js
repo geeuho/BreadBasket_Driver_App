@@ -8,7 +8,7 @@ const SettingsScreen = props => {
     return (
         <View style = {styles.screen}>
 
-        <Header title = "Settings" icon = "arrow-left-thick" navigation={props.navigation} />
+        <Header title = "Settings" icon = "chevron-left" navigation={props.navigation} />
         <ScrollView>
             
             

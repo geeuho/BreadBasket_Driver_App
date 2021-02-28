@@ -42,7 +42,7 @@ class OrdersScreen extends React.Component {
     render(){
         return(
             <View style = {styles.screen}>
-                <Header icon = "arrow-left-thick" navigation={this.props.navigation}  title = {"Active Orders"}/>
+                <Header icon = "chevron-left" navigation={this.props.navigation}  title = {"Active Orders"}/>
                 <ScrollView>
                     {this.renderOrderBoxes()}
                 </ScrollView>

@@ -26,10 +26,16 @@ const Header = props => {
             </Appbar.Action> 
             <Appbar.Content title = {props.previous ? "Home" : props.title}/>
             {
-                props.title === "Settings"?
+                props.title === "Settings" ?
                 null
                 :
                 <Appbar.Action icon = "dots-vertical" onPress = {() => goSettings()}/>
+            }
+            {
+                props.message === true ? 
+                <Appbar.Action icon = "message" onPress = {() => goSettings()}/>
+                :
+                null
             }
         </Appbar.Header>
     )

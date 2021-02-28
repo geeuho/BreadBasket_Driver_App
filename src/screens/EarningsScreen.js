@@ -5,7 +5,7 @@ import Header from '../header/Header'
 const EarningsScreen = props => {
     return(
         <View>
-            <Header icon = "arrow-left-thick" navigation={props.navigation}  title = {"Earnings"}/>
+            <Header icon = "chevron-left" navigation={props.navigation}  title = {"Earnings"}/>
             <ScrollView>
                 <Text style = {styles.header}>
                     Earnings Screen

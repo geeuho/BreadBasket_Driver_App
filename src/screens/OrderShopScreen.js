@@ -43,7 +43,7 @@ class OrderShopScreen extends React.Component {
 
         return(
         <View>
-            <Header icon = "menu" styles = {{'backgroundColor': '#98fb98'}} navigation={this.props.navigation} />
+            <Header icon = "menu" styles = {{'backgroundColor': '#98fb98'}} navigation={this.props.navigation} message = {true}/>
             <ShopBar changeItems = {this.changeItems} orderCount = {this.props.orderCount}/>
             <View style = {styles.categorySection}>
                 <Text style = {styles.categoryText}> Section </Text>

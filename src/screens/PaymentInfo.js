@@ -5,7 +5,7 @@ import Header from '../header/Header'
 const PaymentInfoScreen = props => {
     return(
         <View>
-            <Header icon = "arrow-left-thick" navigation={props.navigation}  title = {"Payoment Info"}/>
+            <Header icon = "chevron-left" navigation={props.navigation}  title = {"Payoment Info"}/>
             <ScrollView>
                 <Text style = {styles.header}>
                     Order History Screen

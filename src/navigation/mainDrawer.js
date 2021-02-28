@@ -32,8 +32,8 @@ const mainDrawer = ({currentOrderScreen}) => {
                 currentOrderScreen === 'nav' ? 
                 <Drawer.Screen name = "OrderNav" component={OrderNavScreen}
                     options = {{ 
-                        drawerIcon: () => { return <Icon name = "cart" size = {25}/>},
-                        title: 'Return To Order'
+                        drawerIcon: () => { return <Icon name = "store" size = {25}/>},
+                        title: 'Go to Store'
                     }}
                 />
                 : 
@@ -43,17 +43,19 @@ const mainDrawer = ({currentOrderScreen}) => {
                 currentOrderScreen === 'shop' ? 
                 <Drawer.Screen name = "OrderShop" component={OrderShopScreen}
                     options = {{ 
-                        drawerIcon: () => { return <Icon name = "account" size = {25}/>}
+                        drawerIcon: () => { return <Icon name = "shopping" size = {25}/>},
+                        title: 'Complete Order'
                     }}
                 />
                 : 
-                null
+                nullf
             }
             {
                 currentOrderScreen === 'delivery' ? 
                 <Drawer.Screen name = "OrderDelivery" component={OrderDeliveryScreen}
                     options = {{ 
-                        drawerIcon: () => { return <Icon name = "account" size = {25}/>}
+                        drawerIcon: () => { return <Icon name = "truck-fast" size = {25}/>},
+                        title: 'Complete Delivery'
                     }}
                 />
                 : 
