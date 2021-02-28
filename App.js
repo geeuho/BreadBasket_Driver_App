@@ -7,6 +7,7 @@ import { Provider as StoreProvider} from 'react-redux'
 import { PersistGate } from 'redux-persist/integration/react'
 import { store, persistor} from './src/store'
 
+import Geolocation from '@react-native-community/geolocation'
 
 import mainDrawer from './src/navigation/mainDrawer'
 import orderDrawer from './src/navigation/orderDrawer'
@@ -38,7 +39,12 @@ const theme = {
 }
 
 class App extends React.Component{
-
+  componentDidMount(){
+    Geolocation.setRNConfiguration({
+      "skipPermissionRequests": false,
+      "authorizationLevel": 'whenInUse'
+    })
+  }
   render(){
     return(
       <StoreProvider store = {store}>

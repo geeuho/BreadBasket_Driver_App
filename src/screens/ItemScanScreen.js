@@ -21,8 +21,8 @@ class ItemScanScreen extends React.Component {
         }
     }
 
-    scanItem = () => {
-
+    gotoScan = () => {
+        
     }
 
     render(){
@@ -42,7 +42,7 @@ class ItemScanScreen extends React.Component {
                         {params.category}
                     </Text>
                 </View>
-                <BigButton color = "green" text = "Found Item" onPressAction = {() => this.scanItem()}/>
+                <BigButton color = "green" text = "Found Item" onPressAction = {() => this.gotoScan()}/>
                 <View style = {styles.bottomView}>
                     <View style = {styles.bottomItemInfo}>
                         <Text style = {styles.bottomText}>
@@ -74,7 +74,9 @@ class ItemScanScreen extends React.Component {
                     </View>
                     <View style = {styles.bottomView}>
                         <View style = {styles.bottomItemInfo}>
-                            <TouchableOpacity onPress = {() => this.props.navigation.push("CantFind")} >
+                            <TouchableOpacity onPress = {() => this.props.navigation.push("CantFind", {
+                                item: params.item
+                            })} >
                                 <Text style = {{color: 'green', fontWeight: 'bold', fontSize: 20}}>
                                     Can't Find Item
                                 </Text>

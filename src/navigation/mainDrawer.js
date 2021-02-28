@@ -48,7 +48,7 @@ const mainDrawer = ({currentOrderScreen}) => {
                     }}
                 />
                 : 
-                nullf
+                null
             }
             {
                 currentOrderScreen === 'delivery' ? 

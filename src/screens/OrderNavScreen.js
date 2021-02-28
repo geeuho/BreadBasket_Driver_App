@@ -1,17 +1,24 @@
 import React from 'react'
-import {Text, View, StyleSheet} from 'react-native'
+import {Alert, Text, View, StyleSheet} from 'react-native'
 import {connect} from 'react-redux'
 import { startOrder } from '../actions'
 import Header from '../header/Header'
 import NavInfoSection from '../components/NavInfoSection'
 import BigButton from '../components/BigButton'
+import Map from '../components/Map'
 
+import Geolocation from '@react-native-community/geolocation'
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 
 class OrderNavScreen extends React.Component {
-
-    componentDidMount(){
-        // console.log(this.props.currentOrder)
+    constructor(){
+        super()
+        this.state = {
+            location: null
+        }
+    }
+    componentDidUpdate(){
+        console.log(this.state.location)
     }
     
     startOrder = () =>{
@@ -19,6 +26,18 @@ class OrderNavScreen extends React.Component {
         this.props.startOrder()
     }
 
+    getCurrentPosition = () => {
+        // console.log(navigator.product)
+        Geolocation.getCurrentPosition(
+            position => {
+                const location = JSON.stringify(position)
+                this.setState({location})
+            },
+            error => Alert.alert(error.message),
+            {enableHighAccuracy:true, timeout:20000, maximumAge: 1000}
+        )
+        console.log(this.state.location)
+    }
     // Need to get order info to check address and order details
     // Need to get map and navigate button to get app to maps for navigation from current to location
     // Need to get current location to check whether its right location 
@@ -35,8 +54,7 @@ class OrderNavScreen extends React.Component {
                         Head to Store
                     </Text>
 
-                    <View style = {styles.map}>
-                    </View>
+                    <Map/>
 
                     <Text style = {styles.store_name}>
                         {current_order.attributes.store.name}
@@ -45,7 +63,7 @@ class OrderNavScreen extends React.Component {
                         {`${current_order.address.street + ' ' + current_order.address.city + ', ' + current_order.address.state}`}
                     </Text>
                     <View style = {styles.button_section}>
-                        <BigButton color = "gray" text = "Navigate"/> 
+                        <BigButton color = "gray" text = "Navigate" onPressAction = {() => this.getCurrentPosition()}/> 
                     </View>
                     <View style = {styles.border}></View>
                     <Text style = {styles.order_header}>Order</Text>
