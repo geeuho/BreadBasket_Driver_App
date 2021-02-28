@@ -1,7 +1,8 @@
 import React from 'react'
-import {View, Text, Image, StyleSheet} from 'react-native'
-import Header from '../header/Header'
+import {View, Text, Image, StyleSheet, TouchableOpacity} from 'react-native'
 import { connect } from 'react-redux'
+import Header from '../header/Header'
+import BigButton from '../components/BigButton'
 
 class ItemScanScreen extends React.Component {
     componentDidMount(){
@@ -20,6 +21,10 @@ class ItemScanScreen extends React.Component {
         }
     }
 
+    scanItem = () => {
+
+    }
+
     render(){
         let params = this.props.route.params
         return(
@@ -30,13 +35,57 @@ class ItemScanScreen extends React.Component {
                     <Image style = {styles.image} source = {{uri: `${params.item.image}`}}></Image>
                 </View>
                 <View style = {styles.itemInfoView}>
-                    <Text style = {{fontSize: 30, fontWeight: 'bold'}}>
+                    <Text style = {{fontSize: 27, fontWeight: 'bold', marginBottom: 3}}>
                         {params.count} {this.renderUnit()} {params.item.name}
                     </Text>
                     <Text style = {{fontSize: 20, color: 'gray'}}>
                         {params.category}
                     </Text>
                 </View>
+                <BigButton color = "green" text = "Found Item" onPressAction = {() => this.scanItem()}/>
+                <View style = {styles.bottomView}>
+                    <View style = {styles.bottomItemInfo}>
+                        <Text style = {styles.bottomText}>
+                            Price
+                        </Text>
+            
+                        <Text style = {styles.bottomText}>
+                            ${(params.item.price * .01).toFixed(2)}
+                        </Text>
+                    
+                    </View>
+                    <View style = {styles.border}>
+                    </View>
+                </View>
+                    <View style = {styles.bottomView}>
+                        <View style = {styles.bottomItemInfo}>
+                        
+
+                            <Text style = {styles.bottomText}>
+                                Location
+                            </Text>
+                            <Text style = {styles.bottomText}>
+                                {params.category}
+                            </Text>
+                        </View>
+                        <View style = {styles.border}>
+                        </View>
+                        
+                    </View>
+                    <View style = {styles.bottomView}>
+                        <View style = {styles.bottomItemInfo}>
+                            <TouchableOpacity>
+                                <Text style = {{color: 'green', fontWeight: 'bold', fontSize: 20}}>
+                                    Can't Find Item
+                                </Text>
+                            </TouchableOpacity>
+                            
+                        </View>
+                    <View style = {styles.border}>
+                    </View>
+                    
+                </View>
+
             </View>
         )
     }
@@ -59,7 +108,32 @@ const styles = StyleSheet.create({
     },
     itemInfoView: {
         display: 'flex',
-        justifyContent: 'center'
+        justifyContent: 'center',
+        marginLeft: 20,
+        marginBottom: 20
+    },
+    bottomItemInfo: {
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        width: '93%',
+        marginTop: 22,
+        marginBottom: 22,
+
+    },
+    bottomView: {
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center'
+    },
+    bottomText: {
+        fontWeight: 'bold',
+        fontSize: 20
+    },
+    border: {
+        borderBottomWidth: 1,
+        borderColor: 'lightgray',
+        width: '93%'
     }
 })
 

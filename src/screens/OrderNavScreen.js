@@ -28,7 +28,7 @@ class OrderNavScreen extends React.Component {
         let current_order= this.props.currentOrder
         return(
             <View>
-                <Header icon = "menu" styles = {{'backgroundColor': '#98fb98'}} navigation={this.props.navigation} />
+                <Header icon = "menu" styles = {{'backgroundColor': '#98fb98'}} navigation={this.props.navigation} message = {true} />
                 <View style = {styles.view}>
 
                     <Text style = {styles.header}>
