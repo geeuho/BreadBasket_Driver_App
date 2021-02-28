@@ -1,14 +1,15 @@
 import React from 'react'
 import MapView from 'react-native-maps'
 import Geolocation from '@react-native-community/geolocation'
-import { StyleSheet, Dimensions, View } from 'react-native'
+import { View, StyleSheet } from 'react-native'
 
 class Map extends React.Component {
 
-    constructor(){
+    constructor(props){
         super()
         this.state = {
-            location: null
+            location: null,
+            rounded: props.rounded? 10: 0 
         }
     }
 
@@ -28,11 +29,22 @@ class Map extends React.Component {
         }
     }
 
+    rounded =() => {
+        if(this.props.rounded === true){
+            return {
+                ...StyleSheet.absoluteFillObject,
+                borderRadius: 10
+            }
+        } else {
+            return {...StyleSheet.absoluteFillObject}
+        }
+    }
+
     render(){
         return(
-            <View style = {styles.container}>
+            <View style = {this.props.containerStyles}>
                 <MapView
-                    style = {styles.map}
+                    style = {this.rounded()}
                     initialRegion = {{
                         latitude : 37.785834,
                         longitude : -122.406417,
@@ -47,16 +59,5 @@ class Map extends React.Component {
         )
     }
 }
-
-let styles = StyleSheet.create({
-    container: {
-        height: 200,
-        width: '100%',
-        borderRadius: 10
-    },
-    map: {
-        ...StyleSheet.absoluteFillObject
-    }
-})
 
 export default Map

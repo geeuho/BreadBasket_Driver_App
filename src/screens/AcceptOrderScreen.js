@@ -5,6 +5,7 @@ import { Text, View, StyleSheet, TouchableOpacity, ScrollView, FlatList, Image, 
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 import BigButton from '../components/BigButton'
 import OrderItemImage from '../components/OrderItemImage'
+import Map from '../components/Map'
 
 const AcceptOrderScreen = ({route, navigation, getOrderItems, orderItems, acceptOrder, currentOrder}) => {
 
@@ -21,12 +22,12 @@ const AcceptOrderScreen = ({route, navigation, getOrderItems, orderItems, accept
     return(
     
         <View style = {styles.screen}>
-            <View style = {styles.topSection}>
+        
+                <Map containerStyles = {{height: '60%', width: '100%'}}rounded = {false}/>
                 <TouchableOpacity style = {styles.backButton} onPress = {() => {navigation.goBack()}}>
                     <Icon name = "chevron-left" size = {30}></Icon>
                 </TouchableOpacity>
-                
-            </View>
+          
             <ScrollView style = {styles.bottomSection}>
                 <Text style = {styles.priceText}>
                     {route.params.total}
@@ -83,8 +84,9 @@ const styles = StyleSheet.create({
         right: 20
     },
     backButton: {
-        marginTop: 50,
-        marginLeft: 25
+        position: 'absolute',
+        top: 55,
+        left: 25
     },  
     textStyle:{
         fontSize:30
@@ -94,10 +96,6 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         height: '100%'
     },  
-    topSection: {
-        backgroundColor: 'blue',
-        height: '60%'
-    },
     bottomSection: {
         position: 'absolute',
         left: 0, 

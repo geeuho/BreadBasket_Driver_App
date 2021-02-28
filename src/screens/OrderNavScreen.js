@@ -54,7 +54,7 @@ class OrderNavScreen extends React.Component {
                         Head to Store
                     </Text>
 
-                    <Map/>
+                    <Map containerStyles = {{width: '100%', height: 200}} rounded = {true}/>
 
                     <Text style = {styles.store_name}>
                         {current_order.attributes.store.name}
@@ -80,7 +80,8 @@ class OrderNavScreen extends React.Component {
 const styles = StyleSheet.create({
     header: {
         fontWeight: 'bold',
-        fontSize: 30
+        fontSize: 30,
+        paddingBottom: 20
     },
     view: {
         padding: 25, 
