@@ -1,6 +1,8 @@
 import React from 'react'
 import MapView from 'react-native-maps'
 import Geolocation from '@react-native-community/geolocation'
+import { connect } from 'react-redux'
+import {storeLocation} from '../actions'
 import { View, StyleSheet } from 'react-native'
 
 class Map extends React.Component {
@@ -14,6 +16,7 @@ class Map extends React.Component {
     }
 
     componentDidMount(){
+        console.log("map current", this.props)
         Geolocation.getCurrentPosition(
             position => {
                 this.setState({location: position})
@@ -24,6 +27,7 @@ class Map extends React.Component {
     }
 
     componentDidUpdate(prevState){
+        
         if(prevState.location !== this.state.location){
             console.log(this.state.location.coords.latitude, this.state.location.coords.longitude)
         }
@@ -46,8 +50,8 @@ class Map extends React.Component {
                 <MapView
                     style = {this.rounded()}
                     initialRegion = {{
-                        latitude : 37.785834,
-                        longitude : -122.406417,
+                        latitude : this.props.initialLat,
+                        longitude : this.props.initialLng,
                         latitudeDelta: 0.0922,
                         longitudeDelta: 0.0421,
                     }}

@@ -100,3 +100,12 @@ export const getLocation = () => async dispatch => {
     }
     dispatch({ type: 'GET_LOCATION', payload: response})
 }
+
+export const storeLocation = (lat, lng) => async dispatch => {
+    let coords = {
+        'lat': lat,
+        'lng': lng
+    }
+
+    dispatch({STORE_LOCATION, payload: coords})
+}
