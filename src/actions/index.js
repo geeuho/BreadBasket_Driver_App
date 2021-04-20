@@ -107,5 +107,5 @@ export const storeLocation = (lat, lng) => async dispatch => {
         'lng': lng
     }
 
-    dispatch({STORE_LOCATION, payload: coords})
+    dispatch({type: 'STORE_LOCATION', payload: coords})
 }

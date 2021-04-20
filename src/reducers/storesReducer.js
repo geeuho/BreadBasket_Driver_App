@@ -14,7 +14,7 @@ export default (state = INITIAL_STATE, action) => {
     }
 
     if(action.type === 'STORE_LOCATION'){
-        return {...state, store_location: [action.payload.lat, action.payload.lng]}
+        return {...state, store_location: {"lat": action.payload.lat, "lng":action.payload.lng}}
     }
 
     return state

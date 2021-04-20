@@ -27,9 +27,8 @@ class Map extends React.Component {
     }
 
     componentDidUpdate(prevState){
-        
         if(prevState.location !== this.state.location){
-            console.log(this.state.location.coords.latitude, this.state.location.coords.longitude)
+            // console.log(this.state.location.coords.latitude, this.state.location.coords.longitude)
         }
     }
 
@@ -50,8 +49,8 @@ class Map extends React.Component {
                 <MapView
                     style = {this.rounded()}
                     initialRegion = {{
-                        latitude : this.props.initialLat,
-                        longitude : this.props.initialLng,
+                        latitude : this.props.coords.lat,
+                        longitude : this.props.coords.lng,
                         latitudeDelta: 0.0922,
                         longitudeDelta: 0.0421,
                     }}
@@ -64,4 +63,11 @@ class Map extends React.Component {
     }
 }
 
-export default Map
+const mapStateToProps = (state) => {
+    console.log(state)
+    return {
+        coords: state.stores.store_location
+    }
+}
+
+export default connect(mapStateToProps, {storeLocation})(Map)

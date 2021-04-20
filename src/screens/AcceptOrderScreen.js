@@ -1,6 +1,6 @@
 import React,{useEffect, useState} from 'react'
 import { connect } from 'react-redux'
-import {getActiveOrders, getOrderItems, acceptOrder} from '../actions'
+import {getActiveOrders, getOrderItems, acceptOrder, storeLocation} from '../actions'
 import { Text, View, StyleSheet, TouchableOpacity, ScrollView, FlatList, Image, Button} from 'react-native'
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 import BigButton from '../components/BigButton'
@@ -8,17 +8,17 @@ import OrderItemImage from '../components/OrderItemImage'
 import axios from 'axios'
 import Map from '../components/Map'
 
-const AcceptOrderScreen = ({route, navigation, getOrderItems, orderItems, acceptOrder, currentOrder}) => {
-    
+const AcceptOrderScreen = ({route, navigation, getOrderItems, orderItems, acceptOrder, currentOrder, storeLocation}) => {
+   
 
     useEffect(() => {
+        console.log(storeLocation, navigation)
         getOrderItems(route.params.orderId)
-        let response = axios.get('https://api.geocod.io/v1.6/geocode?q=5600+Pacific+Grove+Way%2c+Union+City+CA&api_key=6c65d05d6b6cc6665c7c3bdf70cf1b55f672506').then(
+        let response = axios.get('https://api.geocod.io/v1.6/geocode?q=5600+Pacific+Grove+Way%2c+Union+City+&api_key=6c65d05d6b6cc6665c7c3bdf70cf1b55f672506').then(
             function(response){
                 let current = response.data.results[0].location
                 console.log(current, current['lat'], current['lng'], 'current')
-                setMapLat(current['lat'])
-                setMapLng(current['lng'])
+                storeLocation(current['lat'], current['lng'])
             }
         ).catch(function(error){
             console.log(error)
@@ -27,21 +27,16 @@ const AcceptOrderScreen = ({route, navigation, getOrderItems, orderItems, accept
         console.log(route.params.address)
     }, [])
 
-    useEffect(() => {
-        console.log(mapLat, mapLng, "update")
-    })
-
     let acceptOrderAction = () => {
         let params = route.params
         acceptOrder(params.orderId, params.address, orderItems, params.orderCount, params.unitCount),
         navigation.push('OrderNav')
     }
 
-    console.log('returned jsx', mapLat, mapLng)
     return(
         <View style = {styles.screen}>
         
-                <Map containerStyles = {{height: '60%', width: '100%'}} intialLat = {mapLat} initialLng = {mapLng} rounded = {false}/>
+                <Map containerStyles = {{height: '60%', width: '100%'}}rounded = {false}/>
                 <TouchableOpacity style = {styles.backButton} onPress = {() => {navigation.goBack()}}>
                     <Icon name = "chevron-left" size = {30}></Icon>
                 </TouchableOpacity>
@@ -166,4 +161,4 @@ let mapStateToProps = (state) => {
         current_order: state.orders.current_order
     })
 }
-export default connect(mapStateToProps, {getActiveOrders, getOrderItems, acceptOrder})(AcceptOrderScreen)
+export default connect(mapStateToProps, {getActiveOrders, getOrderItems, acceptOrder, storeLocation})(AcceptOrderScreen)
