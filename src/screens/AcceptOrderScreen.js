@@ -8,13 +8,16 @@ import OrderItemImage from '../components/OrderItemImage'
 import axios from 'axios'
 import Map from '../components/Map'
 
-const AcceptOrderScreen = ({route, navigation, getOrderItems, orderItems, acceptOrder, currentOrder, storeLocation}) => {
+const AcceptOrderScreen = ({route, navigation, getOrderItems, orderItems, acceptOrder, stores, currentOrder, storeLocation}) => {
    
 
     useEffect(() => {
        
         getOrderItems(route.params.orderId)
-        let response = axios.get('https://api.geocod.io/v1.6/geocode?q=5600+Pacific+Grove+Way%2c+Union+City+CA&api_key=6c65d05d6b6cc6665c7c3bdf70cf1b55f672506').then(
+        let address = route.params.address
+        let queryAddress = `${address.street.split(' ').join('+') + '%2c+' + address.city.split(' ').join('+') + '+' + address.state}`
+        console.log(queryAddress, 'QUERY ADRESSSS')
+        let response = axios.get(`https://api.geocod.io/v1.6/geocode?q=${queryAddress}&api_key=6c65d05d6b6cc6665c7c3bdf70cf1b55f672506`).then(
             function(response){
                 let current = response.data.results[0].location
                 console.log(current, current['lat'], current['lng'], 'current')
@@ -24,7 +27,6 @@ const AcceptOrderScreen = ({route, navigation, getOrderItems, orderItems, accept
             console.log(error)
         })
         console.log(response, 'response')
-        console.log(route.params.address)
     }, [])
 
     let acceptOrderAction = () => {
@@ -158,7 +160,8 @@ const styles = StyleSheet.create({
 let mapStateToProps = (state) => {
     return({
         orderItems: state.orders.order_items,
-        current_order: state.orders.current_order
+        current_order: state.orders.current_order,
+        stores: state.stores
     })
 }
 export default connect(mapStateToProps, {getActiveOrders, getOrderItems, acceptOrder, storeLocation})(AcceptOrderScreen)
