@@ -16,7 +16,6 @@ class Map extends React.Component {
     }
 
     componentDidMount(){
-        console.log("map current", this.props)
         Geolocation.getCurrentPosition(
             position => {
                 this.setState({location: position})

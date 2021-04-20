@@ -12,9 +12,9 @@ const AcceptOrderScreen = ({route, navigation, getOrderItems, orderItems, accept
    
 
     useEffect(() => {
-        console.log(storeLocation, navigation)
+       
         getOrderItems(route.params.orderId)
-        let response = axios.get('https://api.geocod.io/v1.6/geocode?q=5600+Pacific+Grove+Way%2c+Union+City+&api_key=6c65d05d6b6cc6665c7c3bdf70cf1b55f672506').then(
+        let response = axios.get('https://api.geocod.io/v1.6/geocode?q=5600+Pacific+Grove+Way%2c+Union+City+CA&api_key=6c65d05d6b6cc6665c7c3bdf70cf1b55f672506').then(
             function(response){
                 let current = response.data.results[0].location
                 console.log(current, current['lat'], current['lng'], 'current')
