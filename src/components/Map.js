@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import MapView from 'react-native-maps'
+import MapView, {Marker} from 'react-native-maps'
 import Geolocation from '@react-native-community/geolocation'
 import axios from 'axios'
 import { connect } from 'react-redux'
@@ -44,7 +44,14 @@ class Map extends React.Component {
                     }}
                     showsUserLocation = {true}
                     followsUserLocation = {true}
-                />
+                >
+                    <Marker 
+                        // image = {require("../images/Home_earnings.png")}
+                        coordinate = {{latitude: this.props.coords.lat, longitude: this.props.coords.lng}}
+                        title = "Title"
+                        description = "Description"
+                    />
+                </MapView>
 
             </View> 
         )
