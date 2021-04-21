@@ -44,7 +44,8 @@ class OrdersScreen extends React.Component {
                         payment: attributes.payment,
                         orderCount: attributes.order_items.length,
                         unitCount: unitCount,
-                        address: address
+                        address: address,
+                        store_name: name
                         }
                     )
                 }}

@@ -25,7 +25,7 @@ const AcceptOrderScreen = ({route, navigation, getOrderItems, orderItems, accept
     return(
         <View style = {styles.screen}>
         
-                <Map containerStyles = {{height: '60%', width: '100%'}} address = {route.params.address} rounded = {false}/>
+                <Map containerStyles = {{height: '60%', width: '100%'}} address = {route.params.address} store_name = {route.params.store_name} rounded = {false}/>
                 <TouchableOpacity style = {styles.backButton} onPress = {() => {navigation.goBack()}}>
                     <Icon name = "chevron-left" size = {30}></Icon>
                 </TouchableOpacity>

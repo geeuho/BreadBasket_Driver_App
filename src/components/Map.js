@@ -11,7 +11,6 @@ class Map extends React.Component {
     constructor(props){
         super()
         this.state = {
-            location: props.coords,
             rounded: props.rounded? 10: 0 
         }
     }
@@ -48,8 +47,8 @@ class Map extends React.Component {
                     <Marker 
                         // image = {require("../images/Home_earnings.png")}
                         coordinate = {{latitude: this.props.coords.lat, longitude: this.props.coords.lng}}
-                        title = "Title"
-                        description = "Description"
+                        title = {this.props.store_name}
+                        description = "Store Location"
                     />
                 </MapView>
 
