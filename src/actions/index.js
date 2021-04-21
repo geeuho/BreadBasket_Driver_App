@@ -42,7 +42,7 @@ export const getStore = (id) => async() => {
 
 // ORDERS
 
-export const acceptOrder = (orderId, address, orderItems, order_count, unit_count)=> {
+export const acceptOrder = (orderId, address, orderItems, order_count, unit_count, store_name)=> {
     return { 
         type: "ACCEPT_ORDER", 
         payload: {
@@ -50,7 +50,8 @@ export const acceptOrder = (orderId, address, orderItems, order_count, unit_coun
             address: address,
             orderItems: orderItems,
             order_count: order_count,
-            unit_count: unit_count
+            unit_count: unit_count,
+            store_name: store_name
         }
     }
 }

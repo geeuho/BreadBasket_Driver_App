@@ -5,12 +5,10 @@ import { Text, View, StyleSheet, TouchableOpacity, ScrollView, FlatList, Image, 
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 import BigButton from '../components/BigButton'
 import OrderItemImage from '../components/OrderItemImage'
-import axios from 'axios'
 import Map from '../components/Map'
 
-const AcceptOrderScreen = ({route, navigation, getOrderItems, orderItems, acceptOrder, stores, currentOrder, storeLocation}) => {
+const AcceptOrderScreen = ({route, navigation, getOrderItems, orderItems, acceptOrder}) => {
    
-
     useEffect(() => {
 
         getOrderItems(route.params.orderId)
@@ -18,7 +16,7 @@ const AcceptOrderScreen = ({route, navigation, getOrderItems, orderItems, accept
 
     let acceptOrderAction = async() => {
         let params = route.params
-        acceptOrder(params.orderId, params.address, orderItems, params.orderCount, params.unitCount),
+        acceptOrder(params.orderId, params.address, orderItems, params.orderCount, params.unitCount, params.store_name),
         navigation.push('OrderNav')
     }
 
@@ -148,7 +146,7 @@ let mapStateToProps = (state) => {
     return({
         orderItems: state.orders.order_items,
         current_order: state.orders.current_order,
-        stores: state.stores
+        coords: state.stores.store_location
     })
 }
 export default connect(mapStateToProps, {getActiveOrders, getOrderItems, acceptOrder, storeLocation})(AcceptOrderScreen)

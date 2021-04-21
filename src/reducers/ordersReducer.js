@@ -6,7 +6,8 @@ let INITIAL_STATE = {
         unit_count: null,
         items: [],
         pending_items: [],
-        completed_items: []
+        completed_items: [],
+        coords: {}
     },
     active_orders: [],
     completed_orders: [],
@@ -63,6 +64,7 @@ export default (state = INITIAL_STATE, action) => {
                 items: action.payload.orderItems,
                 order_count: action.payload.order_count,
                 unit_count: action.payload.unit_count,
+                store_name: action.payload.store_name
             }
         }
     }
