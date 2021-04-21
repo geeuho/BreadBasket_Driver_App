@@ -12,24 +12,11 @@ const AcceptOrderScreen = ({route, navigation, getOrderItems, orderItems, accept
    
 
     useEffect(() => {
-       
+
         getOrderItems(route.params.orderId)
-        let address = route.params.address
-        let queryAddress = `${address.street.split(' ').join('+') + '%2c+' + address.city.split(' ').join('+') + '+' + address.state}`
-        console.log(queryAddress, 'QUERY ADRESSSS')
-        let response = axios.get(`https://api.geocod.io/v1.6/geocode?q=${queryAddress}&api_key=6c65d05d6b6cc6665c7c3bdf70cf1b55f672506`).then(
-            function(response){
-                let current = response.data.results[0].location
-                console.log(current, current['lat'], current['lng'], 'current')
-                storeLocation(current['lat'], current['lng'])
-            }
-        ).catch(function(error){
-            console.log(error)
-        })
-        console.log(response, 'response')
     }, [])
 
-    let acceptOrderAction = () => {
+    let acceptOrderAction = async() => {
         let params = route.params
         acceptOrder(params.orderId, params.address, orderItems, params.orderCount, params.unitCount),
         navigation.push('OrderNav')
@@ -38,7 +25,7 @@ const AcceptOrderScreen = ({route, navigation, getOrderItems, orderItems, accept
     return(
         <View style = {styles.screen}>
         
-                <Map containerStyles = {{height: '60%', width: '100%'}}rounded = {false}/>
+                <Map containerStyles = {{height: '60%', width: '100%'}} address = {route.params.address} rounded = {false}/>
                 <TouchableOpacity style = {styles.backButton} onPress = {() => {navigation.goBack()}}>
                     <Icon name = "chevron-left" size = {30}></Icon>
                 </TouchableOpacity>

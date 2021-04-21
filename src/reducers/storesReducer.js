@@ -1,7 +1,7 @@
 let INITIAL_STATE = {
     storesList: [],
     selectedStore: null,
-    store_location: [0, 0]
+    store_location: {"lat": 0, "lng": 0}
 }
 
 export default (state = INITIAL_STATE, action) => {
@@ -14,6 +14,7 @@ export default (state = INITIAL_STATE, action) => {
     }
 
     if(action.type === 'STORE_LOCATION'){
+        console.log("ACTION!", action.payload)
         return {...state, store_location: {"lat": action.payload.lat, "lng":action.payload.lng}}
     }
 

@@ -1,6 +1,7 @@
-import React from 'react'
+import React, {useState} from 'react'
 import MapView from 'react-native-maps'
 import Geolocation from '@react-native-community/geolocation'
+import axios from 'axios'
 import { connect } from 'react-redux'
 import {storeLocation} from '../actions'
 import { View, StyleSheet } from 'react-native'
@@ -10,25 +11,13 @@ class Map extends React.Component {
     constructor(props){
         super()
         this.state = {
-            location: null,
+            location: props.coords,
             rounded: props.rounded? 10: 0 
         }
     }
 
     componentDidMount(){
-        Geolocation.getCurrentPosition(
-            position => {
-                this.setState({location: position})
-            },
-            error => Alert.alert(error.message),
-            {enableHighAccuracy:true, timeout: 20000, maximumAge: 1000}
-        )
-    }
-
-    componentDidUpdate(prevState){
-        if(prevState.location !== this.state.location){
-            // console.log(this.state.location.coords.latitude, this.state.location.coords.longitude)
-        }
+        console.log(this.props)
     }
 
     rounded =() => {
@@ -50,8 +39,8 @@ class Map extends React.Component {
                     initialRegion = {{
                         latitude : this.props.coords.lat,
                         longitude : this.props.coords.lng,
-                        latitudeDelta: 0.0922,
-                        longitudeDelta: 0.0421,
+                        latitudeDelta: 0.0222,
+                        longitudeDelta: 0.0221,
                     }}
                     showsUserLocation = {true}
                     followsUserLocation = {true}
@@ -63,7 +52,6 @@ class Map extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-    console.log(state)
     return {
         coords: state.stores.store_location
     }
