@@ -75,7 +75,8 @@ class ItemScanScreen extends React.Component {
                     <View style = {styles.bottomView}>
                         <View style = {styles.bottomItemInfo}>
                             <TouchableOpacity onPress = {() => this.props.navigation.push("CantFind", {
-                                item: params.item
+                                item: this.props.route.params.item,
+                                item_count: this.props.route.params.count
                             })} >
                                 <Text style = {{color: 'green', fontWeight: 'bold', fontSize: 20}}>
                                     Can't Find Item

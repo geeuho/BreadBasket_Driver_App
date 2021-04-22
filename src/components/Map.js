@@ -48,7 +48,7 @@ class Map extends React.Component {
                         // image = {require("../images/Home_earnings.png")}
                         coordinate = {{latitude: this.props.coords.lat, longitude: this.props.coords.lng}}
                         title = {this.props.store_name}
-                        description = "Store Location"
+                        description = "Store"
                     />
                 </MapView>
 

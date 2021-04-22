@@ -6,6 +6,7 @@ import Header from '../header/Header'
 import NavInfoSection from '../components/NavInfoSection'
 import BigButton from '../components/BigButton'
 import Map from '../components/Map'
+import openMap from 'react-native-open-maps'
 
 import Geolocation from '@react-native-community/geolocation'
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
@@ -14,16 +15,23 @@ class OrderNavScreen extends React.Component {
     constructor(){
         super()
         this.state = {
-            location: null
+            current_location: null
         }
     }
-    componentDidUpdate(){
-        console.log(this.state.location)
+    componentDidMount(){
+        
     }
     
     startOrder = () =>{
         this.props.navigation.navigate("OrderShop")
         this.props.startOrder()
+    }
+
+    openMaps = () => {
+        let address = this.props.currentOrder.address
+        console.log(address.street + " " + address.city + ", " + address.state + " " + address.zip_code)
+        // `${address.street + " " + address.city + ", " + address.state}`?
+        openMap({start: "Current Location", end: `${address.street + " " + address.city + ", " + address.state}`})
     }
 
     getCurrentPosition = () => {
@@ -36,7 +44,7 @@ class OrderNavScreen extends React.Component {
             error => Alert.alert(error.message),
             {enableHighAccuracy:true, timeout:20000, maximumAge: 1000}
         )
-        console.log(this.state.location)
+        console.log(this.state.location, "LOCATION")
     }
     // Need to get order info to check address and order details
     // Need to get map and navigate button to get app to maps for navigation from current to location
@@ -63,7 +71,7 @@ class OrderNavScreen extends React.Component {
                         {`${current_order.address.street + ' ' + current_order.address.city + ', ' + current_order.address.state}`}
                     </Text>
                     <View style = {styles.button_section}>
-                        <BigButton color = "gray" text = "Navigate" onPressAction = {() => this.getCurrentPosition()}/> 
+                        <BigButton color = "gray" text = "Navigate" onPressAction = {() => this.openMaps()}/> 
                     </View>
                     <View style = {styles.border}></View>
                     <Text style = {styles.order_header}>Order</Text>
@@ -123,7 +131,8 @@ const styles = StyleSheet.create({
 
 let mapStateToProps = state => {
     return{
-        currentOrder: state.orders.current_order
+        currentOrder: state.orders.current_order,
+        store_location: state.stores.store_location
     }
 }
 
