@@ -9,7 +9,7 @@ import { ScrollView, StyleSheet, TouchableOpacity, View } from 'react-native'
 class OrdersScreen extends React.Component {
 
     componentDidMount(){
-        // this.props.getActiveOrders()
+        this.props.getActiveOrders()
     }
 
     renderOrderBoxes = () => {
@@ -57,6 +57,7 @@ class OrdersScreen extends React.Component {
     }
 
     render(){
+        console.log(this.props.activeOrders)
         return(
             <View style = {styles.screen}>
                 <Header icon = "chevron-left" navigation={this.props.navigation}  title = {"Active Orders"}/>
