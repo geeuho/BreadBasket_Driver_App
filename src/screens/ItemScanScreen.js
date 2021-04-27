@@ -5,8 +5,9 @@ import Header from '../header/Header'
 import BigButton from '../components/BigButton'
 
 class ItemScanScreen extends React.Component {
+    
     componentDidMount(){
-        console.log(this.props.route.params.item)
+        console.log(this.props.route.params, "PARAMS")
     }
 
     renderUnit = () => {

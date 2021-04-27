@@ -19,7 +19,7 @@ class OrderNavScreen extends React.Component {
         }
     }
     componentDidMount(){
-        
+        console.log(this.props.currentOrder)
     }
     
     startOrder = () =>{
@@ -62,7 +62,7 @@ class OrderNavScreen extends React.Component {
                         Head to Store
                     </Text>
 
-                    <Map containerStyles = {{width: '100%', height: 200}} store_name = {this.props.currentOrder.store_name} rounded = {true}/>
+                    <Map containerStyles = {{width: '100%', height: 200}} store_name = {current_order.store_name} rounded = {true}/>
 
                     <Text style = {styles.store_name}>
                         {current_order.attributes.store.name}

@@ -10,13 +10,17 @@ import Map from '../components/Map'
 const AcceptOrderScreen = ({route, navigation, getOrderItems, orderItems, acceptOrder}) => {
    
     useEffect(() => {
-
+        console.log(orderItems, "OOOOOORDER")
         getOrderItems(route.params.orderId)
     }, [])
 
+    let order_items = orderItems.map((item) => {
+        return item.attributes
+    })
+
     let acceptOrderAction = async() => {
         let params = route.params
-        acceptOrder(params.orderId, params.address, orderItems, params.orderCount, params.unitCount, params.store_name),
+        acceptOrder(params.orderId, params.address, order_items, params.orderCount, params.unitCount, params.store_name),
         navigation.push('OrderNav')
     }
 
@@ -52,7 +56,7 @@ const AcceptOrderScreen = ({route, navigation, getOrderItems, orderItems, accept
                 <View>
                     <FlatList 
                         style = {styles.itemList}
-                        data = {orderItems} 
+                        data = {order_items} 
                         horizontal = {true}
                         showsHorizontalScrollIndicator={false}
                         keyExtractor = {item => item.id}

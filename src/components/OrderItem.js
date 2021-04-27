@@ -24,8 +24,8 @@ const OrderItem = (props) => {
         <TouchableOpacity onPress = {() => props.navigation.push('ItemScan', {
             item: props.item,
             category: capitalize(props.item.category),
-            count: props.count
-
+            count: props.count,
+            order_item_id: props.item_id
         })}>
             <View style = {styles.section}>
                 <Image style = {styles.image} source = {{uri: `${props.item.image}`}}></Image>

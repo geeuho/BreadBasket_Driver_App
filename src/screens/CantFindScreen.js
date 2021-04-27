@@ -7,7 +7,6 @@ import { connect } from 'react-redux'
 
 class CantFindScreen extends React.Component {
     componentDidMount(){
-        
         console.log(this.props.route.params.item)
     }
 
@@ -25,7 +24,7 @@ class CantFindScreen extends React.Component {
     
     render(){
         let item = this.props.route.params.item
-        console.log(item, "ITEM")
+        console.log(item, this.props.route.params, "ITEM")
         return(
             <View>
                 <Header navigation = {this.props.navigation}styles = {{'backgroundColor': '#98fb98'}} icon = "chevron-left" message = {true}/>

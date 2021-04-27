@@ -87,14 +87,14 @@ export const getOrderItems = (order_id) => async dispatch => {
     const response = await rails.get(`order_items?order_id=${order_id}`)
     let data = response.data.data
     let order_items = data.map((item) => {
-        return item.attributes
+        return item
     })
     dispatch({ type: "GET_ORDER_ITEMS", payload: order_items})
 }
 
 export const changeOrderItemStatus = (id) => async dispatch =>  {
     const response = await rails.patch(`order_items/${id}`, {
-        
+
     })
 }
 //LOCATION
