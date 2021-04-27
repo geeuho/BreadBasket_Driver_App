@@ -10,7 +10,6 @@ import Map from '../components/Map'
 const AcceptOrderScreen = ({route, navigation, getOrderItems, orderItems, acceptOrder}) => {
    
     useEffect(() => {
-        console.log(orderItems, "OOOOOORDER")
         getOrderItems(route.params.orderId)
     }, [])
 

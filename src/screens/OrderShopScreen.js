@@ -8,7 +8,7 @@ import OrderItem from '../components/OrderItem'
 class OrderShopScreen extends React.Component {
 
     componentDidMount(){
-        console.log(this.props.todoItems[0].status)
+        console.log(this.props.todoItems, "TODO")
     }
 
     constructor(props){
@@ -55,9 +55,10 @@ class OrderShopScreen extends React.Component {
                     horizontal = {false}
                     showsVerticalScrollIndicator={false}
                     keyExtractor = {item => item.id}
-                    renderItem = {({item, id}) => {    
+                    renderItem = {(item) => {    
+                        console.log(item)
                         return (
-                            <OrderItem key = {id} item = {item.item} item_id = {item} navigation = {this.props.navigation} count = {item.quantity_num}/>
+                            <OrderItem key = {item.index} item = {item.item.item} order_item_id = {item.index} navigation = {this.props.navigation} count = {item.item.quantity_num}/>
                         )    
                     }}
                 />

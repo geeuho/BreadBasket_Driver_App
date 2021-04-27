@@ -25,7 +25,7 @@ const OrderItem = (props) => {
             item: props.item,
             category: capitalize(props.item.category),
             count: props.count,
-            order_item_id: props.item_id
+            order_item_id: props.order_item_id
         })}>
             <View style = {styles.section}>
                 <Image style = {styles.image} source = {{uri: `${props.item.image}`}}></Image>
