@@ -22,9 +22,17 @@ class ItemScanScreen extends React.Component {
         }
     }
 
-    gotoScan = () => {
-        
-    }
+    gotoScan = () => {this.props.navigation.push("FoundItem", {
+        item: this.props.route.params.item,
+        item_count: this.props.route.params.count,
+        order_item_id: this.props.route.params.order_item_id
+    })}
+
+    gotoCantFind = () => {this.props.navigation.push("CantFind", {
+        item: this.props.route.params.item,
+        item_count: this.props.route.params.count,
+        order_item_id: this.props.route.params.order_item_id
+    })}
 
     render(){
         let params = this.props.route.params
@@ -75,10 +83,7 @@ class ItemScanScreen extends React.Component {
                     </View>
                     <View style = {styles.bottomView}>
                         <View style = {styles.bottomItemInfo}>
-                            <TouchableOpacity onPress = {() => this.props.navigation.push("CantFind", {
-                                item: this.props.route.params.item,
-                                item_count: this.props.route.params.count
-                            })} >
+                            <TouchableOpacity onPress = {() => this.gotoCantFind()} >
                                 <Text style = {{color: 'green', fontWeight: 'bold', fontSize: 20}}>
                                     Can't Find Item
                                 </Text>

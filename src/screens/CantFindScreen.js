@@ -7,7 +7,7 @@ import { connect } from 'react-redux'
 
 class CantFindScreen extends React.Component {
     componentDidMount(){
-        console.log(this.props.route.params.item)
+        console.log(this.props.route.params)
     }
 
     renderUnit = () => {
