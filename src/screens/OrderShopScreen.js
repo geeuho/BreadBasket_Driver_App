@@ -59,7 +59,7 @@ class OrderShopScreen extends React.Component {
                         let current_item = current.item.attributes.item
                         console.log(current)
                         return (
-                            <OrderItem key = {current.index} item = {current_item} order_item_id = {current.id} navigation = {this.props.navigation} count = {current.item.attributes.quantity_num}/>
+                            <OrderItem key = {current.index} item = {current_item} order_item_id = {current.item.id} navigation = {this.props.navigation} count = {current.item.attributes.quantity_num}/>
                         )    
                     }}
                 />
