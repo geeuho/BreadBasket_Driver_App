@@ -21,6 +21,7 @@ class HomeScreen extends React.Component {
     componentDidMount(){
         this.props.getStores()
         this.props.getActiveOrders()
+        console.log('hello')
     } 
 
     componentDidUpdate(prevState){
@@ -33,7 +34,7 @@ class HomeScreen extends React.Component {
     
 
     render(){
-        let hello
+
         return (
             
             <View style = {styles.screen}>
