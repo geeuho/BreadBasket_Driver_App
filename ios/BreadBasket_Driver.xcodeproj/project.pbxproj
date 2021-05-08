@@ -18,6 +18,7 @@
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2DCD954D1E0B4F2C00145EB5 /* BreadBasket_DriverTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* BreadBasket_DriverTests.m */; };
+		37B9DF5C2645FF8100E1644D /* libYogaKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 37B9DF5B2645FF8100E1644D /* libYogaKit.a */; };
 		43DD19C6DE5443E8BDBE8753 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3F90109D451241BB81B2F58C /* FontAwesome.ttf */; };
 		5425F48FE0BE41B782E77506 /* FontAwesome5_Brands.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D12C58379D274A1F98C203A9 /* FontAwesome5_Brands.ttf */; };
 		569AB87B9FAA44829509F52E /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1AE01AD9D0724C10ABA469DB /* EvilIcons.ttf */; };
@@ -28,8 +29,8 @@
 		867746DBF5C5C249262A2C51 /* libPods-BreadBasket_Driver-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F503E13293CE73B0CCD3658 /* libPods-BreadBasket_Driver-tvOSTests.a */; };
 		891981E654D340C391DBD677 /* MaterialCommunityIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 488B613D1EE24A5482F2F5CF /* MaterialCommunityIcons.ttf */; };
 		899F6A7EC2B2C9749E7E25B5 /* libPods-BreadBasket_Driver-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1751F2B13529BADC60896F6B /* libPods-BreadBasket_Driver-tvOS.a */; };
-		990E00C83B3F3FCDC421DB37 /* libPods-BreadBasket_Driver.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DF3D0ECCE9DC4D76D7D64558 /* libPods-BreadBasket_Driver.a */; };
 		BCE1CBAA75834BC690350F5B /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BB9A81F6D91944B58E1550BF /* Octicons.ttf */; };
+		C1CEB38383F1C7E9AD2DF0AD /* libPods-BreadBasket_Driver.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DF3D0ECCE9DC4D76D7D64558 /* libPods-BreadBasket_Driver.a */; };
 		C6B97EB18C3544F7A6078C62 /* Fontisto.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8BBFFBB9C34542BAA4E52B87 /* Fontisto.ttf */; };
 		CE501325C80C453EA7944015 /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2FD9FB5FB43F410592EA89F2 /* Zocial.ttf */; };
 		DCA7298991AA4C0F9CA64056 /* AntDesign.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B13B0F9CDB9E42FAB41D532C /* AntDesign.ttf */; };
@@ -106,6 +107,7 @@
 		3741F55025E736F4007FC232 /* FontAwesome.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FontAwesome.ttf; path = ../../../../../Fonts/FontAwesome.ttf; sourceTree = "<group>"; };
 		3741F55125E736F4007FC232 /* Feather.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Feather.ttf; path = ../../../../../Fonts/Feather.ttf; sourceTree = "<group>"; };
 		3741F55225E736F4007FC232 /* Entypo.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Entypo.ttf; path = ../../../../../Fonts/Entypo.ttf; sourceTree = "<group>"; };
+		37B9DF5B2645FF8100E1644D /* libYogaKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libYogaKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		38B230ED4C734C6F91AE9211 /* Ionicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Ionicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
 		3F90109D451241BB81B2F58C /* FontAwesome.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
 		488B613D1EE24A5482F2F5CF /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialCommunityIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; };
@@ -146,7 +148,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				990E00C83B3F3FCDC421DB37 /* libPods-BreadBasket_Driver.a in Frameworks */,
+				37B9DF5C2645FF8100E1644D /* libYogaKit.a in Frameworks */,
+				C1CEB38383F1C7E9AD2DF0AD /* libPods-BreadBasket_Driver.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -204,6 +207,7 @@
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				37B9DF5B2645FF8100E1644D /* libYogaKit.a */,
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				ED2971642150620600B7C4FE /* JavaScriptCore.framework */,
 				DF3D0ECCE9DC4D76D7D64558 /* libPods-BreadBasket_Driver.a */,
@@ -337,6 +341,7 @@
 				00E356EB1AD99517003FC87E /* Frameworks */,
 				00E356EC1AD99517003FC87E /* Resources */,
 				23C638131DA0FF7C38BCDA6C /* [CP] Copy Pods Resources */,
+				A670DD3FC1E19C48ECACA8A2 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -359,6 +364,7 @@
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
 				D6EF1DA32311DA78A26B8F32 /* [CP] Copy Pods Resources */,
+				FBF67A9E4C4B979CD6697D6A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -650,6 +656,24 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		A670DD3FC1E19C48ECACA8A2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BreadBasket_Driver-BreadBasket_DriverTests/Pods-BreadBasket_Driver-BreadBasket_DriverTests-frameworks.sh",
+				"${PODS_XCFRAMEWORKS_BUILD_DIR}/OpenSSL/OpenSSL.framework/OpenSSL",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OpenSSL.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BreadBasket_Driver-BreadBasket_DriverTests/Pods-BreadBasket_Driver-BreadBasket_DriverTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		C65CDF6F72CAF40221A79A2D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -721,6 +745,24 @@
 			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BreadBasket_Driver/Pods-BreadBasket_Driver-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FBF67A9E4C4B979CD6697D6A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BreadBasket_Driver/Pods-BreadBasket_Driver-frameworks.sh",
+				"${PODS_XCFRAMEWORKS_BUILD_DIR}/OpenSSL/OpenSSL.framework/OpenSSL",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OpenSSL.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BreadBasket_Driver/Pods-BreadBasket_Driver-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FD10A7F022414F080027D42C /* Start Packager */ = {
@@ -874,6 +916,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = BreadBasket_Driver/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -899,6 +942,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				INFOPLIST_FILE = BreadBasket_Driver/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1087,7 +1131,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					/usr/lib/swift,
 					"$(inherited)",
@@ -1144,7 +1188,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					/usr/lib/swift,
 					"$(inherited)",
