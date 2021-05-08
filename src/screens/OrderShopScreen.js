@@ -55,10 +55,11 @@ class OrderShopScreen extends React.Component {
                     horizontal = {false}
                     showsVerticalScrollIndicator={false}
                     keyExtractor = {item => item.id}
-                    renderItem = {(item) => {    
-                        console.log(item)
+                    renderItem = {(current) => {    
+                        let current_item = current.item.attributes.item
+                        console.log(current)
                         return (
-                            <OrderItem key = {item.index} item = {item.item.item} order_item_id = {item.index} navigation = {this.props.navigation} count = {item.item.quantity_num}/>
+                            <OrderItem key = {current.index} item = {current_item} order_item_id = {current.id} navigation = {this.props.navigation} count = {current.item.attributes.quantity_num}/>
                         )    
                     }}
                 />

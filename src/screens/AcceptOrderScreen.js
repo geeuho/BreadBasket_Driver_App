@@ -14,7 +14,8 @@ const AcceptOrderScreen = ({route, navigation, getOrderItems, orderItems, accept
     }, [])
 
     let order_items = orderItems.map((item) => {
-        return item.attributes
+        console.log(item.id)
+        return item
     })
 
     let acceptOrderAction = async() => {
@@ -59,9 +60,11 @@ const AcceptOrderScreen = ({route, navigation, getOrderItems, orderItems, accept
                         horizontal = {true}
                         showsHorizontalScrollIndicator={false}
                         keyExtractor = {item => item.id}
-                        renderItem = {({item, id}) => {    
+                        renderItem = {(current) => {    
+                            let current_item = current.item.attributes
+                            console.log(current_item)
                             return (
-                                <OrderItemImage key = {id} image = {item.item.image} count = {item.quantity_num}/>
+                                <OrderItemImage key = {current.id} image = {current_item.item.image} count = {current_item.quantity_num}/>
                             )    
                         }}
                     />
