@@ -1,5 +1,6 @@
 let INITIAL_STATE = {
     current_order: {
+        orderId: null,
         screen: null,
         address: null,
         order_count: null,
@@ -64,6 +65,7 @@ export default (state = INITIAL_STATE, action) => {
         return{...state, 
             current_order: {
                 ...foundOrder,
+                orderId: action.payload.orderId,
                 screen: 'nav',
                 address: action.payload.address,
                 items: action.payload.orderItems,

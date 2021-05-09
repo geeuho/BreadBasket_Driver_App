@@ -4,11 +4,13 @@ import {connect} from 'react-redux'
 import Header from '../header/Header'
 import ShopBar from '../components/ShopBar'
 import OrderItem from '../components/OrderItem'
+import { updateOrderItems } from '../actions'
 
 class OrderShopScreen extends React.Component {
 
     componentDidMount(){
-        console.log(this.props.todoItems, "TODO")
+        console.log(this.props.orderId, "ORDER_IDDDD")
+        // this.props.updateOrderItems()
     }
 
     constructor(props){
@@ -57,7 +59,6 @@ class OrderShopScreen extends React.Component {
                     keyExtractor = {item => item.id}
                     renderItem = {(current) => {    
                         let current_item = current.item.attributes.item
-                        console.log(current)
                         return (
                             <OrderItem key = {current.index} item = {current_item} order_item_id = {current.item.id} navigation = {this.props.navigation} count = {current.item.attributes.quantity_num}/>
                         )    
@@ -97,6 +98,7 @@ const styles = StyleSheet.create({
 
 let mapStateToProps = state => {
     return{
+        orderId: state.orders.current_order.orderId,
         orderCount: state.orders.current_order.order_count,
         todoItems: state.orders.current_order.items,
         reviewItems: state.orders.current_order.review_items,
@@ -104,4 +106,4 @@ let mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps)(OrderShopScreen)
+export default connect(mapStateToProps, {updateOrderItems})(OrderShopScreen)
