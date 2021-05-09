@@ -3,6 +3,7 @@ import {View, Text, Image, StyleSheet, TouchableOpacity} from 'react-native'
 import { connect } from 'react-redux'
 import Header from '../header/Header'
 import BigButton from '../components/BigButton'
+import { changeOrderItemStatus } from '../actions'
 
 class ItemScanScreen extends React.Component {
     
@@ -22,11 +23,15 @@ class ItemScanScreen extends React.Component {
         }
     }
 
-    gotoScan = () => {this.props.navigation.push("FoundItem", {
-        item: this.props.route.params.item,
-        item_count: this.props.route.params.count,
-        order_item_id: this.props.route.params.order_item_id
-    })}
+    gotoScan = () => {
+        let order_item_id = this.props.route.params.order_item_id
+        this.props.changeOrderItemStatus(order_item_id, 'found')
+        // this.props.navigation.push("FoundItem", {
+        //     item: this.props.route.params.item,
+        //     item_count: this.props.route.params.count,
+        //     order_item_id: this.props.route.params.order_item_id
+        // })
+    }
 
     gotoCantFind = () => {this.props.navigation.push("CantFind", {
         item: this.props.route.params.item,
@@ -146,4 +151,4 @@ const styles = StyleSheet.create({
     }
 })
 
-export default connect(null, {})(ItemScanScreen)
+export default connect(null, { changeOrderItemStatus })(ItemScanScreen)

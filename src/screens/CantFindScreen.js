@@ -25,7 +25,7 @@ class CantFindScreen extends React.Component {
     }
 
     replaceItem = () => {
-        
+
     }
 
     refundItem = () => {
@@ -34,7 +34,6 @@ class CantFindScreen extends React.Component {
     
     render(){
         let item = this.props.route.params.item
-        console.log(item, this.props.route.params, "ITEM")
         return(
             <View>
                 <Header navigation = {this.props.navigation}styles = {{'backgroundColor': '#98fb98'}} icon = "chevron-left" message = {true}/>

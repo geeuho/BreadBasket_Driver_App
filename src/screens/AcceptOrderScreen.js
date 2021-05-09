@@ -14,7 +14,6 @@ const AcceptOrderScreen = ({route, navigation, getOrderItems, orderItems, accept
     }, [])
 
     let order_items = orderItems.map((item) => {
-        console.log(item.id)
         return item
     })
 
@@ -62,7 +61,7 @@ const AcceptOrderScreen = ({route, navigation, getOrderItems, orderItems, accept
                         keyExtractor = {item => item.id}
                         renderItem = {(current) => {    
                             let current_item = current.item.attributes
-                            console.log(current_item)
+                    
                             return (
                                 <OrderItemImage key = {current.id} image = {current_item.item.image} count = {current_item.quantity_num}/>
                             )    
