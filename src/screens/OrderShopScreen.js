@@ -25,7 +25,7 @@ class OrderShopScreen extends React.Component {
             })
         } else if (value === "pending"){
             this.setState({
-                renderedItems: this.props.pendingItems
+                renderedItems: this.props.reviewItems
             })
         } else if(value === "completed"){
             this.setState({
@@ -99,7 +99,7 @@ let mapStateToProps = state => {
     return{
         orderCount: state.orders.current_order.order_count,
         todoItems: state.orders.current_order.items,
-        pendingItems: state.orders.current_order.pending_items,
+        reviewItems: state.orders.current_order.review_items,
         completedItems: state.orders.current_order.completed_items
     }
 }

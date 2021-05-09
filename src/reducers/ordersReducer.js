@@ -5,7 +5,7 @@ let INITIAL_STATE = {
         order_count: null,
         unit_count: null,
         items: [],
-        pending_items: [],
+        review_items: [],
         completed_items: [],
         coords: {}
     },
@@ -53,17 +53,14 @@ export default (state = INITIAL_STATE, action) => {
         return { ...state, order_items: [] }
     }
 
-    if(action.type === "FOUND_ITEM"){
-        return {...state, }
-    }
+    if(action.type === "CHANGE_ORDER_ITEM_STATUS"){
+        return {...state, current_order: {
 
-    if(action.type === "REPLACED_ITEM"){
-        
+        }}
     }
 
     if(action.type === "ACCEPT_ORDER"){
         let foundOrder = state.active_orders.find(order => order.id === action.payload.orderId)
-
         return{...state, 
             current_order: {
                 ...foundOrder,
@@ -73,6 +70,17 @@ export default (state = INITIAL_STATE, action) => {
                 order_count: action.payload.order_count,
                 unit_count: action.payload.unit_count,
                 store_name: action.payload.store_name
+            }
+        }
+    }
+
+    if(action.type === "UPDATE_ORDER_ITEMS"){
+        return {...state,
+            current_order: {
+                ...state.current_order, 
+                todo_items: action.payload.todo_items, 
+                review_items: action.payload.review_items,
+                completed_items: action.payload.completed_items
             }
         }
     }

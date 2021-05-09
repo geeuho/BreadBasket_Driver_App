@@ -4,6 +4,8 @@ import Header from '../header/Header'
 import BigButton from '../components/BigButton'
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 import { connect } from 'react-redux'
+import {changeOrderItemStatus} from '../actions'
+
 
 class CantFindScreen extends React.Component {
     componentDidMount(){
@@ -20,6 +22,14 @@ class CantFindScreen extends React.Component {
         } else {
             return 'x'
         }
+    }
+
+    replaceItem = () => {
+        
+    }
+
+    refundItem = () => {
+
     }
     
     render(){
@@ -69,7 +79,7 @@ class CantFindScreen extends React.Component {
 
                     </View>
                     <View style = {{marginTop: 10, marginBottom: 10}}>
-                        <BigButton color = 'green' text = "Select a Replacement"/> 
+                        <BigButton color = 'green' text = "Select a Replacement" onPressAction = {() => this.replaceItem()}/> 
                     </View>
                     <TouchableOpacity>
                         <Text style = {{marginBottom: 10, color: 'green', fontSize: 15}}>
@@ -91,7 +101,7 @@ class CantFindScreen extends React.Component {
                                 <Text style = {styles.intro}>If you can't find a proper replacement: </Text>
                             </View>
                         </View>
-                        <BigButton color = 'green' text = "Refund Item"/>
+                        <BigButton color = 'green' text = "Refund Item" onPressAction = {() => this.refundItem()}/>
                     </View>
                 </ScrollView>
             </View>
@@ -147,4 +157,4 @@ const styles = StyleSheet.create({
     },
 })
 
-export default CantFindScreen
+export default connect(null, {changeOrderItemStatus})(CantFindScreen)

@@ -86,10 +86,32 @@ export const getOrderItems = (order_id) => async dispatch => {
     dispatch({ type: "GET_ORDER_ITEMS", payload: order_items})
 }
 
+export const updateOrderItems = (order_id) => {
+    let response = await rails.get(`order_items?order_id=${order_id}`)
+    let data = response.data.data
+    //todo_items have status of pending, refund_request, replacement_request
+    let todo_items = data.filter(item => item.status === 'pending')
+    //review_items have status of refund_pending, replaced_pending
+    let review_items = data.filter(item => item.status === "refund_pending")
+    //completed_items have status of found, replaced, refunded
+    let completed_items = data.filter(item => item.status === 'refunded')
+    return {
+        type: "UPDATE_ORDER_ITEMS",
+        payload: {
+            orderId: orderId, 
+            todo_items: todo_items,
+            review_items: review_items,
+            completed_items: completed_items
+        }
+    }
+}
+
+
 export const changeOrderItemStatus = (id, status) => async dispatch =>  {
     const response = await rails.patch(`order_items/${id}`, {
         status: status
     })
+
 }
 //LOCATION
 
