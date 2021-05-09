@@ -10,7 +10,7 @@ class OrderShopScreen extends React.Component {
 
     componentDidMount(){
         console.log(this.props.orderId, "ORDER_IDDDD")
-        // this.props.updateOrderItems()
+        this.props.updateOrderItems(this.props.orderId)
     }
 
     constructor(props){
