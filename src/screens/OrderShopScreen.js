@@ -8,9 +8,16 @@ import { updateOrderItems } from '../actions'
 
 class OrderShopScreen extends React.Component {
 
-    componentDidMount(){
+    async componentDidMount(){
         console.log(this.props.orderId, "ORDER_IDDDD")
-        this.props.updateOrderItems(this.props.orderId)
+        await this.props.updateOrderItems(this.props.orderId)
+        this.changeItems('todo')
+    }
+
+    componentDidUpdate(prevState){
+        if(prevState.renderedItems !== this.state.renderedItems){
+            console.log(this.state.renderedItems)
+        }
     }
 
     constructor(props){
@@ -46,7 +53,7 @@ class OrderShopScreen extends React.Component {
         return(
         <View>
             <Header icon = "menu" styles = {{'backgroundColor': '#98fb98'}} navigation={this.props.navigation} message = {true}/>
-            <ShopBar changeItems = {this.changeItems} orderCount = {this.props.orderCount}/>
+            <ShopBar changeItems = {this.changeItems} todoCount = {this.props.todoItems? this.props.todoItems.length: 0} reviewCount = {this.props.reviewItems? this.props.reviewItems.length: 0} completeCount = {this.props.completedItems ? this.props.completedItems.length : 0}/>
             <View style = {styles.categorySection}>
                 <Text style = {styles.categoryText}> Section </Text>
             </View>
@@ -100,7 +107,7 @@ let mapStateToProps = state => {
     return{
         orderId: state.orders.current_order.orderId,
         orderCount: state.orders.current_order.order_count,
-        todoItems: state.orders.current_order.items,
+        todoItems: state.orders.current_order.todo_items,
         reviewItems: state.orders.current_order.review_items,
         completedItems: state.orders.current_order.completed_items
     }

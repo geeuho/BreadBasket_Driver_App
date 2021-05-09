@@ -16,6 +16,7 @@ class ShopBar extends React.Component {
         })
         this.props.changeItems(value)
     }
+
     renderTabText(value){
         if(value === this.state.selected){
             return {
@@ -42,7 +43,16 @@ class ShopBar extends React.Component {
                 alignItems: 'center',
                 paddingBottom: 12
             }
-        } 
+        } else {
+            return {
+                width: 139,
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                alignItems: 'center',
+                paddingBottom: 12
+            }
+        }
     }
 
     render(){
@@ -52,7 +62,7 @@ class ShopBar extends React.Component {
                         <View style = {styles.tab}>
                             <View style = {this.renderTabStyle('todo')}>
                                 <Text style = {this.renderTabText('todo')}>
-                                    {this.props.orderCount} To-do
+                                    {this.props.todoCount} To-do
                                 </Text>    
                             </View>
                         </View>
@@ -61,7 +71,7 @@ class ShopBar extends React.Component {
                         <View style = {styles.tab}> 
                             <View style = {this.renderTabStyle('pending')}>
                                 <Text style = {this.renderTabText('pending')}>
-                                    Pending
+                                    {this.props.reviewCount} Pending
                                 </Text>    
                             </View> 
                         </View>  
@@ -70,7 +80,7 @@ class ShopBar extends React.Component {
                         <View style = {styles.tab}>
                             <View style = {this.renderTabStyle('completed')}>
                                 <Text style = {this.renderTabText('completed')}>
-                                    Completed
+                                    {this.props.completeCount} Complete
                                 </Text>    
                             </View>   
                         </View>

@@ -77,6 +77,7 @@ export default (state = INITIAL_STATE, action) => {
     }
 
     if(action.type === "UPDATE_ORDER_ITEMS"){
+        console.log(action.payload)
         return {...state,
             current_order: {
                 ...state.current_order, 

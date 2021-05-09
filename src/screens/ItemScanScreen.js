@@ -33,11 +33,13 @@ class ItemScanScreen extends React.Component {
         // })
     }
 
-    gotoCantFind = () => {this.props.navigation.push("CantFind", {
-        item: this.props.route.params.item,
-        item_count: this.props.route.params.count,
-        order_item_id: this.props.route.params.order_item_id
-    })}
+    gotoCantFind = () => {
+        this.props.navigation.push("CantFind", {
+            item: this.props.route.params.item,
+            item_count: this.props.route.params.count,
+            order_item_id: this.props.route.params.order_item_id
+        })
+    }
 
     render(){
         let params = this.props.route.params

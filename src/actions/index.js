@@ -102,19 +102,14 @@ export const updateOrderItems = (order_id) => async dispatch => {
         item.attributes.status === 'found' || item.attributes.status === 'refunded' || item.attributes.status === 'replaced'
     )
 
-    console.log(data)
-    console.log(todo_items, "TODO")
-    console.log(completed_items, "COMPLETED")
-
-    return {
+    dispatch({
         type: "UPDATE_ORDER_ITEMS",
         payload: {
-            orderId: orderId, 
             todo_items: todo_items,
             review_items: review_items,
             completed_items: completed_items
         }
-    }
+    }) 
 }
 
 
