@@ -23,14 +23,10 @@ class ItemScanScreen extends React.Component {
         }
     }
 
-    gotoScan = () => {
+    gotoScan = async() => {
         let order_item_id = this.props.route.params.order_item_id
-        this.props.changeOrderItemStatus(order_item_id, 'found')
-        // this.props.navigation.push("FoundItem", {
-        //     item: this.props.route.params.item,
-        //     item_count: this.props.route.params.count,
-        //     order_item_id: this.props.route.params.order_item_id
-        // })
+        await this.props.changeOrderItemStatus(order_item_id, 'found')
+        this.props.navigation.push('OrderShop')
     }
 
     gotoCantFind = () => {
