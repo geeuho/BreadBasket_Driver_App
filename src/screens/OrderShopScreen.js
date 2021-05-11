@@ -16,7 +16,7 @@ class OrderShopScreen extends React.Component {
 
     componentDidUpdate(prevState){
         if(prevState.renderedItems !== this.state.renderedItems){
-            console.log(this.state.currentList)
+            // console.log(this.state.currentList)
         }
     }
 
@@ -88,7 +88,7 @@ class OrderShopScreen extends React.Component {
                         renderItem = {(current) => {    
                             let current_item = current.item.attributes.item
                             return (
-                                <OrderItem key = {current.index} item = {current_item} order_item_id = {current.item.id} navigation = {this.props.navigation} count = {current.item.attributes.quantity_num}/>
+                                <OrderItem key = {current.index} item = {current_item} order_item_id = {current.item.id} navigation = {this.props.navigation} count = {current.item.attributes.quantity_num} status = {current.item.attributes.status}/>
                             )    
                         }}
                     />
