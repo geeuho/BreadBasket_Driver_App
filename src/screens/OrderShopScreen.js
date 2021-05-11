@@ -16,31 +16,47 @@ class OrderShopScreen extends React.Component {
 
     componentDidUpdate(prevState){
         if(prevState.renderedItems !== this.state.renderedItems){
-            console.log(this.state.renderedItems)
+            console.log(this.state.currentList)
         }
     }
 
     constructor(props){
         super()
         this.state = {
-            renderedItems: props.todoItems
+            renderedItems: props.todoItems,
+            currentList: null
         }
     }
 
     changeItems = (value) => {
         if(value === "todo") {
             this.setState({
-                renderedItems: this.props.todoItems
+                renderedItems: this.props.todoItems,
+                currentList: 'todo'
             })
         } else if (value === "pending"){
             this.setState({
-                renderedItems: this.props.reviewItems
+                renderedItems: this.props.reviewItems,
+                currentList: 'pending'
             })
         } else if(value === "completed"){
             this.setState({
-                renderedItems: this.props.completedItems
+                renderedItems: this.props.completedItems,
+                currentList: 'completed'
             })
         }
+    }
+
+    renderEmptyList = () => {
+        let text
+        if(this.state.currentList === 'todo'){
+            text = "Order Complete"
+        } else if(this.state.currentList === 'pending'){
+            text = "No Pending Items"
+        } else if(this.state.currentList === 'completed'){
+            text = "No Completed Items"
+        }
+        return <Text style = {styles.emptyText}>{text}</Text>
     }
 
 
@@ -58,19 +74,26 @@ class OrderShopScreen extends React.Component {
                 <Text style = {styles.categoryText}> Section </Text>
             </View>
             <View style = {styles.screen}>
-                <FlatList 
-                    style = {styles.itemList}
-                    data = {this.state.renderedItems} 
-                    horizontal = {false}
-                    showsVerticalScrollIndicator={false}
-                    keyExtractor = {item => item.id}
-                    renderItem = {(current) => {    
-                        let current_item = current.item.attributes.item
-                        return (
-                            <OrderItem key = {current.index} item = {current_item} order_item_id = {current.item.id} navigation = {this.props.navigation} count = {current.item.attributes.quantity_num}/>
-                        )    
-                    }}
-                />
+                {this.state.renderedItems.length > 0 ? 
+                    <FlatList 
+                        style = {styles.itemList}
+                        data = {this.state.renderedItems} 
+                        horizontal = {false}
+                        showsVerticalScrollIndicator={false}
+                        keyExtractor = {item => item.id}
+                        renderItem = {(current) => {    
+                            let current_item = current.item.attributes.item
+                            return (
+                                <OrderItem key = {current.index} item = {current_item} order_item_id = {current.item.id} navigation = {this.props.navigation} count = {current.item.attributes.quantity_num}/>
+                            )    
+                        }}
+                    />
+                    :
+                    <View style = {styles.emptyListText}>
+                        {this.renderEmptyList()}
+                    </View>
+                
+                }
             </View>
         </View>
         )
@@ -87,6 +110,11 @@ const styles = StyleSheet.create({
         fontSize: 20,
         marginLeft: 10
     },
+    emptyText: {
+        fontWeight: 'bold',
+        color: 'gray',
+        fontSize: 25
+    },
     categorySection: {
         marginTop: -10,
         marginBottom: 10,
@@ -100,6 +128,12 @@ const styles = StyleSheet.create({
     },
     itemList: {
         marginTop: -10
+    },
+    emptyListText: {
+        marginTop: 30,
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center'
     }
 })
 

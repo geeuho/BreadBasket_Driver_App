@@ -24,14 +24,14 @@ class CantFindScreen extends React.Component {
         }
     }
 
-    replaceItem = () => {
-        this.props.changeOrderItemStatus(order_item_id, 'replacement_pending')
-
+    replaceItem = async() => {
+        await this.props.changeOrderItemStatus(this.props.route.params.order_item_id, 'replacement_pending')
+        this.props.navigation.push('OrderShop')
     }
 
-    refundItem = () => {
-        this.props.changeOrderItemStatus(order_item_id, 'refund_pending')
-
+    refundItem = async() => {
+        await this.props.changeOrderItemStatus(this.props.route.params.order_item_id, 'refund_pending')
+        this.props.navigation.push('OrderShop')
     }
     
     render(){
