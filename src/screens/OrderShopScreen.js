@@ -23,7 +23,8 @@ class OrderShopScreen extends React.Component {
     constructor(props){
         super()
         this.state = {
-            renderedItems: props.todoItems,
+            todoItems: [],
+            renderedItems: [],
             currentList: null
         }
     }
@@ -45,6 +46,9 @@ class OrderShopScreen extends React.Component {
                 currentList: 'completed'
             })
         }
+        this.setState({
+            todoItems: this.props.todoItems
+        })
     }
 
     renderEmptyList = () => {
@@ -89,10 +93,16 @@ class OrderShopScreen extends React.Component {
                         }}
                     />
                     :
-                    <View style = {styles.emptyListText}>
+                    <View style = {styles.emptyList}>
                         {this.renderEmptyList()}
                     </View>
-                
+                }
+                {this.state.todoItems.length > 0 ? 
+                    null
+                    :
+                    <TouchableOpacity style = {styles.reviewButton}>
+                        <Text style = {styles.reviewText}>Review Order</Text>
+                    </TouchableOpacity>
                 }
             </View>
         </View>
@@ -115,6 +125,13 @@ const styles = StyleSheet.create({
         color: 'gray',
         fontSize: 25
     },
+    emptyList: {
+        marginTop: 30,
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        height: '83.2%'
+    },
     categorySection: {
         marginTop: -10,
         marginBottom: 10,
@@ -129,12 +146,20 @@ const styles = StyleSheet.create({
     itemList: {
         marginTop: -10
     },
-    emptyListText: {
-        marginTop: 30,
-        display: 'flex',
+    reviewButton: {
+        marginBottom: 15,
+        padding: 20,
+        display:'flex',
+        flexDirection: 'row',
+        alignItems: 'center',
         justifyContent: 'center',
-        alignItems: 'center'
-    }
+        backgroundColor: '#3cb371'
+    },
+    reviewText: {
+        color: 'white',
+        fontWeight: 'bold',
+        fontSize: 20
+    },
 })
 
 let mapStateToProps = state => {
